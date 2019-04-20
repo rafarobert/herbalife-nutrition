@@ -44,3 +44,16 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+node_modules/
+.idea/
+vendor/
+propel_log.txt
+orm/classes/
+orm/schema/
+
+composer.lock
+package-lock.json
+Gruntfile.js
+ngdefensor/src/
+
+dist-server
