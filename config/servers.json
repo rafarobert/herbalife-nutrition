@@ -1,0 +1,15 @@
+{
+  "ibolsast_crm": {
+    "1": {
+      "host": "local.ibolsast-crm.com.bo",
+      "hostname": "local.ibolsast-crm.com.bo",
+      "protocol": "http:",
+      "port": "80",
+      "origin": "http://local.ibolsast-crm.com.bo/",
+      "dest": "http://local.ibolsast-crm.com.bo/",
+      "root-path": "",
+      "type-url": "dns",
+      "type-env": "dev"
+    }
+  },
+}

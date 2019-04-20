@@ -1,0 +1,33 @@
+propel:
+  database:
+      connections:
+          ibolsast_crm_prod:
+              adapter: mysql
+              classname: Propel\Runtime\Connection\ConnectionWrapper
+              dsn: mysql:host=127.0.0.1;dbname=ibolsast_crm_prod
+              user: root
+              password: 095065
+              attributes:
+          ibolsast_crm_dev:
+              adapter: mysql
+              classname: Propel\Runtime\Connection\DebugPDO
+              dsn: mysql:host=127.0.0.1;dbname=ibolsast_crm_dev
+              user: root
+              password: 
+              attributes:
+                
+  runtime:
+      log:
+          defaultLogger:
+              type: stream
+              path: ./propel_log.txt
+              level: 100
+      defaultConnection: ibolsast_crm_prod
+      connections:
+          - ibolsast_crm_prod
+          - ibolsast_crm_dev
+  generator:
+      defaultConnection: ibolsast_crm_prod
+      connections:
+          - ibolsast_crm_prod
+          - ibolsast_crm_dev

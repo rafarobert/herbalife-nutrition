@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="utf-8"?>
+<database name="estic_dev" defaultIdMethod="native" defaultPhpNamingMethod="underscore">
+  <table name="es_cities" idMethod="native" phpName="EsCities">
+    <column name="id_city" phpName="IdCity" type="INTEGER" size="10" sqlType="int(10) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="name" phpName="Name" type="VARCHAR" size="300"/>
+    <column name="description" phpName="Description" type="VARCHAR" size="500"/>
+    <column name="abbreviation" phpName="Abbreviation" type="VARCHAR" size="200"/>
+    <column name="id_capital" phpName="IdCapital" type="INTEGER" size="10" sqlType="int(10) unsigned"/>
+    <column name="id_region" phpName="IdRegion" type="INTEGER" size="10" sqlType="int(10) unsigned"/>
+    <column name="lat" phpName="Lat" type="DECIMAL" size="10" scale="6"/>
+    <column name="lng" phpName="Lng" type="DECIMAL" size="10" scale="6"/>
+    <column name="area" phpName="Area" type="INTEGER"/>
+    <column name="nro_municipios" phpName="NroMunicipios" type="INTEGER"/>
+    <column name="surface" phpName="Surface" type="DECIMAL" scale="0"/>
+    <column name="ids_files" phpName="IdsFiles" type="VARCHAR" size="490"/>
+    <column name="id_cover_picture" phpName="IdCoverPicture" type="INTEGER" size="10" sqlType="int(10) unsigned"/>
+    <column name="height" phpName="Height" type="DECIMAL" scale="0"/>
+    <column name="tipo" phpName="Tipo" type="VARCHAR" size="490"/>
+    <column name="status" phpName="Status" type="VARCHAR" size="15" required="true" defaultValue="ENABLED"/>
+    <column name="change_count" phpName="ChangeCount" type="INTEGER" required="true" defaultValue="0"/>
+    <column name="id_user_modified" phpName="IdUserModified" type="INTEGER" sqlType="int(11) unsigned" required="true"/>
+    <column name="id_user_created" phpName="IdUserCreated" type="INTEGER" sqlType="int(11) unsigned" required="true"/>
+    <column name="date_modified" phpName="DateModified" type="TIMESTAMP" required="true"/>
+    <column name="date_created" phpName="DateCreated" type="TIMESTAMP" required="true"/>
+    <foreign-key foreignTable="es_users" name="es_cities_ibfk_1">
+      <reference local="id_user_created" foreign="id_user"/>
+    </foreign-key>
+    <foreign-key foreignTable="es_users" name="es_cities_ibfk_2">
+      <reference local="id_user_modified" foreign="id_user"/>
+    </foreign-key>
+    <foreign-key foreignTable="es_cities" name="es_cities_ibfk_3">
+      <reference local="id_capital" foreign="id_city"/>
+    </foreign-key>
+    <foreign-key foreignTable="es_cities" name="es_cities_ibfk_4">
+      <reference local="id_region" foreign="id_city"/>
+    </foreign-key>
+    <foreign-key foreignTable="es_files" name="es_cities_ibfk_5">
+      <reference local="id_cover_picture" foreign="id_file"/>
+    </foreign-key>
+    <index name="ci_cities_ibfk_1">
+      <index-column name="id_user_created"/>
+    </index>
+    <index name="ci_cities_ibfk_2">
+      <index-column name="id_user_modified"/>
+    </index>
+    <index name="ci_cities_ibfk_3">
+      <index-column name="id_capital"/>
+    </index>
+    <index name="ci_cities_ibfk_4">
+      <index-column name="id_region"/>
+    </index>
+    <index name="ci_cities_ibfk_5">
+      <index-column name="id_cover_picture"/>
+    </index>
+    <unique name="ci_cities_id_city_uindex">
+      <unique-column name="id_city"/>
+    </unique>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="es_domains" idMethod="native" phpName="EsDomains">
+    <column name="id_domain" phpName="IdDomain" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="host" phpName="Host" type="VARCHAR" size="450"/>
+    <column name="hostname" phpName="Hostname" type="VARCHAR" size="450"/>
+    <column name="protocol" phpName="Protocol" type="VARCHAR" size="10"/>
+    <column name="port" phpName="Port" type="INTEGER"/>
+    <column name="origin" phpName="Origin" type="VARCHAR" size="450"/>
+    <column name="estado" phpName="Estado" type="VARCHAR" size="15" required="true" defaultValue="ENABLED"/>
+    <column name="change_count" phpName="ChangeCount" type="INTEGER" required="true" defaultValue="0"/>
+    <column name="id_user_modified" phpName="IdUserModified" type="INTEGER" sqlType="int(11) unsigned" required="true"/>
+    <column name="id_user_created" phpName="IdUserCreated" type="INTEGER" sqlType="int(11) unsigned" required="true"/>
+    <column name="date_modified" phpName="DateModified" type="TIMESTAMP" required="true"/>
+    <column name="date_created" phpName="DateCreated" type="TIMESTAMP" required="true"/>
+    <foreign-key foreignTable="es_users" name="es_domains_ibfk_1">
+      <reference local="id_user_created" foreign="id_user"/>
+    </foreign-key>
+    <foreign-key foreignTable="es_users" name="es_domains_ibfk_2">
+      <reference local="id_user_modified" foreign="id_user"/>
+    </foreign-key>
+    <index name="ci_domains_ibfk_1">
+      <index-column name="id_user_created"/>
+    </index>
+    <index name="ci_domains_ibfk_2">
+      <index-column name="id_user_modified"/>
+    </index>
+    <unique name="ci_domains_id_domain_uindex">
+      <unique-column name="id_domain"/>
+    </unique>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="es_files" idMethod="native" phpName="EsFiles">
+    <column name="id_file" phpName="IdFile" type="INTEGER" size="10" sqlType="int(10) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="name" phpName="Name" type="VARCHAR" size="256"/>
+    <column name="url" phpName="Url" type="VARCHAR" size="450"/>
+    <column name="ext" phpName="Ext" type="VARCHAR" size="100"/>
+    <column name="raw_name" phpName="RawName" type="VARCHAR" size="400"/>
+    <column name="full_path" phpName="FullPath" type="VARCHAR" size="400"/>
+    <column name="path" phpName="Path" type="VARCHAR" size="400"/>
+    <column name="width" phpName="Width" type="INTEGER"/>
+    <column name="height" phpName="Height" type="INTEGER"/>
+    <column name="size" phpName="Size" type="DECIMAL" scale="0"/>
+    <column name="library" phpName="Library" type="VARCHAR" size="20"/>
+    <column name="nro_thumbs" phpName="NroThumbs" type="INTEGER"/>
+    <column name="id_parent" phpName="IdParent" type="INTEGER" size="10" sqlType="int(10) unsigned"/>
+    <column name="thumb_marker" phpName="ThumbMarker" type="VARCHAR" size="200"/>
+    <column name="type" phpName="Type" type="VARCHAR" size="100"/>
+    <column name="x" phpName="X" type="DECIMAL" size="20" scale="10"/>
+    <column name="y" phpName="Y" type="DECIMAL" size="20" scale="10"/>
+    <column name="fix_width" phpName="FixWidth" type="DECIMAL" size="20" scale="10"/>
+    <column name="fix_height" phpName="FixHeight" type="DECIMAL" size="20" scale="10"/>
+    <column name="status" phpName="Status" type="VARCHAR" size="15" defaultValue="ENABLED"/>
+    <column name="change_count" phpName="ChangeCount" type="INTEGER" required="true" defaultValue="0"/>
+    <column name="id_user_modified" phpName="IdUserModified" type="INTEGER" sqlType="int(11) unsigned" required="true"/>
+    <column name="id_user_created" phpName="IdUserCreated" type="INTEGER" sqlType="int(11) unsigned" required="true"/>
+    <column name="date_modified" phpName="DateModified" type="TIMESTAMP" required="true"/>
+    <column name="date_created" phpName="DateCreated" type="TIMESTAMP" required="true"/>
+    <foreign-key foreignTable="es_users" name="es_files_ibfk_1">
+      <reference local="id_user_created" foreign="id_user"/>
+    </foreign-key>
+    <foreign-key foreignTable="es_users" name="es_files_ibfk_2">
+      <reference local="id_user_modified" foreign="id_user"/>
+    </foreign-key>
+    <foreign-key foreignTable="es_files" name="es_files_ibfk_3">
+      <reference local="id_parent" foreign="id_file"/>
+    </foreign-key>
+    <index name="ci_files_ibfk_1">
+      <index-column name="id_user_created"/>
+    </index>
+    <index name="ci_files_ibfk_2">
+      <index-column name="id_user_modified"/>
+    </index>
+    <index name="ci_files_ibfk_3">
+      <index-column name="id_parent"/>
+    </index>
+    <unique name="ci_files_id_file_uindex">
+      <unique-column name="id_file"/>
+    </unique>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="es_logs" idMethod="native" phpName="EsLogs">
+    <column name="id_log" phpName="IdLog" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="heading" phpName="Heading" type="VARCHAR" size="499"/>
+    <column name="message" phpName="Message" type="LONGVARCHAR"/>
+    <column name="action" phpName="Action" type="VARCHAR" size="499"/>
+    <column name="code" phpName="Code" type="VARCHAR" size="200"/>
+    <column name="level" phpName="Level" type="INTEGER"/>
+    <column name="file" phpName="File" type="VARCHAR" size="1000"/>
+    <column name="line" phpName="Line" type="INTEGER"/>
+    <column name="trace" phpName="Trace" type="LONGVARCHAR"/>
+    <column name="previous" phpName="Previous" type="VARCHAR" size="499"/>
+    <column name="xdebug_message" phpName="XdebugMessage" type="LONGVARCHAR"/>
+    <column name="type" phpName="Type" type="INTEGER"/>
+    <column name="post" phpName="Post" type="VARCHAR" size="1000"/>
+    <column name="severity" phpName="Severity" type="VARCHAR" size="400"/>
+    <column name="status" phpName="Status" type="VARCHAR" size="15" required="true" defaultValue="ENABLED"/>
+    <column name="change_count" phpName="ChangeCount" type="INTEGER" required="true" defaultValue="0"/>
+    <column name="id_user_modified" phpName="IdUserModified" type="INTEGER" sqlType="int(11) unsigned" required="true"/>
+    <column name="id_user_created" phpName="IdUserCreated" type="INTEGER" sqlType="int(11) unsigned" required="true"/>
+    <column name="date_modified" phpName="DateModified" type="TIMESTAMP" required="true"/>
+    <column name="date_created" phpName="DateCreated" type="TIMESTAMP" required="true"/>
+    <unique name="ci_logs_id_log_uindex">
+      <unique-column name="id_log"/>
+    </unique>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="es_modules" idMethod="native" phpName="EsModules">
+    <column name="id_module" phpName="IdModule" type="INTEGER" size="10" sqlType="int(10) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="name" phpName="Name" type="VARCHAR" size="256"/>
+    <column name="description" phpName="Description" type="VARCHAR" size="500"/>
+    <column name="status" phpName="Status" type="VARCHAR" size="15" required="true" defaultValue="ENABLED"/>
+    <column name="change_count" phpName="ChangeCount" type="INTEGER" required="true" defaultValue="0"/>
+    <column name="id_user_modified" phpName="IdUserModified" type="INTEGER" sqlType="int(11) unsigned" required="true"/>
+    <column name="id_user_created" phpName="IdUserCreated" type="INTEGER" sqlType="int(11) unsigned" required="true"/>
+    <column name="date_modified" phpName="DateModified" type="TIMESTAMP" required="true"/>
+    <column name="date_created" phpName="DateCreated" type="TIMESTAMP" required="true"/>
+    <foreign-key foreignTable="es_users" name="es_modules_ibfk_1">
+      <reference local="id_user_modified" foreign="id_user"/>
+    </foreign-key>
+    <foreign-key foreignTable="es_users" name="es_modules_ibfk_2">
+      <reference local="id_user_created" foreign="id_user"/>
+    </foreign-key>
+    <index name="ci_modules_ibfk_1">
+      <index-column name="id_user_modified"/>
+    </index>
+    <index name="ci_modules_ibfk_2">
+      <index-column name="id_user_created"/>
+    </index>
+    <unique name="ci_modules_id_module_uindex">
+      <unique-column name="id_module"/>
+    </unique>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="es_provincias" idMethod="native" phpName="EsProvincias">
+    <column name="id_provincia" phpName="IdProvincia" type="INTEGER" size="10" sqlType="int(10) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="name" phpName="Name" type="VARCHAR" size="300"/>
+    <column name="area" phpName="Area" type="VARCHAR" size="900"/>
+    <column name="lat" phpName="Lat" type="INTEGER"/>
+    <column name="lng" phpName="Lng" type="INTEGER"/>
+    <column name="id_municipio" phpName="IdMunicipio" type="INTEGER" sqlType="int(11) unsigned"/>
+    <column name="id_ciudad" phpName="IdCiudad" type="INTEGER" size="10" sqlType="int(10) unsigned"/>
+    <column name="status" phpName="Status" type="VARCHAR" size="15" required="true" defaultValue="ENABLED"/>
+    <column name="change_count" phpName="ChangeCount" type="INTEGER" required="true" defaultValue="0"/>
+    <column name="id_user_modified" phpName="IdUserModified" type="INTEGER" sqlType="int(11) unsigned" required="true"/>
+    <column name="id_user_created" phpName="IdUserCreated" type="INTEGER" sqlType="int(11) unsigned" required="true"/>
+    <column name="date_modified" phpName="DateModified" type="TIMESTAMP" required="true"/>
+    <column name="date_created" phpName="DateCreated" type="TIMESTAMP" required="true"/>
+    <foreign-key foreignTable="es_users" name="es_provincias_ibfk_1">
+      <reference local="id_user_created" foreign="id_user"/>
+    </foreign-key>
+    <foreign-key foreignTable="es_users" name="es_provincias_ibfk_2">
+      <reference local="id_user_modified" foreign="id_user"/>
+    </foreign-key>
+    <foreign-key foreignTable="es_cities" name="es_provincias_ibfk_3">
+      <reference local="id_ciudad" foreign="id_city"/>
+    </foreign-key>
+    <foreign-key foreignTable="es_provincias" name="es_provincias_ibfk_4">
+      <reference local="id_municipio" foreign="id_provincia"/>
+    </foreign-key>
+    <index name="ci_provincias_ibfk_1">
+      <index-column name="id_user_created"/>
+    </index>
+    <index name="ci_provincias_ibfk_2">
+      <index-column name="id_user_modified"/>
+    </index>
+    <index name="ci_provincias_ibfk_3">
+      <index-column name="id_ciudad"/>
+    </index>
+    <index name="ci_provincias_ibfk_4">
+      <index-column name="id_municipio"/>
+    </index>
+    <unique name="ci_provincias_id_provincia_uindex">
+      <unique-column name="id_provincia"/>
+    </unique>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="es_roles" idMethod="native" phpName="EsRoles">
+    <column name="id_role" phpName="IdRole" type="INTEGER" sqlType="int(11) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="name" phpName="Name" type="VARCHAR" size="256"/>
+    <column name="description" phpName="Description" type="VARCHAR" size="500"/>
+    <column name="write" phpName="Write" type="VARCHAR" size="10"/>
+    <column name="read" phpName="Read" type="VARCHAR" size="10"/>
+    <column name="status" phpName="Status" type="VARCHAR" size="15" required="true" defaultValue="ENABLED"/>
+    <column name="change_count" phpName="ChangeCount" type="INTEGER" required="true" defaultValue="0"/>
+    <column name="id_user_modified" phpName="IdUserModified" type="INTEGER" sqlType="int(11) unsigned"/>
+    <column name="id_user_created" phpName="IdUserCreated" type="INTEGER" sqlType="int(11) unsigned"/>
+    <column name="date_modified" phpName="DateModified" type="TIMESTAMP" required="true"/>
+    <column name="date_created" phpName="DateCreated" type="TIMESTAMP" required="true"/>
+    <foreign-key foreignTable="es_users" name="es_roles_ibfk_1">
+      <reference local="id_user_created" foreign="id_user"/>
+    </foreign-key>
+    <foreign-key foreignTable="es_users" name="es_roles_ibfk_2">
+      <reference local="id_user_modified" foreign="id_user"/>
+    </foreign-key>
+    <index name="ci_roles_ibfk_1">
+      <index-column name="id_user_created"/>
+    </index>
+    <index name="ci_roles_ibfk_2">
+      <index-column name="id_user_modified"/>
+    </index>
+    <unique name="ci_roles_id_role_uindex">
+      <unique-column name="id_role"/>
+    </unique>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="es_sessions" idMethod="native" phpName="EsSessions">
+    <column name="id" phpName="Id" type="VARCHAR" size="128" primaryKey="true" required="true"/>
+    <column name="ip_address" phpName="IpAddress" type="VARCHAR" size="45" required="true"/>
+    <column name="timestamp" phpName="Timestamp" type="INTEGER" size="10" sqlType="int(10) unsigned" required="true" defaultValue="0"/>
+    <column name="data" phpName="Data" type="BLOB" required="true"/>
+    <column name="last_activity" phpName="LastActivity" type="TIMESTAMP" defaultValue="0000-00-00 00:00:00"/>
+    <column name="id_user" phpName="IdUser" type="INTEGER" sqlType="int(11) unsigned"/>
+    <column name="lng" phpName="Lng" type="INTEGER"/>
+    <column name="lat" phpName="Lat" type="INTEGER"/>
+    <foreign-key foreignTable="es_users" name="es_sessions_ibfk_1">
+      <reference local="id_user" foreign="id_user"/>
+    </foreign-key>
+    <index name="ci_sessions_ibfk_1">
+      <index-column name="id_user"/>
+    </index>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="es_tables" idMethod="native" phpName="EsTables">
+    <column name="id_table" phpName="IdTable" type="INTEGER" sqlType="int(11) unsigned" primaryKey="true" required="true"/>
+    <column name="id_module" phpName="IdModule" type="INTEGER" size="10" sqlType="int(10) unsigned"/>
+    <column name="id_role" phpName="IdRole" type="INTEGER" size="10" sqlType="int(10) unsigned"/>
+    <column name="title" phpName="Title" type="VARCHAR" size="100" required="true"/>
+    <column name="table_name" phpName="TableName" type="VARCHAR" size="255"/>
+    <column name="listed" phpName="Listed" type="VARCHAR" size="15" required="true" defaultValue="ENABLED"/>
+    <column name="description" phpName="Description" type="LONGVARCHAR"/>
+    <column name="icon" phpName="Icon" type="VARCHAR" size="200" required="true"/>
+    <column name="url" phpName="Url" type="VARCHAR" size="400" required="true"/>
+    <column name="url_edit" phpName="UrlEdit" type="VARCHAR" size="450"/>
+    <column name="url_index" phpName="UrlIndex" type="VARCHAR" size="450"/>
+    <column name="status" phpName="Status" type="VARCHAR" size="255" defaultValue="ENABLED"/>
+    <column name="change_count" phpName="ChangeCount" type="INTEGER" required="true" defaultValue="0"/>
+    <column name="id_user_modified" phpName="IdUserModified" type="INTEGER" sqlType="int(11) unsigned" required="true"/>
+    <column name="id_user_created" phpName="IdUserCreated" type="INTEGER" sqlType="int(11) unsigned" required="true"/>
+    <column name="date_modified" phpName="DateModified" type="TIMESTAMP" required="true"/>
+    <column name="date_created" phpName="DateCreated" type="TIMESTAMP" required="true"/>
+    <foreign-key foreignTable="es_users" name="es_tables_ibfk_1">
+      <reference local="id_user_created" foreign="id_user"/>
+    </foreign-key>
+    <foreign-key foreignTable="es_users" name="es_tables_ibfk_2">
+      <reference local="id_user_modified" foreign="id_user"/>
+    </foreign-key>
+    <foreign-key foreignTable="es_roles" name="es_tables_ibfk_3">
+      <reference local="id_role" foreign="id_role"/>
+    </foreign-key>
+    <foreign-key foreignTable="es_modules" name="es_tables_ibfk_4">
+      <reference local="id_module" foreign="id_module"/>
+    </foreign-key>
+    <index name="ci_tables_ibfk_4">
+      <index-column name="id_module"/>
+    </index>
+    <index name="id_user_created">
+      <index-column name="id_user_created"/>
+    </index>
+    <index name="id_user_modified">
+      <index-column name="id_user_modified"/>
+    </index>
+    <index name="ci_tables_ibfk_3">
+      <index-column name="id_role"/>
+    </index>
+    <unique name="ci_tables_id_table_uindex">
+      <unique-column name="id_table"/>
+    </unique>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="es_tables_roles" idMethod="native" phpName="EsTablesRoles">
+    <column name="id_table_role" phpName="IdTableRole" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="id_table" phpName="IdTable" type="INTEGER" size="10" sqlType="int(10) unsigned"/>
+    <column name="id_role" phpName="IdRole" type="INTEGER" size="10" sqlType="int(10) unsigned"/>
+    <column name="estado" phpName="Estado" type="VARCHAR" size="15" required="true" defaultValue="ENABLED"/>
+    <column name="change_count" phpName="ChangeCount" type="INTEGER" required="true" defaultValue="0"/>
+    <column name="id_user_modified" phpName="IdUserModified" type="INTEGER" sqlType="int(11) unsigned" required="true"/>
+    <column name="id_user_created" phpName="IdUserCreated" type="INTEGER" sqlType="int(11) unsigned" required="true"/>
+    <column name="date_modified" phpName="DateModified" type="TIMESTAMP" required="true"/>
+    <column name="date_created" phpName="DateCreated" type="TIMESTAMP" required="true"/>
+    <foreign-key foreignTable="es_users" name="es_tables_roles_ibfk_1">
+      <reference local="id_user_created" foreign="id_user"/>
+    </foreign-key>
+    <foreign-key foreignTable="es_users" name="es_tables_roles_ibfk_2">
+      <reference local="id_user_modified" foreign="id_user"/>
+    </foreign-key>
+    <foreign-key foreignTable="es_tables" name="es_tables_roles_ibfk_3">
+      <reference local="id_table" foreign="id_table"/>
+    </foreign-key>
+    <foreign-key foreignTable="es_roles" name="es_tables_roles_ibfk_4">
+      <reference local="id_role" foreign="id_role"/>
+    </foreign-key>
+    <index name="ci_tables_roles_ibfk_1">
+      <index-column name="id_user_created"/>
+    </index>
+    <index name="ci_tables_roles_ibfk_2">
+      <index-column name="id_user_modified"/>
+    </index>
+    <index name="ci_tables_roles_ibfk_3">
+      <index-column name="id_table"/>
+    </index>
+    <index name="ci_tables_roles_ibfk_4">
+      <index-column name="id_role"/>
+    </index>
+    <unique name="ci_tables_roles_id_table_role_uindex">
+      <unique-column name="id_table_role"/>
+    </unique>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="es_users" idMethod="native" phpName="EsUsers">
+    <column name="id_user" phpName="IdUser" type="INTEGER" sqlType="int(11) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="name" phpName="Name" type="VARCHAR" size="256"/>
+    <column name="lastname" phpName="Lastname" type="VARCHAR" size="256"/>
+    <column name="username" phpName="Username" type="VARCHAR" size="250"/>
+    <column name="email" phpName="Email" type="VARCHAR" size="100" required="true" defaultValue=""/>
+    <column name="address" phpName="Address" type="VARCHAR" size="500"/>
+    <column name="password" phpName="Password" type="VARCHAR" size="128" required="true" defaultValue=""/>
+    <column name="birthdate" phpName="Birthdate" type="DATE"/>
+    <column name="age" phpName="Age" type="INTEGER"/>
+    <column name="carnet" phpName="Carnet" type="VARCHAR" size="30"/>
+    <column name="sexo" phpName="Sexo" type="VARCHAR" size="15"/>
+    <column name="phone_1" phpName="Phone1" type="VARCHAR" size="20"/>
+    <column name="phone_2" phpName="Phone2" type="VARCHAR" size="20"/>
+    <column name="cellphone_1" phpName="Cellphone1" type="VARCHAR" size="20"/>
+    <column name="cellphone_2" phpName="Cellphone2" type="VARCHAR" size="20"/>
+    <column name="ids_files" phpName="IdsFiles" type="VARCHAR" size="450"/>
+    <column name="id_cover_picture" phpName="IdCoverPicture" type="INTEGER" size="10" sqlType="int(10) unsigned"/>
+    <column name="id_city" phpName="IdCity" type="INTEGER" size="10" sqlType="int(10) unsigned"/>
+    <column name="id_provincia" phpName="IdProvincia" type="INTEGER" size="10" sqlType="int(10) unsigned"/>
+    <column name="id_role" phpName="IdRole" type="INTEGER" size="10" sqlType="int(10) unsigned"/>
+    <column name="signin_method" phpName="SigninMethod" type="VARCHAR" size="100"/>
+    <column name="uid" phpName="Uid" type="VARCHAR" size="499"/>
+    <column name="change_count" phpName="ChangeCount" type="INTEGER" required="true" defaultValue="0"/>
+    <column name="status" phpName="Status" type="VARCHAR" size="15" required="true" defaultValue="ENABLED"/>
+    <column name="date_modified" phpName="DateModified" type="TIMESTAMP" required="true"/>
+    <column name="date_created" phpName="DateCreated" type="TIMESTAMP" required="true"/>
+    <foreign-key foreignTable="es_roles" name="es_users_ibfk_1">
+      <reference local="id_role" foreign="id_role"/>
+    </foreign-key>
+    <foreign-key foreignTable="es_provincias" name="es_users_ibfk_2">
+      <reference local="id_provincia" foreign="id_provincia"/>
+    </foreign-key>
+    <foreign-key foreignTable="es_files" name="es_users_ibfk_3">
+      <reference local="id_cover_picture" foreign="id_file"/>
+    </foreign-key>
+    <foreign-key foreignTable="es_cities" name="es_users_ibfk_4">
+      <reference local="id_city" foreign="id_city"/>
+    </foreign-key>
+    <index name="ci_users_ibfk_1">
+      <index-column name="id_role"/>
+    </index>
+    <index name="ci_users_ibfk_2">
+      <index-column name="id_provincia"/>
+    </index>
+    <index name="ci_users_ibfk_3">
+      <index-column name="id_cover_picture"/>
+    </index>
+    <index name="ci_users_ibfk_4">
+      <index-column name="id_city"/>
+    </index>
+    <unique name="ci_users_id_user_uindex">
+      <unique-column name="id_user"/>
+    </unique>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="es_users_roles" idMethod="native" phpName="EsUsersRoles">
+    <column name="id_user_role" phpName="IdUserRole" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="id_user" phpName="IdUser" type="INTEGER" size="10" sqlType="int(10) unsigned"/>
+    <column name="id_role" phpName="IdRole" type="INTEGER" size="10" sqlType="int(10) unsigned"/>
+    <column name="estado" phpName="Estado" type="VARCHAR" size="15" required="true" defaultValue="ENABLED"/>
+    <column name="change_count" phpName="ChangeCount" type="INTEGER" required="true" defaultValue="0"/>
+    <column name="id_user_modified" phpName="IdUserModified" type="INTEGER" sqlType="int(11) unsigned" required="true"/>
+    <column name="id_user_created" phpName="IdUserCreated" type="INTEGER" sqlType="int(11) unsigned" required="true"/>
+    <column name="date_modified" phpName="DateModified" type="TIMESTAMP" required="true"/>
+    <column name="date_created" phpName="DateCreated" type="TIMESTAMP" required="true"/>
+    <foreign-key foreignTable="es_users" name="es_users_roles_ibfk_1">
+      <reference local="id_user_created" foreign="id_user"/>
+    </foreign-key>
+    <foreign-key foreignTable="es_users" name="es_users_roles_ibfk_2">
+      <reference local="id_user_modified" foreign="id_user"/>
+    </foreign-key>
+    <foreign-key foreignTable="es_users" name="es_users_roles_ibfk_3">
+      <reference local="id_user" foreign="id_user"/>
+    </foreign-key>
+    <foreign-key foreignTable="es_roles" name="es_users_roles_ibfk_4">
+      <reference local="id_role" foreign="id_role"/>
+    </foreign-key>
+    <index name="dfa_usuarios_roles_ibfk_1">
+      <index-column name="id_user_created"/>
+    </index>
+    <index name="dfa_usuarios_roles_ibfk_2">
+      <index-column name="id_user_modified"/>
+    </index>
+    <index name="dfa_usuarios_roles_ibfk_3">
+      <index-column name="id_user"/>
+    </index>
+    <index name="dfa_usuarios_roles_ibfk_4">
+      <index-column name="id_role"/>
+    </index>
+    <unique name="dfa_usuarios_roles_id_usuario_role_uindex">
+      <unique-column name="id_user_role"/>
+    </unique>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="migrations" idMethod="native" phpName="Migrations">
+    <column name="version" phpName="Version" type="BIGINT" required="true"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+</database>

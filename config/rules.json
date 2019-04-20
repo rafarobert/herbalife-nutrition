@@ -1,0 +1,65 @@
+{
+
+  "dfa_publicaciones": {
+    "1": {
+      "idRole": 9,
+      "inputsHidden": [
+        "revisado",
+        "comentarios",
+        "estado_publicacion"
+      ]
+    },
+    "2": {
+      "idRole": 7,
+      "inputsHidden": [
+        "revisado"
+      ]
+    },
+    "3": {
+      "idRole": 5,
+      "inputsHidden": [
+
+      ]
+    },
+    "4": {
+      "idRole": 6,
+      "inputsHidden": [
+
+      ]
+    },
+    "5": {
+      "idRole": 8,
+      "inputsHidden": [
+
+      ]
+    }
+  },
+
+  "dfa_conceptos": {
+    "1": {
+      "idRole": 9,
+      "inputsHidden": [
+        "revisado",
+        "comentarios"
+      ]
+    },
+    "2": {
+      "idRole": 8,
+      "inputsHidden": [
+        "revisado"
+      ]
+    },
+    "3": {
+      "idRole": 7,
+      "inputsHidden": [
+        "revisado"
+      ]
+    },
+    "4": {
+      "idRole": 6,
+      "inputsHidden": [
+        "revisado"
+      ]
+    }
+  }
+}
