@@ -21,7 +21,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 
-$config['proy_name'] = 'ibolsast-crm';
+$config['proy_name'] = 'herbalife-nutrition';
 
 /*
 |--------------------------------------------------------------------------
@@ -362,7 +362,7 @@ $config['encryption_key'] = '8aP118e*4500343+256Ic03e50dO87t3';
 $config['sess_driver'] = 'database';
 $config['sess_cookie_name'] = 'scn_app';
 $config['sess_expiration'] = 7200;
-$config['sess_save_path'] = 'ci_sessions';
+$config['sess_save_path'] = 'es_sessions';
 $config['sess_match_ip'] = FALSE;
 $config['sess_time_to_update'] = 300;
 $config['sess_regenerate_destroy'] = FALSE;
@@ -563,12 +563,6 @@ $config['rewrite_short_tags'] = FALSE;
          'dir' => 'front/',
          'name' => 'front',
          'id' => 4
-     ),
-     'base' => 'ci',
-     'ci' => array(
-         'dir' => 'base/',
-         'name' => 'base',
-         'id' => 1
      )
  );
 
@@ -577,18 +571,18 @@ $config['rewrite_short_tags'] = FALSE;
     'Sistema',
 );
 
- $config['site_name'] = 'Defensoria del Pueblo';
- $config['site_title'] = 'Defensoria del Pueblo - Admin';
+ $config['site_name'] = 'Defensori';
+ $config['site_title'] = 'Herbalife - Admin';
  $config['site_domain'] = 'estic.com.bo';
 
  $config['meta_reply_to'] = "info@estic.com.bo";
  $config['meta_languaje'] = "Spanish";
- $config['meta_descripcion'] = "Sistema de administracion de la defensoria del pueblo";
- $config['meta_keywords'] = "Bolivia,Defensoria,Pueblo";
+ $config['meta_descripcion'] = "Sistema de administracion de herbalife";
+ $config['meta_keywords'] = "Bolivia,Herbalife";
  $config['meta_viewport'] = "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0";
  $config['meta_theme-color"'] ="#8C3524";
- $config['meta_name'] = "estic.com.bo - Pagina virtual de la Defensoria del Pueblo";
- $config['meta_title'] = 'Defensoria del Pueblo';
+ $config['meta_name'] = "estic.com.bo - Pagina virtual de la Herbalife";
+ $config['meta_title'] = 'Herbalife';
 
  $config['file_max_size'] = 100000000;
  $config['file_types'] = 'gif|jpg|png|jpeg|pdf|docx|xlsx|zip|mp4|mp3';

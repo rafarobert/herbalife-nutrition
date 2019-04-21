@@ -1,15 +1,15 @@
 {
-  "ibolsast_crm": {
+  "herbalife-nutrition": {
     "1": {
-      "host": "local.ibolsast-crm.com.bo",
-      "hostname": "local.ibolsast-crm.com.bo",
+      "host": "local.herbalife-nutrition.com",
+      "hostname": "local.herbalife-nutrition.com",
       "protocol": "http:",
       "port": "80",
-      "origin": "http://local.ibolsast-crm.com.bo/",
-      "dest": "http://local.ibolsast-crm.com.bo/",
+      "origin": "http://local.herbalife-nutrition.com/",
+      "dest": "http://local.herbalife-nutrition.com/",
       "root-path": "",
       "type-url": "dns",
       "type-env": "dev"
     }
-  },
+  }
 }

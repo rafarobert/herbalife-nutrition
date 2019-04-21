@@ -52,11 +52,11 @@
                 ============================================= -->
                 <div id="logo">
                     <a href="inicio" class="standard-logo"
-                       data-dark-logo="/assets/defensoria/logos/logoNavBarDark.png"><img
-                                src="/assets/defensoria/logos/logoNavBar.png" alt="Defensoria Logo"></a>
+                       data-dark-logo="/assets/herbalife/logos/logoNavBarDark.png"><img
+                                src="/assets/herbalife/logos/logoNavBar.png" alt="Herbalife Logo"></a>
                     <a href="inicio" class="retina-logo"
-                       data-dark-logo="/assets/defensoria/logos/logoNavBarDark.png"><img
-                                src="/assets/defensoria/logos/logoNavBar.png" alt="Defensoria Logo"></a>
+                       data-dark-logo="/assets/herbalife/logos/logoNavBarDark.png"><img
+                                src="/assets/herbalife/logos/logoNavBar.png" alt="Herbalife Logo"></a>
                 </div><!-- #logo end -->
 
                 <!-- Primary Navigation
@@ -448,7 +448,7 @@
 
                     <div class="widget clearfix">
 
-                        <img src="/assets/defensoria/logos/logoNavWidgets.png" alt="" class="footer-logo">
+                        <img src="/assets/herbalife/logos/logoNavWidgets.png" alt="" class="footer-logo">
 
                         <div style="background: url('/assets/canvas/images/world-map.png') no-repeat center center; background-size: 100%;">
                             <address>
@@ -540,7 +540,7 @@
             <div class="container clearfix">
 
                 <div class="col_half">
-                    Copyrights &copy; 2018 Todos los derechos reservados, Defensoria del Pueblo.<br>
+                    Copyrights &copy; 2018 Todos los derechos reservados, Herbalife.<br>
 
                     <div class="copyright-links">
                         <a data-toggle="modal" data-target="#myModal2">Terminos de Uso</a> /
@@ -614,7 +614,7 @@
 
                     <div class="clear"></div>
 
-                    <i class="icon-envelope2"></i> info@estic.com.bo <span class="middot">&middot;</span> <i class="icon-headphones"></i> +591-800-10-8004<span class="middot">&middot;</span> <i class="icon-skype2"></i> DefensoriaOnSkype
+                    <i class="icon-envelope2"></i> info@estic.com.bo <span class="middot">&middot;</span> <i class="icon-headphones"></i> +591-800-10-8004<span class="middot">&middot;</span> <i class="icon-skype2"></i> HerbalifeOnSkype
                 </div>
 
             </div>

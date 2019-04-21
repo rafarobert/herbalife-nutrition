@@ -37,8 +37,7 @@ var oPageFront = {
                 console.log('everythingLoaded');
                 oCanvas.init();
                 oPageFront.documentReady = true;
-                // $('#trigger-aula-virtual').click(oSidePanel.sidePanel.open);
-                // $('#trigger-oficinas').click(oSidePanel.sidePanelOficinas.open);
+                $('#trigger-aula-virtual').click(oSidePanel.sidePanel.open);
             }
         }, 10);
     }

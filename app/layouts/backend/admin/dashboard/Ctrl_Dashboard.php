@@ -14,7 +14,7 @@ class Ctrl_Dashboard extends ES_Admin_Controller{
 
     public function index()
     {
-        if(validate_modulo('base','users')){
+        if(validate_modulo('estic','users')){
             if (is_object($this->oUserLogguedIn)){
                 $this->data['oUser'] = $this->oUserLogguedIn;
                 $this->data['subview'] = 'admin/dashboard/index';

@@ -15,7 +15,7 @@ class Ctrl_Dashboard extends ES_Base_Controller {
     public function index()
     {
         $this->data['siteTitle'] = config_item('sys_title');
-        if(validate_modulo('base','users')){
+        if(validate_modulo('estic','users')){
             $id_user = $this->session->getIdUserLoggued() ;
             $oUser = $this->model_users->get($id_user);
             if (is_object($oUser)){

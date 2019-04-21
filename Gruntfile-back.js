@@ -31,7 +31,7 @@ module.exports = function(grunt) {
                     'assets/js/back/oDateTime.js',
 
                 ],
-                dest: 'assets/js/estic-back.min.js'
+                dest: 'assets/js/herbalife-back.min.js'
             }
         },
 
@@ -62,7 +62,7 @@ module.exports = function(grunt) {
                     'assets/js/back/oDateTime.js',
 
                 ],
-                dest: 'assets/js/estic-back.js',
+                dest: 'assets/js/herbalife-back.js',
             },
         },
 
@@ -73,13 +73,13 @@ module.exports = function(grunt) {
             },
             target: {
                 files: {
-                        'assets/css/estic-back.min.css': [
+                        'assets/css/herbalife-back.min.css': [
                         'assets/inspinia/css/bootstrap.min.css',
                         'assets/inspinia/css/plugins/toastr/toastr.min.css',
                         'assets/inspinia/js/plugins/gritter/jquery.gritter.css',
                         'assets/inspinia/css/animate.css',
                         'assets/inspinia/css/style.css',
-                        'assets/css/estic-back.css'
+                        'assets/css/herbalife-back.css'
                     ]
                 }
             }

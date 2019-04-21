@@ -1,4 +1,4 @@
 cp ../Gruntfile-back.js ../Gruntfile.js
-grunt
+node ../node_modules/grunt/bin/grunt
 cp ../Gruntfile-front.js ../Gruntfile.js
-grunt
+node ../node_modules/grunt/bin/grunt

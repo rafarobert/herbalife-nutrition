@@ -14,7 +14,7 @@ class Ctrl_Dashboard extends ES_Base_Controller {
 
     public function index()
     {
-        if(validate_modulo('base','users')){
+        if(validate_modulo('estic','users')){
             $oUser = $this->session->getDataUserLoggued();
             if (is_object($oUser)){
                 $this->data['subLayout'] = 'backend/_subLayout';

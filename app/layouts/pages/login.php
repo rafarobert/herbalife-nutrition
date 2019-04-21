@@ -13,7 +13,7 @@
         <div>
             <div>
 
-                <h1 class="logo-name"><img style="height: 50%; width: 50%;" src="/assets/defensoria/logos/logo1.png" alt=""></h1>
+                <h1 class="logo-name"><img style="height: 50%; width: 50%;" src="/assets/herbalife/logos/logo1.png" alt=""></h1>
 
             </div>
             <h3>Bienvenidos a Defensor Admin</h3>

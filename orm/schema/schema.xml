@@ -287,7 +287,7 @@
     <foreign-key foreignTable="es_users" name="es_sessions_ibfk_1">
       <reference local="id_user" foreign="id_user"/>
     </foreign-key>
-    <index name="ci_sessions_ibfk_1">
+    <index name="es_sessions_ibfk_1">
       <index-column name="id_user"/>
     </index>
     <vendor type="mysql">

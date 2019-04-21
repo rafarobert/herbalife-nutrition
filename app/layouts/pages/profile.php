@@ -11,7 +11,7 @@
     <div class="row">
 
         <div class="col-md-6">
-            <h2 class="font-bold">Bienvenido<br><img src="/assets/defensoria/logos/logo.jpg" alt=""></h2>
+            <h2 class="font-bold">Bienvenido<br><img src="/assets/herbalife/logos/logo.jpg" alt=""></h2>
 
             <p>
                 Aqui podras cambiar los datos de tu perfil.

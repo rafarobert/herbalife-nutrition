@@ -1,2 +1,2 @@
 cp ../Gruntfile-back.js ../Gruntfile.js
-grunt
+node ../node_modules/grunt/bin/grunt
