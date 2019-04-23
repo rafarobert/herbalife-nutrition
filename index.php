@@ -62,8 +62,22 @@
  * Include the path if the folder is not in the same directory
  * as this file.
  */
+
+
 $system_path = 'isys';
 
+if(isset($_SERVER['ESTIC_ORIGIN'])){
+
+  if(strstr($_SERVER['PWD'],$_SERVER['ESTIC_ORIGIN'])) {
+
+    $array = explode($_SERVER['ESTIC_ORIGIN'],$_SERVER['PWD']);
+
+    if(is_array($array)){
+
+      $_SERVER['PWD'] = '/'.trim(implode('/',$array),'/');
+    }
+  }
+}
 
 // Path to the system folder
 define('PWD', str_replace('\\', '/', isset($_SERVER['PWD']) ? $_SERVER['PWD'].'/' : ''));

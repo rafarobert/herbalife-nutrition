@@ -1,11 +1,11 @@
 <?php
 $serviceContainer = \Propel\Runtime\Propel::getServiceContainer();
 $serviceContainer->checkVersion('2.0.0-dev');
-$serviceContainer->setAdapterClass('estic_prod', 'mysql');
+$serviceContainer->setAdapterClass('herbalife_prod', 'mysql');
 $manager = new \Propel\Runtime\Connection\ConnectionManagerSingle();
 $manager->setConfiguration(array (
   'classname' => 'Propel\\Runtime\\Connection\\ConnectionWrapper',
-  'dsn' => 'mysql:host=127.0.0.1;dbname=estic_prod',
+  'dsn' => 'mysql:host=127.0.0.1;dbname=herbalife_prod',
   'user' => 'root',
   'password' => 2613,
   'attributes' =>
@@ -19,13 +19,13 @@ $manager->setConfiguration(array (
     1 => 'vendor',
   ),
 ));
-$manager->setName('estic_prod');
-$serviceContainer->setConnectionManager('estic_prod', $manager);
-$serviceContainer->setAdapterClass('estic_dev', 'mysql');
+$manager->setName('herbalife_prod');
+$serviceContainer->setConnectionManager('herbalife_prod', $manager);
+$serviceContainer->setAdapterClass('herbalife_dev', 'mysql');
 $manager = new \Propel\Runtime\Connection\ConnectionManagerSingle();
 $manager->setConfiguration(array (
   'classname' => 'Propel\\Runtime\\Connection\\DebugPDO',
-  'dsn' => 'mysql:host=127.0.0.1;dbname=estic_dev',
+  'dsn' => 'mysql:host=127.0.0.1;dbname=herbalife_dev',
   'user' => 'root',
   'password' => '',
   'attributes' =>
@@ -39,9 +39,9 @@ $manager->setConfiguration(array (
     1 => 'vendor',
   ),
 ));
-$manager->setName('estic_dev');
-$serviceContainer->setConnectionManager('estic_dev', $manager);
-$serviceContainer->setDefaultDatasource('estic_prod');
+$manager->setName('herbalife_dev');
+$serviceContainer->setConnectionManager('herbalife_dev', $manager);
+$serviceContainer->setDefaultDatasource('herbalife_prod');
 $serviceContainer->setLoggerConfiguration('defaultLogger', array (
   'type' => 'stream',
   'path' => './propel_log.txt',
