@@ -2,8 +2,8 @@
 /**
  * Created by Estic.
  * User: rafaelgutierrez
- * Date: 01/04/2019
- * Time: 9:52 pm
+ * Date: 24/04/2019
+ * Time: 11:00 am
  */
 
 use \Propel\Runtime\ActiveQuery\Criteria as Criteria;
@@ -52,13 +52,74 @@ use \Propel\Runtime\ActiveQuery\Criteria as Criteria;
  * @property CI_Security $security                Security Class, xss, csrf, etc...
  * @property Request $request
  *
+ * 
+ * @property Model_Cities $model_cities
+ * @property Ctrl_Cities $ctrl_cities
+ * 
+ * @property Model_Domains $model_domains
+ * @property Ctrl_Domains $ctrl_domains
+ * 
+ * @property Model_Files $model_files
+ * @property Ctrl_Files $ctrl_files
+ * 
+ * @property Model_Logs $model_logs
+ * @property Ctrl_Logs $ctrl_logs
+ * 
+ * @property Model_Modules $model_modules
+ * @property Ctrl_Modules $ctrl_modules
+ * 
+ * @property Model_Provincias $model_provincias
+ * @property Ctrl_Provincias $ctrl_provincias
+ * 
+ * @property Model_Roles $model_roles
+ * @property Ctrl_Roles $ctrl_roles
+ * 
+ * @property Model_Sessions $model_sessions
+ * @property Ctrl_Sessions $ctrl_sessions
+ * 
+ * @property Model_Tables $model_tables
+ * @property Ctrl_Tables $ctrl_tables
+ * 
+ * @property Model_Tables_roles $model_tables_roles
+ * @property Ctrl_Tables_roles $ctrl_tables_roles
+ * 
+ * @property Model_Users $model_users
+ * @property Ctrl_Users $ctrl_users
+ * 
+ * @property Model_Users_roles $model_users_roles
+ * @property Ctrl_Users_roles $ctrl_users_roles
+ * 
  *
  */
 class ES_Ctrl_Vars extends CI_Controller
 {
     use ES_Table_Trait;
     // **************** tables Charged ****************
-
+    
+    public $table_es_cities;
+    
+    public $table_es_domains;
+    
+    public $table_es_files;
+    
+    public $table_es_logs;
+    
+    public $table_es_modules;
+    
+    public $table_es_provincias;
+    
+    public $table_es_roles;
+    
+    public $table_es_sessions;
+    
+    public $table_es_tables;
+    
+    public $table_es_tables_roles;
+    
+    public $table_es_users;
+    
+    public $table_es_users_roles;
+    
     // ************************************************
 
     public function __construct()

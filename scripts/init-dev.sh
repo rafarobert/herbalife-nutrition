@@ -3,5 +3,5 @@ cd ../orm
 ./propel-reverse-dev.sh
 ./propel.sh
 cd ..
-composer update
+composer dump-autoload
 

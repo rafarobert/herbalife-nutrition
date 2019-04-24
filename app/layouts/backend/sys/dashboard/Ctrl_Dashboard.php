@@ -6,7 +6,7 @@
  * Time: 12:34
  */
 
-class Ctrl_Dashboard extends ES_Base_Controller {
+class Ctrl_Dashboard extends ES_Estic_Controller {
 
     function __construct(){
         parent::__construct();

@@ -524,19 +524,31 @@ $config['rewrite_short_tags'] = FALSE;
 
  $config['dir_modulos_views'] = 'views/';
  $config['file_empty_php'] = '<?php ?>';
- $config['no_backup_message'] = '// *** defensor: No se realizo backup de este archivo ***';
+ $config['no_backup_message'] = '// *** estic: No se realizo backup de este archivo ***';
  $config['owner'] = 'Rafael Gutierrez Gaspar';
- $config['system_name'] = 'defensor';
- $config['isys_modules'] = array('base' => 'ci');
- $config['app_modules'] = array('admin' => 'hbf');
- $config['tables_mvc_excepted'] = array('migrations');
  $config['dirMigrationTables'] = [DOCUMENTROOT.'orm/migrations/tables/'];
+ $config['tables_mvc_excepted'] = array('migrations');
 
  $config['english_words'] = ['files','sessions','roles','settings','cities','modules','tables','domains'];
 
  $config['controlFields'] = ['status','estado','change_count','id_user_modified','id_user_created','date_modified','date_created'];
 
  $config['foreach_key'] = 'object';
+
+ // -------------------------- Configuraciones para la subida de archivos ------------------------
+ $config['file_max_size'] = 100000000;
+ $config['file_types'] = 'gif|jpg|png|jpeg|pdf|docx|xlsx|zip|mp4|mp3';
+ $config['file_types_js'] = '.gif,.jpg,.png,.jpeg,.pdf,.docx,.xlsx,.zip,.mp4,.mp3,image/*,application/pdf,video/*,audio/*';
+ $config['file_without_tumbs'] = '.xlsx|.docx|.zip|.pdf|.mp4|.mp3';
+ $config['img_max_width'] = 10000;
+ $config['img_max_height'] = 10000;
+ // --------------------------- Fin configuraciones para la subida de archivos -------------------------
+
+ // -------------------------- Configuraciones del proyecto -------------------------------
+
+$config['isys_modules'] = array('base' => 'ci');
+ $config['app_modules'] = array('admin' => 'hbf');
+ $config['system_name'] = 'herbalife';
 
  $config['appDirs'] = array(
      'modules' => [
@@ -552,8 +564,8 @@ $config['rewrite_short_tags'] = FALSE;
          'name' => 'estic',
          'id' => 2
      ),
-     'admin' => 'dfa',
-     'dfa' => array(
+     'admin' => 'hbf',
+     'hbf' => array(
          'dir' => 'admin/',
          'name' => 'admin',
          'id' => 3
@@ -566,16 +578,16 @@ $config['rewrite_short_tags'] = FALSE;
      )
  );
 
- $config['main_modules_enabled'] = ['ci','dfa'];
+ $config['main_modules_enabled'] = ['es','hbf'];
  $config['modulos'] = array(
     'Sistema',
 );
 
- $config['site_name'] = 'Defensori';
+ $config['site_name'] = 'Herbalife - Nutrition';
  $config['site_title'] = 'Herbalife - Admin';
- $config['site_domain'] = 'estic.com.bo';
-
+ $config['site_domain'] = 'herbalife-nutrition.com.bo';
  $config['meta_reply_to'] = "info@estic.com.bo";
+
  $config['meta_languaje'] = "Spanish";
  $config['meta_descripcion'] = "Sistema de administracion de herbalife";
  $config['meta_keywords'] = "Bolivia,Herbalife";
@@ -584,9 +596,5 @@ $config['rewrite_short_tags'] = FALSE;
  $config['meta_name'] = "estic.com.bo - Pagina virtual de la Herbalife";
  $config['meta_title'] = 'Herbalife';
 
- $config['file_max_size'] = 100000000;
- $config['file_types'] = 'gif|jpg|png|jpeg|pdf|docx|xlsx|zip|mp4|mp3';
- $config['file_types_js'] = '.gif,.jpg,.png,.jpeg,.pdf,.docx,.xlsx,.zip,.mp4,.mp3,image/*,application/pdf,video/*,audio/*';
- $config['file_without_tumbs'] = '.xlsx|.docx|.zip|.pdf|.mp4|.mp3';
- $config['img_max_width'] = 10000;
- $config['img_max_height'] = 10000;
+ // --------------------------------- fin de las configuraciones --------------------------------
+

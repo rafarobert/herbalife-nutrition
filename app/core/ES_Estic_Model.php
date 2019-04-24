@@ -49,7 +49,7 @@ use Propel\Runtime\Exception\PropelException;
  * @property CI_Utf8 $utf8                        Provides support for UTF-8 environments
  * @property CI_Security $security                Security Class, xss, csrf, etc...
  */
-Class ES_Base_Model extends ES_Model {
+Class ES_Estic_Model extends ES_Model {
 
     public $rules = array();
 
