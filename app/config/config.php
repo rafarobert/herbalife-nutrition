@@ -578,6 +578,21 @@ $config['rewrite_short_tags'] = FALSE;
      )
  );
 
+ $config["herbalife-nutrition"] = [
+   [
+     "host" => "local.herbalife-nutrition.com",
+      "hostname" => "local.herbalife-nutrition.com",
+      "protocol"=> "http:",
+      "port"=> "80",
+      "origin"=> "http://local.herbalife-nutrition.com/",
+      "dest"=> "http://local.herbalife-nutrition.com/",
+      "root-path"=> "",
+      "type-url"=> "dns",
+      "type-env"=> "dev"
+   ]
+ ];
+
+
 $config['site_name'] = 'Herbalife - Nutrition';
 $config['site_title'] = 'Herbalife - Admin';
 $config['site_domain'] = 'herbalife-nutrition.com.bo';
