@@ -7,5 +7,6 @@ export QUERY_STRING="start_debug=1&debug_host=127.0.0.1&no_remote=1&debug_port=1
 
 php -B "\$_REQUEST = array('email' => 'rafael@estic.com', 'password' => '123');" -F ../index.php sys/migrate/fromdatabase
 echo -e "\012"
-
-composer dump-autoload
+cd ..
+composer update
+cd scripts

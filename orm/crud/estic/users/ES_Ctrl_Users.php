@@ -2,8 +2,8 @@
 /**
  * Created by Estic.
  * User: rafaelgutierrez
- * Date: 24/04/2019
- * Time: 12:17 pm
+ * Date: 02/05/2019
+ * Time: 1:44 am
  */
 
 defined("BASEPATH") OR exit("No direct script access allowed");
@@ -34,20 +34,9 @@ class ES_Ctrl_Users extends ES_Estic_Controller
 
             $this->model_initialized = $this->CI_global->model_users;
         }
-        //validateFieldImgUpload4
         
         if(validate_modulo('estic','users_roles')){
             $this->initUsersRoles();
-        }
-        
-        
-        if(validate_modulo('admin','personas')) {
-            $this->initPersonas();
-        }
-        
-        
-        if(validate_modulo('admin','estudiantes')) {
-            $this->initEstudiantes();
         }
         
         $this->subjectP = 'users';

@@ -2,8 +2,8 @@
 /**
  * Created by Estic.
  * User: rafaelgutierrez
- * Date: 24/04/2019
- * Time: 12:17 pm
+ * Date: 02/05/2019
+ * Time: 1:44 am
  */
 
 defined("BASEPATH") OR exit("No direct script access allowed");
@@ -28,10 +28,7 @@ class ES_Ctrl_Domains extends ES_Estic_Controller
 
             $this->model_initialized = $this->CI_global->model_domains;
         }
-        //validateFieldImgUpload4
         //validateUserSavedForRolling2
-        //validateUsersSavedForPersonTable2
-        //validateUsersSavedForEstudentTable2
         $this->subjectP = 'domains';
         $this->subjectS = 'domain';
     }

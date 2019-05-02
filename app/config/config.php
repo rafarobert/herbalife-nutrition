@@ -517,23 +517,12 @@ $config['rewrite_short_tags'] = FALSE;
 */
  $config['proxy_ips'] = '';
 
- $config['soft_user'] = 'rafaelgutierrez';
-
- $config['mod_table'] = 'ci_tables';
- $config['mod_migIndex'] = 2;
-
- $config['dir_modulos_views'] = 'views/';
- $config['file_empty_php'] = '<?php ?>';
- $config['no_backup_message'] = '// *** estic: No se realizo backup de este archivo ***';
- $config['owner'] = 'Rafael Gutierrez Gaspar';
- $config['dirMigrationTables'] = [DOCUMENTROOT.'orm/migrations/tables/'];
- $config['tables_mvc_excepted'] = array('migrations');
+ $config['mig_table'] = 'es_tables';
+ $config['mig_path'] = 'orm/migrations/tables/';
 
  $config['english_words'] = ['files','sessions','roles','settings','cities','modules','tables','domains'];
-
  $config['controlFields'] = ['status','estado','change_count','id_user_modified','id_user_created','date_modified','date_created'];
 
- $config['foreach_key'] = 'object';
 
  // -------------------------- Configuraciones para la subida de archivos ------------------------
  $config['file_max_size'] = 100000000;
@@ -546,9 +535,12 @@ $config['rewrite_short_tags'] = FALSE;
 
  // -------------------------- Configuraciones del proyecto -------------------------------
 
-$config['isys_modules'] = array('base' => 'ci');
- $config['app_modules'] = array('admin' => 'hbf');
- $config['system_name'] = 'herbalife';
+ $config['soft_name'] = 'herbalife';
+ $config['soft_user_id'] = '1';
+ $config['soft_user'] = 'rafaelgutierrez';
+ $config['soft_user_name'] = 'Rafael Gutierrez Gaspar';
+ $config['soft_user_email'] = 'rafarobertgu@gmail.com';
+ $config['soft_user_role'] = '1';
 
  $config['appDirs'] = array(
      'modules' => [
@@ -558,43 +550,38 @@ $config['isys_modules'] = array('base' => 'ci');
  );
 
  $config['sys'] = array(
-     'estic' => 'es',
-     'es' => array(
+   'core' => 'estic',
+   'es' => 'estic',
+   'estic' => array(
+         'sign' => 'es',
          'dir' => 'estic/',
          'name' => 'estic',
-         'id' => 2
+         'id' => 1
      ),
-     'admin' => 'hbf',
-     'hbf' => array(
+
+   'backend' => 'admin',
+   'hbf' => 'admin',
+   'admin' => array(
+         'sign' => 'hbf',
          'dir' => 'admin/',
          'name' => 'admin',
-         'id' => 3
+         'id' => 2
      ),
-     'front' => 'frt',
-     'frt' => array(
+
+   'frontend' => 'front',
+   'frt' => 'front',
+   'front' => array(
+         'sign' => 'frt',
          'dir' => 'front/',
          'name' => 'front',
-         'id' => 4
+         'id' => 3
      )
  );
 
- $config['main_modules_enabled'] = ['es','hbf'];
- $config['modulos'] = array(
-    'Sistema',
-);
+$config['site_name'] = 'Herbalife - Nutrition';
+$config['site_title'] = 'Herbalife - Admin';
+$config['site_domain'] = 'herbalife-nutrition.com.bo';
 
- $config['site_name'] = 'Herbalife - Nutrition';
- $config['site_title'] = 'Herbalife - Admin';
- $config['site_domain'] = 'herbalife-nutrition.com.bo';
- $config['meta_reply_to'] = "info@estic.com.bo";
 
- $config['meta_languaje'] = "Spanish";
- $config['meta_descripcion'] = "Sistema de administracion de herbalife";
- $config['meta_keywords'] = "Bolivia,Herbalife";
- $config['meta_viewport'] = "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0";
- $config['meta_theme-color"'] ="#8C3524";
- $config['meta_name'] = "estic.com.bo - Pagina virtual de la Herbalife";
- $config['meta_title'] = 'Herbalife';
-
- // --------------------------------- fin de las configuraciones --------------------------------
+// --------------------------------- fin de las configuraciones --------------------------------
 

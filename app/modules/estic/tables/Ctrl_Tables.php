@@ -2,8 +2,8 @@
 /**
  * Created by Estic.
  * User: rafaelgutierrez
- * Date: 24/04/2019
- * Time: 12:17 pm
+ * Date: 02/05/2019
+ * Time: 1:44 am
  * @property Model_Tables $oTable
  */
 use \Propel\Runtime\ActiveQuery\Criteria as Criteria;
