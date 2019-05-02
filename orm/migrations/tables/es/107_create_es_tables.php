@@ -2,114 +2,201 @@
 /**
  * Created by PhpStorm.
  * User: rafaelgutierrez
- * Date: 24/04/2019
- * Time: 11:00 am
+ * Date: 02/05/2019
+ * Time: 12:40 am
  */
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 use \Propel\Runtime\ActiveQuery\Criteria as Criteria;
 
-class Migration_Create_es_roles extends CI_Migration
+class Migration_Create_es_tables extends CI_Migration
 {
-    static $tableId = 'id_role';
-    static $tableName = 'es_roles';
+    static $tableId = 'id_table';
+    static $tableName = 'es_tables';
     static $tableFields = array (
-  'id_role' => 
+  'id_table' => 
   array (
-    'tabName' => 'es_roles',
-    'field' => 'id_role',
+    'tabName' => 'es_tables',
+    'field' => 'id_table',
     'type' => 'int',
     'constraint' => '11',
     'unsigned' => true,
     'null' => true,
     'default' => NULL,
-    'auto_increment' => true,
-    'extra' => 'auto_increment',
+    'auto_increment' => false,
+    'extra' => '',
     'validate' => 'required',
     'idForeign' => NULL,
     'table' => NULL,
-    'pk' => 'id_role',
+    'pk' => 'id_table',
   ),
-  'name' => 
+  'id_module' => 
   array (
-    'tabName' => 'es_roles',
-    'field' => 'name',
-    'type' => 'varchar',
-    'constraint' => '256',
-    'unsigned' => false,
-    'null' => true,
-    'default' => NULL,
-    'extra' => '',
-    'validate' => 'required',
-    'pk' => 'id_role',
-  ),
-  'description' => 
-  array (
-    'tabName' => 'es_roles',
-    'field' => 'description',
-    'type' => 'varchar',
-    'constraint' => '500',
-    'unsigned' => false,
-    'null' => true,
-    'default' => NULL,
-    'extra' => '',
-    'validate' => 0,
-    'pk' => 'id_role',
-  ),
-  'write' => 
-  array (
-    'tabName' => 'es_roles',
-    'field' => 'write',
-    'type' => 'varchar',
+    'tabName' => 'es_tables',
+    'field' => 'id_module',
+    'type' => 'int',
     'constraint' => '10',
-    'unsigned' => false,
+    'unsigned' => true,
     'null' => true,
     'default' => NULL,
     'extra' => '',
-    'input' => 'radios',
-    'options' => 
+    'label' => 'Modulo',
+    'input' => 'select',
+    'selectBy' => 
     array (
-      'on' => 'on',
-      'off' => 'off',
+      0 => 'name',
     ),
     'validate' => 'required',
-    'pk' => 'id_role',
+    'idForeign' => 'id_module',
+    'table' => 'es_modules',
+    'pk' => 'id_table',
   ),
-  'read' => 
+  'id_role' => 
   array (
-    'tabName' => 'es_roles',
-    'field' => 'read',
-    'type' => 'varchar',
+    'tabName' => 'es_tables',
+    'field' => 'id_role',
+    'type' => 'int',
     'constraint' => '10',
+    'unsigned' => true,
+    'null' => true,
+    'default' => NULL,
+    'extra' => '',
+    'label' => 'Roles Admitidos',
+    'input' => 'radios',
+    'validate' => 'required',
+    'idForeign' => 'id_role',
+    'table' => 'es_roles',
+    'pk' => 'id_table',
+  ),
+  'title' => 
+  array (
+    'tabName' => 'es_tables',
+    'field' => 'title',
+    'type' => 'varchar',
+    'constraint' => '100',
     'unsigned' => false,
     'null' => true,
     'default' => NULL,
     'extra' => '',
-    'input' => 'radios',
-    'options' => 
-    array (
-      'on' => 'on',
-      'off' => 'off',
-    ),
     'validate' => 'required',
-    'pk' => 'id_role',
+    'pk' => 'id_table',
   ),
-  'status' => 
+  'table_name' => 
   array (
-    'tabName' => 'es_roles',
-    'field' => 'status',
+    'tabName' => 'es_tables',
+    'field' => 'table_name',
+    'type' => 'varchar',
+    'constraint' => '255',
+    'unsigned' => false,
+    'null' => true,
+    'default' => NULL,
+    'extra' => '',
+    'label' => 'Tablas',
+    'input' => 'select',
+    'options' => 'db_tabs',
+    'validate' => 'required',
+    'pk' => 'id_table',
+  ),
+  'listed' => 
+  array (
+    'tabName' => 'es_tables',
+    'field' => 'listed',
     'type' => 'varchar',
     'constraint' => '15',
     'unsigned' => false,
     'null' => true,
     'default' => 'ENABLED',
     'extra' => '',
-    'pk' => 'id_role',
+    'input' => 'radios',
+    'options' => 
+    array (
+      'enabled' => 'enabled',
+      'disabled' => 'disabled',
+    ),
+    'validate' => 'required',
+    'pk' => 'id_table',
+  ),
+  'description' => 
+  array (
+    'tabName' => 'es_tables',
+    'field' => 'description',
+    'type' => 'text',
+    'constraint' => '',
+    'unsigned' => false,
+    'null' => true,
+    'default' => NULL,
+    'extra' => '',
+    'validate' => 0,
+    'pk' => 'id_table',
+  ),
+  'icon' => 
+  array (
+    'tabName' => 'es_tables',
+    'field' => 'icon',
+    'type' => 'varchar',
+    'constraint' => '200',
+    'unsigned' => false,
+    'null' => true,
+    'default' => NULL,
+    'extra' => '',
+    'validate' => 0,
+    'pk' => 'id_table',
+  ),
+  'url' => 
+  array (
+    'tabName' => 'es_tables',
+    'field' => 'url',
+    'type' => 'varchar',
+    'constraint' => '400',
+    'unsigned' => false,
+    'null' => true,
+    'default' => NULL,
+    'extra' => '',
+    'validate' => 'required',
+    'pk' => 'id_table',
+  ),
+  'url_edit' => 
+  array (
+    'tabName' => 'es_tables',
+    'field' => 'url_edit',
+    'type' => 'varchar',
+    'constraint' => '450',
+    'unsigned' => false,
+    'null' => true,
+    'default' => NULL,
+    'extra' => '',
+    'validate' => 'required',
+    'pk' => 'id_table',
+  ),
+  'url_index' => 
+  array (
+    'tabName' => 'es_tables',
+    'field' => 'url_index',
+    'type' => 'varchar',
+    'constraint' => '450',
+    'unsigned' => false,
+    'null' => true,
+    'default' => NULL,
+    'extra' => '',
+    'validate' => 'required',
+    'pk' => 'id_table',
+  ),
+  'status' => 
+  array (
+    'tabName' => 'es_tables',
+    'field' => 'status',
+    'type' => 'varchar',
+    'constraint' => '255',
+    'unsigned' => false,
+    'null' => true,
+    'default' => 'ENABLED',
+    'extra' => '',
+    'pk' => 'id_table',
   ),
   'change_count' => 
   array (
-    'tabName' => 'es_roles',
+    'tabName' => 'es_tables',
     'field' => 'change_count',
     'type' => 'int',
     'constraint' => '11',
@@ -119,11 +206,11 @@ class Migration_Create_es_roles extends CI_Migration
     'extra' => '',
     'label' => 'Numero de Cambios de este registro',
     'input' => 'disabled',
-    'pk' => 'id_role',
+    'pk' => 'id_table',
   ),
   'id_user_modified' => 
   array (
-    'tabName' => 'es_roles',
+    'tabName' => 'es_tables',
     'field' => 'id_user_modified',
     'type' => 'int',
     'constraint' => '11',
@@ -140,11 +227,11 @@ class Migration_Create_es_roles extends CI_Migration
       1 => 'lastname',
     ),
     'input' => 'disabled',
-    'pk' => 'id_role',
+    'pk' => 'id_table',
   ),
   'id_user_created' => 
   array (
-    'tabName' => 'es_roles',
+    'tabName' => 'es_tables',
     'field' => 'id_user_created',
     'type' => 'int',
     'constraint' => '11',
@@ -161,11 +248,11 @@ class Migration_Create_es_roles extends CI_Migration
       1 => 'lastname',
     ),
     'input' => 'disabled',
-    'pk' => 'id_role',
+    'pk' => 'id_table',
   ),
   'date_modified' => 
   array (
-    'tabName' => 'es_roles',
+    'tabName' => 'es_tables',
     'field' => 'date_modified',
     'type' => 'datetime',
     'constraint' => '',
@@ -175,11 +262,11 @@ class Migration_Create_es_roles extends CI_Migration
     'extra' => '',
     'label' => 'Fecha de modificación',
     'input' => 'disabled',
-    'pk' => 'id_role',
+    'pk' => 'id_table',
   ),
   'date_created' => 
   array (
-    'tabName' => 'es_roles',
+    'tabName' => 'es_tables',
     'field' => 'date_created',
     'type' => 'datetime',
     'constraint' => '',
@@ -189,27 +276,39 @@ class Migration_Create_es_roles extends CI_Migration
     'extra' => '',
     'label' => 'Fecha de creación',
     'input' => 'disabled',
-    'pk' => 'id_role',
+    'pk' => 'id_table',
   ),
 );
     static $tableForeignKeys = array (
-  'es_roles_id_role_uindex' => 
+  'es_tables_id_table_uindex' => 
   array (
     'table' => NULL,
-    'idLocal' => 'id_role',
+    'idLocal' => 'id_table',
     'idForeign' => NULL,
   ),
-  'es_roles_ibfk_1' => 
+  'es_tables_ibfk_1' => 
   array (
     'table' => 'es_users',
     'idLocal' => 'id_user_created',
     'idForeign' => 'id_user',
   ),
-  'es_roles_ibfk_2' => 
+  'es_tables_ibfk_2' => 
   array (
     'table' => 'es_users',
     'idLocal' => 'id_user_modified',
     'idForeign' => 'id_user',
+  ),
+  'es_tables_ibfk_3' => 
+  array (
+    'table' => 'es_roles',
+    'idLocal' => 'id_role',
+    'idForeign' => 'id_role',
+  ),
+  'es_tables_ibfk_4' => 
+  array (
+    'table' => 'es_modules',
+    'idLocal' => 'id_module',
+    'idForeign' => 'id_module',
   ),
 );
     static $tableSettings = array (
@@ -230,6 +329,6 @@ class Migration_Create_es_roles extends CI_Migration
 
     public function down()
     {
-        //$this->dbforge->drop_table('es_roles');
+        //$this->dbforge->drop_table('es_tables');
     }
 }

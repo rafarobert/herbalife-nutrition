@@ -2,23 +2,23 @@
 /**
  * Created by PhpStorm.
  * User: rafaelgutierrez
- * Date: 24/04/2019
- * Time: 11:00 am
+ * Date: 02/05/2019
+ * Time: 12:40 am
  */
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 use \Propel\Runtime\ActiveQuery\Criteria as Criteria;
 
-class Migration_Create_es_users_roles extends CI_Migration
+class Migration_Create_es_domains extends CI_Migration
 {
-    static $tableId = 'id_user_role';
-    static $tableName = 'es_users_roles';
+    static $tableId = 'id_domain';
+    static $tableName = 'es_domains';
     static $tableFields = array (
-  'id_user_role' => 
+  'id_domain' => 
   array (
-    'tabName' => 'es_users_roles',
-    'field' => 'id_user_role',
+    'tabName' => 'es_domains',
+    'field' => 'id_domain',
     'type' => 'int',
     'constraint' => '11',
     'unsigned' => false,
@@ -29,41 +29,76 @@ class Migration_Create_es_users_roles extends CI_Migration
     'validate' => 'required',
     'idForeign' => NULL,
     'table' => NULL,
-    'pk' => 'id_user_role',
+    'pk' => 'id_domain',
   ),
-  'id_user' => 
+  'host' => 
   array (
-    'tabName' => 'es_users_roles',
-    'field' => 'id_user',
-    'type' => 'int',
-    'constraint' => '10',
-    'unsigned' => true,
+    'tabName' => 'es_domains',
+    'field' => 'host',
+    'type' => 'varchar',
+    'constraint' => '450',
+    'unsigned' => false,
     'null' => true,
     'default' => NULL,
     'extra' => '',
     'validate' => 'required',
-    'idForeign' => 'id_user',
-    'table' => 'es_users',
-    'pk' => 'id_user_role',
+    'pk' => 'id_domain',
   ),
-  'id_role' => 
+  'hostname' => 
   array (
-    'tabName' => 'es_users_roles',
-    'field' => 'id_role',
-    'type' => 'int',
-    'constraint' => '10',
-    'unsigned' => true,
+    'tabName' => 'es_domains',
+    'field' => 'hostname',
+    'type' => 'varchar',
+    'constraint' => '450',
+    'unsigned' => false,
     'null' => true,
     'default' => NULL,
     'extra' => '',
     'validate' => 'required',
-    'idForeign' => 'id_role',
-    'table' => 'es_roles',
-    'pk' => 'id_user_role',
+    'pk' => 'id_domain',
+  ),
+  'protocol' => 
+  array (
+    'tabName' => 'es_domains',
+    'field' => 'protocol',
+    'type' => 'varchar',
+    'constraint' => '10',
+    'unsigned' => false,
+    'null' => true,
+    'default' => NULL,
+    'extra' => '',
+    'validate' => 'required',
+    'pk' => 'id_domain',
+  ),
+  'port' => 
+  array (
+    'tabName' => 'es_domains',
+    'field' => 'port',
+    'type' => 'int',
+    'constraint' => '11',
+    'unsigned' => false,
+    'null' => true,
+    'default' => NULL,
+    'extra' => '',
+    'validate' => 'required',
+    'pk' => 'id_domain',
+  ),
+  'origin' => 
+  array (
+    'tabName' => 'es_domains',
+    'field' => 'origin',
+    'type' => 'varchar',
+    'constraint' => '450',
+    'unsigned' => false,
+    'null' => true,
+    'default' => NULL,
+    'extra' => '',
+    'validate' => 'required',
+    'pk' => 'id_domain',
   ),
   'estado' => 
   array (
-    'tabName' => 'es_users_roles',
+    'tabName' => 'es_domains',
     'field' => 'estado',
     'type' => 'varchar',
     'constraint' => '15',
@@ -78,11 +113,11 @@ class Migration_Create_es_users_roles extends CI_Migration
       0 => 'ENABLED',
       1 => 'DISABLED',
     ),
-    'pk' => 'id_user_role',
+    'pk' => 'id_domain',
   ),
   'change_count' => 
   array (
-    'tabName' => 'es_users_roles',
+    'tabName' => 'es_domains',
     'field' => 'change_count',
     'type' => 'int',
     'constraint' => '11',
@@ -92,11 +127,11 @@ class Migration_Create_es_users_roles extends CI_Migration
     'extra' => '',
     'label' => 'Numero de Cambios de este registro',
     'input' => 'disabled',
-    'pk' => 'id_user_role',
+    'pk' => 'id_domain',
   ),
   'id_user_modified' => 
   array (
-    'tabName' => 'es_users_roles',
+    'tabName' => 'es_domains',
     'field' => 'id_user_modified',
     'type' => 'int',
     'constraint' => '11',
@@ -113,11 +148,11 @@ class Migration_Create_es_users_roles extends CI_Migration
       1 => 'lastname',
     ),
     'input' => 'disabled',
-    'pk' => 'id_user_role',
+    'pk' => 'id_domain',
   ),
   'id_user_created' => 
   array (
-    'tabName' => 'es_users_roles',
+    'tabName' => 'es_domains',
     'field' => 'id_user_created',
     'type' => 'int',
     'constraint' => '11',
@@ -134,11 +169,11 @@ class Migration_Create_es_users_roles extends CI_Migration
       1 => 'lastname',
     ),
     'input' => 'disabled',
-    'pk' => 'id_user_role',
+    'pk' => 'id_domain',
   ),
   'date_modified' => 
   array (
-    'tabName' => 'es_users_roles',
+    'tabName' => 'es_domains',
     'field' => 'date_modified',
     'type' => 'datetime',
     'constraint' => '',
@@ -148,11 +183,11 @@ class Migration_Create_es_users_roles extends CI_Migration
     'extra' => '',
     'label' => 'Fecha de modificación',
     'input' => 'disabled',
-    'pk' => 'id_user_role',
+    'pk' => 'id_domain',
   ),
   'date_created' => 
   array (
-    'tabName' => 'es_users_roles',
+    'tabName' => 'es_domains',
     'field' => 'date_created',
     'type' => 'datetime',
     'constraint' => '',
@@ -162,39 +197,27 @@ class Migration_Create_es_users_roles extends CI_Migration
     'extra' => '',
     'label' => 'Fecha de creación',
     'input' => 'disabled',
-    'pk' => 'id_user_role',
+    'pk' => 'id_domain',
   ),
 );
     static $tableForeignKeys = array (
-  'dfa_usuarios_roles_id_usuario_role_uindex' => 
+  'es_domains_id_domain_uindex' => 
   array (
     'table' => NULL,
-    'idLocal' => 'id_user_role',
+    'idLocal' => 'id_domain',
     'idForeign' => NULL,
   ),
-  'es_users_roles_ibfk_1' => 
+  'es_domains_ibfk_1' => 
   array (
     'table' => 'es_users',
     'idLocal' => 'id_user_created',
     'idForeign' => 'id_user',
   ),
-  'es_users_roles_ibfk_2' => 
+  'es_domains_ibfk_2' => 
   array (
     'table' => 'es_users',
     'idLocal' => 'id_user_modified',
     'idForeign' => 'id_user',
-  ),
-  'es_users_roles_ibfk_3' => 
-  array (
-    'table' => 'es_users',
-    'idLocal' => 'id_user',
-    'idForeign' => 'id_user',
-  ),
-  'es_users_roles_ibfk_4' => 
-  array (
-    'table' => 'es_roles',
-    'idLocal' => 'id_role',
-    'idForeign' => 'id_role',
   ),
 );
     static $tableSettings = array (
@@ -215,6 +238,6 @@ class Migration_Create_es_users_roles extends CI_Migration
 
     public function down()
     {
-        //$this->dbforge->drop_table('es_users_roles');
+        //$this->dbforge->drop_table('es_domains');
     }
 }

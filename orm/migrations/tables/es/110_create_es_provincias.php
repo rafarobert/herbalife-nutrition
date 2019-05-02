@@ -2,201 +2,132 @@
 /**
  * Created by PhpStorm.
  * User: rafaelgutierrez
- * Date: 24/04/2019
- * Time: 11:00 am
+ * Date: 02/05/2019
+ * Time: 12:40 am
  */
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 use \Propel\Runtime\ActiveQuery\Criteria as Criteria;
 
-class Migration_Create_es_tables extends CI_Migration
+class Migration_Create_es_provincias extends CI_Migration
 {
-    static $tableId = 'id_table';
-    static $tableName = 'es_tables';
+    static $tableId = 'id_provincia';
+    static $tableName = 'es_provincias';
     static $tableFields = array (
-  'id_table' => 
+  'id_provincia' => 
   array (
-    'tabName' => 'es_tables',
-    'field' => 'id_table',
+    'tabName' => 'es_provincias',
+    'field' => 'id_provincia',
+    'type' => 'int',
+    'constraint' => '10',
+    'unsigned' => true,
+    'null' => true,
+    'default' => NULL,
+    'auto_increment' => true,
+    'extra' => 'auto_increment',
+    'validate' => 'required',
+    'idForeign' => NULL,
+    'table' => NULL,
+    'pk' => 'id_provincia',
+  ),
+  'name' => 
+  array (
+    'tabName' => 'es_provincias',
+    'field' => 'name',
+    'type' => 'varchar',
+    'constraint' => '300',
+    'unsigned' => false,
+    'null' => true,
+    'default' => NULL,
+    'extra' => '',
+    'validate' => 'required',
+    'pk' => 'id_provincia',
+  ),
+  'area' => 
+  array (
+    'tabName' => 'es_provincias',
+    'field' => 'area',
+    'type' => 'varchar',
+    'constraint' => '900',
+    'unsigned' => false,
+    'null' => true,
+    'default' => NULL,
+    'extra' => '',
+    'validate' => 0,
+    'pk' => 'id_provincia',
+  ),
+  'lat' => 
+  array (
+    'tabName' => 'es_provincias',
+    'field' => 'lat',
+    'type' => 'int',
+    'constraint' => '11',
+    'unsigned' => false,
+    'null' => true,
+    'default' => NULL,
+    'extra' => '',
+    'validate' => 0,
+    'pk' => 'id_provincia',
+  ),
+  'lng' => 
+  array (
+    'tabName' => 'es_provincias',
+    'field' => 'lng',
+    'type' => 'int',
+    'constraint' => '11',
+    'unsigned' => false,
+    'null' => true,
+    'default' => NULL,
+    'extra' => '',
+    'validate' => 0,
+    'pk' => 'id_provincia',
+  ),
+  'id_municipio' => 
+  array (
+    'tabName' => 'es_provincias',
+    'field' => 'id_municipio',
     'type' => 'int',
     'constraint' => '11',
     'unsigned' => true,
     'null' => true,
     'default' => NULL,
-    'auto_increment' => false,
     'extra' => '',
-    'validate' => 'required',
-    'idForeign' => NULL,
-    'table' => NULL,
-    'pk' => 'id_table',
+    'validate' => 0,
+    'idForeign' => 'id_provincia',
+    'table' => 'es_provincias',
+    'pk' => 'id_provincia',
   ),
-  'id_module' => 
+  'id_ciudad' => 
   array (
-    'tabName' => 'es_tables',
-    'field' => 'id_module',
+    'tabName' => 'es_provincias',
+    'field' => 'id_ciudad',
     'type' => 'int',
     'constraint' => '10',
     'unsigned' => true,
     'null' => true,
     'default' => NULL,
     'extra' => '',
-    'label' => 'Modulo',
-    'input' => 'select',
-    'selectBy' => 
-    array (
-      0 => 'name',
-    ),
-    'validate' => 'required',
-    'idForeign' => 'id_module',
-    'table' => 'es_modules',
-    'pk' => 'id_table',
+    'validate' => 0,
+    'idForeign' => 'id_city',
+    'table' => 'es_cities',
+    'pk' => 'id_provincia',
   ),
-  'id_role' => 
+  'status' => 
   array (
-    'tabName' => 'es_tables',
-    'field' => 'id_role',
-    'type' => 'int',
-    'constraint' => '10',
-    'unsigned' => true,
-    'null' => true,
-    'default' => NULL,
-    'extra' => '',
-    'label' => 'Roles Admitidos',
-    'input' => 'radios',
-    'validate' => 'required',
-    'idForeign' => 'id_role',
-    'table' => 'es_roles',
-    'pk' => 'id_table',
-  ),
-  'title' => 
-  array (
-    'tabName' => 'es_tables',
-    'field' => 'title',
-    'type' => 'varchar',
-    'constraint' => '100',
-    'unsigned' => false,
-    'null' => true,
-    'default' => NULL,
-    'extra' => '',
-    'validate' => 'required',
-    'pk' => 'id_table',
-  ),
-  'table_name' => 
-  array (
-    'tabName' => 'es_tables',
-    'field' => 'table_name',
-    'type' => 'varchar',
-    'constraint' => '255',
-    'unsigned' => false,
-    'null' => true,
-    'default' => NULL,
-    'extra' => '',
-    'label' => 'Tablas',
-    'input' => 'select',
-    'options' => 'db_tabs',
-    'validate' => 'required',
-    'pk' => 'id_table',
-  ),
-  'listed' => 
-  array (
-    'tabName' => 'es_tables',
-    'field' => 'listed',
+    'tabName' => 'es_provincias',
+    'field' => 'status',
     'type' => 'varchar',
     'constraint' => '15',
     'unsigned' => false,
     'null' => true,
     'default' => 'ENABLED',
     'extra' => '',
-    'input' => 'radios',
-    'options' => 
-    array (
-      'enabled' => 'enabled',
-      'disabled' => 'disabled',
-    ),
-    'validate' => 'required',
-    'pk' => 'id_table',
-  ),
-  'description' => 
-  array (
-    'tabName' => 'es_tables',
-    'field' => 'description',
-    'type' => 'text',
-    'constraint' => '',
-    'unsigned' => false,
-    'null' => true,
-    'default' => NULL,
-    'extra' => '',
-    'validate' => 0,
-    'pk' => 'id_table',
-  ),
-  'icon' => 
-  array (
-    'tabName' => 'es_tables',
-    'field' => 'icon',
-    'type' => 'varchar',
-    'constraint' => '200',
-    'unsigned' => false,
-    'null' => true,
-    'default' => NULL,
-    'extra' => '',
-    'validate' => 0,
-    'pk' => 'id_table',
-  ),
-  'url' => 
-  array (
-    'tabName' => 'es_tables',
-    'field' => 'url',
-    'type' => 'varchar',
-    'constraint' => '400',
-    'unsigned' => false,
-    'null' => true,
-    'default' => NULL,
-    'extra' => '',
-    'validate' => 'required',
-    'pk' => 'id_table',
-  ),
-  'url_edit' => 
-  array (
-    'tabName' => 'es_tables',
-    'field' => 'url_edit',
-    'type' => 'varchar',
-    'constraint' => '450',
-    'unsigned' => false,
-    'null' => true,
-    'default' => NULL,
-    'extra' => '',
-    'validate' => 'required',
-    'pk' => 'id_table',
-  ),
-  'url_index' => 
-  array (
-    'tabName' => 'es_tables',
-    'field' => 'url_index',
-    'type' => 'varchar',
-    'constraint' => '450',
-    'unsigned' => false,
-    'null' => true,
-    'default' => NULL,
-    'extra' => '',
-    'validate' => 'required',
-    'pk' => 'id_table',
-  ),
-  'status' => 
-  array (
-    'tabName' => 'es_tables',
-    'field' => 'status',
-    'type' => 'varchar',
-    'constraint' => '255',
-    'unsigned' => false,
-    'null' => true,
-    'default' => 'ENABLED',
-    'extra' => '',
-    'pk' => 'id_table',
+    'pk' => 'id_provincia',
   ),
   'change_count' => 
   array (
-    'tabName' => 'es_tables',
+    'tabName' => 'es_provincias',
     'field' => 'change_count',
     'type' => 'int',
     'constraint' => '11',
@@ -206,11 +137,11 @@ class Migration_Create_es_tables extends CI_Migration
     'extra' => '',
     'label' => 'Numero de Cambios de este registro',
     'input' => 'disabled',
-    'pk' => 'id_table',
+    'pk' => 'id_provincia',
   ),
   'id_user_modified' => 
   array (
-    'tabName' => 'es_tables',
+    'tabName' => 'es_provincias',
     'field' => 'id_user_modified',
     'type' => 'int',
     'constraint' => '11',
@@ -227,11 +158,11 @@ class Migration_Create_es_tables extends CI_Migration
       1 => 'lastname',
     ),
     'input' => 'disabled',
-    'pk' => 'id_table',
+    'pk' => 'id_provincia',
   ),
   'id_user_created' => 
   array (
-    'tabName' => 'es_tables',
+    'tabName' => 'es_provincias',
     'field' => 'id_user_created',
     'type' => 'int',
     'constraint' => '11',
@@ -248,11 +179,11 @@ class Migration_Create_es_tables extends CI_Migration
       1 => 'lastname',
     ),
     'input' => 'disabled',
-    'pk' => 'id_table',
+    'pk' => 'id_provincia',
   ),
   'date_modified' => 
   array (
-    'tabName' => 'es_tables',
+    'tabName' => 'es_provincias',
     'field' => 'date_modified',
     'type' => 'datetime',
     'constraint' => '',
@@ -262,11 +193,11 @@ class Migration_Create_es_tables extends CI_Migration
     'extra' => '',
     'label' => 'Fecha de modificación',
     'input' => 'disabled',
-    'pk' => 'id_table',
+    'pk' => 'id_provincia',
   ),
   'date_created' => 
   array (
-    'tabName' => 'es_tables',
+    'tabName' => 'es_provincias',
     'field' => 'date_created',
     'type' => 'datetime',
     'constraint' => '',
@@ -276,39 +207,39 @@ class Migration_Create_es_tables extends CI_Migration
     'extra' => '',
     'label' => 'Fecha de creación',
     'input' => 'disabled',
-    'pk' => 'id_table',
+    'pk' => 'id_provincia',
   ),
 );
     static $tableForeignKeys = array (
-  'es_tables_id_table_uindex' => 
+  'es_provincias_id_provincia_uindex' => 
   array (
     'table' => NULL,
-    'idLocal' => 'id_table',
+    'idLocal' => 'id_provincia',
     'idForeign' => NULL,
   ),
-  'es_tables_ibfk_1' => 
+  'es_provincias_ibfk_1' => 
   array (
     'table' => 'es_users',
     'idLocal' => 'id_user_created',
     'idForeign' => 'id_user',
   ),
-  'es_tables_ibfk_2' => 
+  'es_provincias_ibfk_2' => 
   array (
     'table' => 'es_users',
     'idLocal' => 'id_user_modified',
     'idForeign' => 'id_user',
   ),
-  'es_tables_ibfk_3' => 
+  'es_provincias_ibfk_3' => 
   array (
-    'table' => 'es_roles',
-    'idLocal' => 'id_role',
-    'idForeign' => 'id_role',
+    'table' => 'es_cities',
+    'idLocal' => 'id_ciudad',
+    'idForeign' => 'id_city',
   ),
-  'es_tables_ibfk_4' => 
+  'es_provincias_ibfk_4' => 
   array (
-    'table' => 'es_modules',
-    'idLocal' => 'id_module',
-    'idForeign' => 'id_module',
+    'table' => 'es_provincias',
+    'idLocal' => 'id_municipio',
+    'idForeign' => 'id_provincia',
   ),
 );
     static $tableSettings = array (
@@ -329,6 +260,6 @@ class Migration_Create_es_tables extends CI_Migration
 
     public function down()
     {
-        //$this->dbforge->drop_table('es_tables');
+        //$this->dbforge->drop_table('es_provincias');
     }
 }

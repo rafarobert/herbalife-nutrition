@@ -2,23 +2,23 @@
 /**
  * Created by PhpStorm.
  * User: rafaelgutierrez
- * Date: 24/04/2019
- * Time: 11:00 am
+ * Date: 02/05/2019
+ * Time: 12:40 am
  */
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 use \Propel\Runtime\ActiveQuery\Criteria as Criteria;
 
-class Migration_Create_es_files extends CI_Migration
+class Migration_Create_es_cities extends CI_Migration
 {
-    static $tableId = 'id_file';
-    static $tableName = 'es_files';
+    static $tableId = 'id_city';
+    static $tableName = 'es_cities';
     static $tableFields = array (
-  'id_file' => 
+  'id_city' => 
   array (
-    'tabName' => 'es_files',
-    'field' => 'id_file',
+    'tabName' => 'es_cities',
+    'field' => 'id_city',
     'type' => 'int',
     'constraint' => '10',
     'unsigned' => true,
@@ -29,174 +29,38 @@ class Migration_Create_es_files extends CI_Migration
     'validate' => 'required',
     'idForeign' => NULL,
     'table' => NULL,
-    'pk' => 'id_file',
+    'pk' => 'id_city',
   ),
   'name' => 
   array (
-    'tabName' => 'es_files',
+    'tabName' => 'es_cities',
     'field' => 'name',
     'type' => 'varchar',
-    'constraint' => '256',
+    'constraint' => '300',
     'unsigned' => false,
     'null' => true,
     'default' => NULL,
     'extra' => '',
-    'validate' => 0,
-    'pk' => 'id_file',
+    'validate' => 'required',
+    'pk' => 'id_city',
   ),
-  'url' => 
+  'description' => 
   array (
-    'tabName' => 'es_files',
-    'field' => 'url',
+    'tabName' => 'es_cities',
+    'field' => 'description',
     'type' => 'varchar',
-    'constraint' => '450',
+    'constraint' => '500',
     'unsigned' => false,
     'null' => true,
     'default' => NULL,
     'extra' => '',
     'validate' => 0,
-    'pk' => 'id_file',
+    'pk' => 'id_city',
   ),
-  'ext' => 
+  'abbreviation' => 
   array (
-    'tabName' => 'es_files',
-    'field' => 'ext',
-    'type' => 'varchar',
-    'constraint' => '100',
-    'unsigned' => false,
-    'null' => true,
-    'default' => NULL,
-    'extra' => '',
-    'validate' => 0,
-    'pk' => 'id_file',
-  ),
-  'raw_name' => 
-  array (
-    'tabName' => 'es_files',
-    'field' => 'raw_name',
-    'type' => 'varchar',
-    'constraint' => '400',
-    'unsigned' => false,
-    'null' => true,
-    'default' => NULL,
-    'extra' => '',
-    'validate' => 0,
-    'pk' => 'id_file',
-  ),
-  'full_path' => 
-  array (
-    'tabName' => 'es_files',
-    'field' => 'full_path',
-    'type' => 'varchar',
-    'constraint' => '400',
-    'unsigned' => false,
-    'null' => true,
-    'default' => NULL,
-    'extra' => '',
-    'validate' => 0,
-    'pk' => 'id_file',
-  ),
-  'path' => 
-  array (
-    'tabName' => 'es_files',
-    'field' => 'path',
-    'type' => 'varchar',
-    'constraint' => '400',
-    'unsigned' => false,
-    'null' => true,
-    'default' => NULL,
-    'extra' => '',
-    'validate' => 0,
-    'pk' => 'id_file',
-  ),
-  'width' => 
-  array (
-    'tabName' => 'es_files',
-    'field' => 'width',
-    'type' => 'int',
-    'constraint' => '11',
-    'unsigned' => false,
-    'null' => true,
-    'default' => NULL,
-    'extra' => '',
-    'validate' => 0,
-    'pk' => 'id_file',
-  ),
-  'height' => 
-  array (
-    'tabName' => 'es_files',
-    'field' => 'height',
-    'type' => 'int',
-    'constraint' => '11',
-    'unsigned' => false,
-    'null' => true,
-    'default' => NULL,
-    'extra' => '',
-    'validate' => 0,
-    'pk' => 'id_file',
-  ),
-  'size' => 
-  array (
-    'tabName' => 'es_files',
-    'field' => 'size',
-    'type' => 'decimal',
-    'constraint' => '10',
-    'unsigned' => false,
-    'null' => true,
-    'default' => NULL,
-    'extra' => '',
-    'validate' => 0,
-    'pk' => 'id_file',
-  ),
-  'library' => 
-  array (
-    'tabName' => 'es_files',
-    'field' => 'library',
-    'type' => 'varchar',
-    'constraint' => '20',
-    'unsigned' => false,
-    'null' => true,
-    'default' => NULL,
-    'extra' => '',
-    'validate' => 0,
-    'pk' => 'id_file',
-  ),
-  'nro_thumbs' => 
-  array (
-    'tabName' => 'es_files',
-    'field' => 'nro_thumbs',
-    'type' => 'int',
-    'constraint' => '11',
-    'unsigned' => false,
-    'null' => true,
-    'default' => NULL,
-    'extra' => '',
-    'validate' => 0,
-    'pk' => 'id_file',
-  ),
-  'id_parent' => 
-  array (
-    'tabName' => 'es_files',
-    'field' => 'id_parent',
-    'type' => 'int',
-    'constraint' => '10',
-    'unsigned' => true,
-    'null' => true,
-    'default' => NULL,
-    'extra' => '',
-    'validate' => 0,
-    'filterBy' => 
-    array (
-      'thumb_marker' => '',
-    ),
-    'idForeign' => 'id_file',
-    'table' => 'es_files',
-    'pk' => 'id_file',
-  ),
-  'thumb_marker' => 
-  array (
-    'tabName' => 'es_files',
-    'field' => 'thumb_marker',
+    'tabName' => 'es_cities',
+    'field' => 'abbreviation',
     'type' => 'varchar',
     'constraint' => '200',
     'unsigned' => false,
@@ -204,14 +68,162 @@ class Migration_Create_es_files extends CI_Migration
     'default' => NULL,
     'extra' => '',
     'validate' => 0,
-    'pk' => 'id_file',
+    'pk' => 'id_city',
   ),
-  'type' => 
+  'id_capital' => 
   array (
-    'tabName' => 'es_files',
-    'field' => 'type',
+    'tabName' => 'es_cities',
+    'field' => 'id_capital',
+    'type' => 'int',
+    'constraint' => '10',
+    'unsigned' => true,
+    'null' => true,
+    'default' => NULL,
+    'extra' => '',
+    'validate' => 0,
+    'selectBy' => 'name',
+    'filterBy' => 
+    array (
+      'tipo' => 'capital',
+    ),
+    'idForeign' => 'id_city',
+    'table' => 'es_cities',
+    'pk' => 'id_city',
+  ),
+  'id_region' => 
+  array (
+    'tabName' => 'es_cities',
+    'field' => 'id_region',
+    'type' => 'int',
+    'constraint' => '10',
+    'unsigned' => true,
+    'null' => true,
+    'default' => NULL,
+    'extra' => '',
+    'validate' => 0,
+    'selectBy' => 'name',
+    'filterBy' => 
+    array (
+      'tipo' => 'region',
+    ),
+    'idForeign' => 'id_city',
+    'table' => 'es_cities',
+    'pk' => 'id_city',
+  ),
+  'lat' => 
+  array (
+    'tabName' => 'es_cities',
+    'field' => 'lat',
+    'type' => 'decimal',
+    'constraint' => '10',
+    'unsigned' => false,
+    'null' => true,
+    'default' => NULL,
+    'extra' => '',
+    'validate' => 0,
+    'pk' => 'id_city',
+  ),
+  'lng' => 
+  array (
+    'tabName' => 'es_cities',
+    'field' => 'lng',
+    'type' => 'decimal',
+    'constraint' => '10',
+    'unsigned' => false,
+    'null' => true,
+    'default' => NULL,
+    'extra' => '',
+    'validate' => 0,
+    'pk' => 'id_city',
+  ),
+  'area' => 
+  array (
+    'tabName' => 'es_cities',
+    'field' => 'area',
+    'type' => 'int',
+    'constraint' => '11',
+    'unsigned' => false,
+    'null' => true,
+    'default' => NULL,
+    'extra' => '',
+    'validate' => 0,
+    'pk' => 'id_city',
+  ),
+  'nro_municipios' => 
+  array (
+    'tabName' => 'es_cities',
+    'field' => 'nro_municipios',
+    'type' => 'int',
+    'constraint' => '11',
+    'unsigned' => false,
+    'null' => true,
+    'default' => NULL,
+    'extra' => '',
+    'validate' => 0,
+    'pk' => 'id_city',
+  ),
+  'surface' => 
+  array (
+    'tabName' => 'es_cities',
+    'field' => 'surface',
+    'type' => 'decimal',
+    'constraint' => '10',
+    'unsigned' => false,
+    'null' => true,
+    'default' => NULL,
+    'extra' => '',
+    'validate' => 0,
+    'pk' => 'id_city',
+  ),
+  'ids_files' => 
+  array (
+    'tabName' => 'es_cities',
+    'field' => 'ids_files',
     'type' => 'varchar',
-    'constraint' => '100',
+    'constraint' => '490',
+    'unsigned' => false,
+    'null' => true,
+    'default' => NULL,
+    'extra' => '',
+    'validate' => 0,
+    'input' => 'file',
+    'pk' => 'id_city',
+  ),
+  'id_cover_picture' => 
+  array (
+    'tabName' => 'es_cities',
+    'field' => 'id_cover_picture',
+    'type' => 'int',
+    'constraint' => '10',
+    'unsigned' => true,
+    'null' => true,
+    'default' => NULL,
+    'extra' => '',
+    'validate' => 0,
+    'input' => 'hidden',
+    'idForeign' => 'id_file',
+    'table' => 'es_files',
+    'pk' => 'id_city',
+  ),
+  'height' => 
+  array (
+    'tabName' => 'es_cities',
+    'field' => 'height',
+    'type' => 'decimal',
+    'constraint' => '10',
+    'unsigned' => false,
+    'null' => true,
+    'default' => NULL,
+    'extra' => '',
+    'validate' => 0,
+    'pk' => 'id_city',
+  ),
+  'tipo' => 
+  array (
+    'tabName' => 'es_cities',
+    'field' => 'tipo',
+    'type' => 'varchar',
+    'constraint' => '490',
     'unsigned' => false,
     'null' => true,
     'default' => NULL,
@@ -220,74 +232,15 @@ class Migration_Create_es_files extends CI_Migration
     'input' => 'radios',
     'options' => 
     array (
-      'gif' => 'gif',
-      'jpg' => 'jpg',
-      'png' => 'png',
-      'jpeg' => 'jpeg',
-      'pdf' => 'pdf',
-      'docx' => 'docx',
-      'xlsx' => 'xlsx',
-      'zip' => 'zip',
-      'mp4' => 'mp4',
-      'mp3' => 'mp3',
+      'region' => 'region',
+      'ciudad' => 'ciudad',
+      'capital' => 'capital',
     ),
-    'pk' => 'id_file',
-  ),
-  'x' => 
-  array (
-    'tabName' => 'es_files',
-    'field' => 'x',
-    'type' => 'decimal',
-    'constraint' => '20',
-    'unsigned' => false,
-    'null' => true,
-    'default' => NULL,
-    'extra' => '',
-    'validate' => 0,
-    'pk' => 'id_file',
-  ),
-  'y' => 
-  array (
-    'tabName' => 'es_files',
-    'field' => 'y',
-    'type' => 'decimal',
-    'constraint' => '20',
-    'unsigned' => false,
-    'null' => true,
-    'default' => NULL,
-    'extra' => '',
-    'validate' => 0,
-    'pk' => 'id_file',
-  ),
-  'fix_width' => 
-  array (
-    'tabName' => 'es_files',
-    'field' => 'fix_width',
-    'type' => 'decimal',
-    'constraint' => '20',
-    'unsigned' => false,
-    'null' => true,
-    'default' => NULL,
-    'extra' => '',
-    'validate' => 0,
-    'pk' => 'id_file',
-  ),
-  'fix_height' => 
-  array (
-    'tabName' => 'es_files',
-    'field' => 'fix_height',
-    'type' => 'decimal',
-    'constraint' => '20',
-    'unsigned' => false,
-    'null' => true,
-    'default' => NULL,
-    'extra' => '',
-    'validate' => 0,
-    'pk' => 'id_file',
+    'pk' => 'id_city',
   ),
   'status' => 
   array (
-    'tabName' => 'es_files',
+    'tabName' => 'es_cities',
     'field' => 'status',
     'type' => 'varchar',
     'constraint' => '15',
@@ -295,11 +248,11 @@ class Migration_Create_es_files extends CI_Migration
     'null' => true,
     'default' => 'ENABLED',
     'extra' => '',
-    'pk' => 'id_file',
+    'pk' => 'id_city',
   ),
   'change_count' => 
   array (
-    'tabName' => 'es_files',
+    'tabName' => 'es_cities',
     'field' => 'change_count',
     'type' => 'int',
     'constraint' => '11',
@@ -309,11 +262,11 @@ class Migration_Create_es_files extends CI_Migration
     'extra' => '',
     'label' => 'Numero de Cambios de este registro',
     'input' => 'disabled',
-    'pk' => 'id_file',
+    'pk' => 'id_city',
   ),
   'id_user_modified' => 
   array (
-    'tabName' => 'es_files',
+    'tabName' => 'es_cities',
     'field' => 'id_user_modified',
     'type' => 'int',
     'constraint' => '11',
@@ -330,11 +283,11 @@ class Migration_Create_es_files extends CI_Migration
       1 => 'lastname',
     ),
     'input' => 'disabled',
-    'pk' => 'id_file',
+    'pk' => 'id_city',
   ),
   'id_user_created' => 
   array (
-    'tabName' => 'es_files',
+    'tabName' => 'es_cities',
     'field' => 'id_user_created',
     'type' => 'int',
     'constraint' => '11',
@@ -351,11 +304,11 @@ class Migration_Create_es_files extends CI_Migration
       1 => 'lastname',
     ),
     'input' => 'disabled',
-    'pk' => 'id_file',
+    'pk' => 'id_city',
   ),
   'date_modified' => 
   array (
-    'tabName' => 'es_files',
+    'tabName' => 'es_cities',
     'field' => 'date_modified',
     'type' => 'datetime',
     'constraint' => '',
@@ -365,11 +318,11 @@ class Migration_Create_es_files extends CI_Migration
     'extra' => '',
     'label' => 'Fecha de modificación',
     'input' => 'disabled',
-    'pk' => 'id_file',
+    'pk' => 'id_city',
   ),
   'date_created' => 
   array (
-    'tabName' => 'es_files',
+    'tabName' => 'es_cities',
     'field' => 'date_created',
     'type' => 'datetime',
     'constraint' => '',
@@ -379,32 +332,44 @@ class Migration_Create_es_files extends CI_Migration
     'extra' => '',
     'label' => 'Fecha de creación',
     'input' => 'disabled',
-    'pk' => 'id_file',
+    'pk' => 'id_city',
   ),
 );
     static $tableForeignKeys = array (
-  'es_files_id_file_uindex' => 
+  'es_cities_id_city_uindex' => 
   array (
     'table' => NULL,
-    'idLocal' => 'id_file',
+    'idLocal' => 'id_city',
     'idForeign' => NULL,
   ),
-  'es_files_ibfk_1' => 
+  'es_cities_ibfk_1' => 
   array (
     'table' => 'es_users',
     'idLocal' => 'id_user_created',
     'idForeign' => 'id_user',
   ),
-  'es_files_ibfk_2' => 
+  'es_cities_ibfk_2' => 
   array (
     'table' => 'es_users',
     'idLocal' => 'id_user_modified',
     'idForeign' => 'id_user',
   ),
-  'es_files_ibfk_3' => 
+  'es_cities_ibfk_3' => 
+  array (
+    'table' => 'es_cities',
+    'idLocal' => 'id_capital',
+    'idForeign' => 'id_city',
+  ),
+  'es_cities_ibfk_4' => 
+  array (
+    'table' => 'es_cities',
+    'idLocal' => 'id_region',
+    'idForeign' => 'id_city',
+  ),
+  'es_cities_ibfk_5' => 
   array (
     'table' => 'es_files',
-    'idLocal' => 'id_parent',
+    'idLocal' => 'id_cover_picture',
     'idForeign' => 'id_file',
   ),
 );
@@ -426,6 +391,6 @@ class Migration_Create_es_files extends CI_Migration
 
     public function down()
     {
-        //$this->dbforge->drop_table('es_files');
+        //$this->dbforge->drop_table('es_cities');
     }
 }
