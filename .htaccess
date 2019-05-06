@@ -334,9 +334,9 @@
 
 	Options +FollowSymLinks
 	RewriteEngine On
-    LimitRequestBody 92400000
-php_value upload_max_filesize 20M
-php_value post_max_size 20M
+  LimitRequestBody 92400000
+  php_value upload_max_filesize 20M
+  php_value post_max_size 20M
 
 	# Send request via index.php
 	RewriteCond %{REQUEST_FILENAME} !-f

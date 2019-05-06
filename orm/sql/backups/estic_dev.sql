@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 24-04-2019 a las 16:20:22
+-- Tiempo de generación: 04-05-2019 a las 17:47:57
 -- Versión del servidor: 10.1.37-MariaDB
 -- Versión de PHP: 7.2.14
 
@@ -159,6 +159,15 @@ CREATE TABLE `es_logs` (
   `date_created` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `es_logs`
+--
+
+INSERT INTO `es_logs` (`id_log`, `heading`, `message`, `action`, `code`, `level`, `file`, `line`, `trace`, `previous`, `xdebug_message`, `type`, `post`, `severity`, `status`, `change_count`, `id_user_modified`, `id_user_created`, `date_modified`, `date_created`) VALUES
+(1116, 'An Error Was Encountered', 'La tabla hbf_empleados no se encuentra en la base de datos', 'estic/logs', '500', 2, NULL, NULL, NULL, NULL, NULL, NULL, '|', NULL, 'ENABLED', 0, 1, 1, '2019-05-04 11:45:11', '2019-05-04 11:45:11'),
+(1117, 'An Error Was Encountered', 'La tabla hbf_empleados no se encuentra en la base de datos', 'estic/users', '500', 2, NULL, NULL, NULL, NULL, NULL, NULL, '|', NULL, 'ENABLED', 0, 1, 1, '2019-05-04 11:45:15', '2019-05-04 11:45:15'),
+(1118, NULL, 'Call to undefined method Model_Users::getCellphoneNumber1()', NULL, '0', 2, '/Applications/XAMPP/xamppfiles/htdocs/estic/proyects/herbalife-nutrition/app/modules/estic/users/views/index.php', 77, '#0 /Applications/XAMPP/xamppfiles/htdocs/estic/proyects/herbalife-nutrition/isys/third_party/MX/Loader.php(455): include()\n#1 /Applications/XAMPP/xamppfiles/htdocs/estic/proyects/herbalife-nutrition/isys/third_party/MX/Loader.php(362): MX_Loader->_ci_load(Array, false, \'\')\n#2 /Applications/XAMPP/xamppfiles/htdocs/estic/proyects/herbalife-nutrition/app/layouts/backend/_subLayout.php(188): MX_Loader->view(\'index\')\n#3 /Applications/XAMPP/xamppfiles/htdocs/estic/proyects/herbalife-nutrition/isys/third_party/MX/Loader.php(455): include(\'/Applications/X...\')\n#4 /Applications/XAMPP/xamppfiles/htdocs/estic/proyects/herbalife-nutrition/isys/third_party/MX/Loader.php(362): MX_Loader->_ci_load(Array, false, \'\')\n#5 /Applications/XAMPP/xamppfiles/htdocs/estic/proyects/herbalife-nutrition/app/layouts/backend/_layout.php(106): MX_Loader->view(\'_subLayout\')\n#6 /Applications/XAMPP/xamppfiles/htdocs/estic/proyects/herbalife-nutrition/isys/third_party/MX/Loader.php(455): include(\'/Applications/X...\')\n#7 /Applications/XAMPP/xamppfiles/htdocs/estic/proyects/herbalife-nutrition/isys/third_party/MX/Loader.php(362): MX_Loader->_ci_load(Array, false, \'\')\n#8 /Applications/XAMPP/xamppfiles/htdocs/estic/proyects/herbalife-nutrition/isys/core/CodeIgniter.php(1245): MX_Loader->view(\'_layout\', Array)\n#9 /Applications/XAMPP/xamppfiles/htdocs/estic/proyects/herbalife-nutrition/index.php(87): require_once(\'/Applications/X...\')\n#10 {main}', NULL, NULL, NULL, '|', NULL, 'ENABLED', 0, 1, 1, '2019-05-04 11:45:15', '2019-05-04 11:45:15');
+
 -- --------------------------------------------------------
 
 --
@@ -183,7 +192,7 @@ CREATE TABLE `es_modules` (
 
 INSERT INTO `es_modules` (`id_module`, `name`, `description`, `status`, `change_count`, `id_user_modified`, `id_user_created`, `date_modified`, `date_created`) VALUES
 (1, 'Administrador del sistema estic', 'Modulo para la administracion del nucleo del sistema', 'ENABLED', 0, 1, 1, '2018-09-06 13:00:58', '2018-09-06 12:47:30'),
-(3, 'Administrador del sistema admin', 'Modulo para la administracion del nucleo estic', 'ENABLED', 0, 1, 1, '2018-09-06 12:48:32', '2018-09-06 12:48:32');
+(2, 'Administrador del sistema admin', 'Modulo para la administracion del sistema Herbalife Nutrition', 'ENABLED', 0, 1, 1, '2018-09-06 12:48:32', '2018-09-06 12:48:32');
 
 -- --------------------------------------------------------
 
@@ -260,6 +269,21 @@ CREATE TABLE `es_sessions` (
   `lat` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='{"title":"Sesiones del Sistema","indexFields":["ip_address","timestamp","last_activity","id_user"],"numListed":4}';
 
+--
+-- Volcado de datos para la tabla `es_sessions`
+--
+
+INSERT INTO `es_sessions` (`id`, `ip_address`, `timestamp`, `data`, `last_activity`, `id_user`, `lng`, `lat`) VALUES
+('0a1a4d5a639da49c43b34db151f4ab2c', '127.0.0.1', 1556984715, 0x5f5f63695f6c6173745f726567656e65726174657c693a313535363938343539393b61646d696e5f6c6f67676564696e7c613a383a7b733a373a2269645f75736572223b733a313a2231223b733a353a22656d61696c223b733a31393a2272616661656c4065737469632e636f6d2e626f223b733a383a2270617373776f7264223b733a3132383a223335626236623232393263353433613362656134373936303665363735356139303334616361336664306133626530323138303839306164356561363733613333346465633832666563333836383830623730313061636537346534393537643962626636653763306539313832363438383936613566643939346631306134223b733a373a2269645f726f6c65223b733a313a2231223b733a343a226e616d65223b733a363a2252616661656c223b733a383a226c6173746e616d65223b733a393a2247757469657272657a223b733a393a226964735f726f6c6573223b613a313a7b693a303b643a313b7d733a383a226c6f67676564696e223b623a313b7d69645f757365727c643a313b, '2019-05-04 11:43:19', 1, NULL, NULL),
+('14d9e2320c1af47237b47c3d4f4b7e33', '127.0.0.1', 1556946904, 0x5f5f63695f6c6173745f726567656e65726174657c693a313535363934363633313b, '2019-05-04 01:10:31', NULL, NULL, NULL),
+('1dcca554f857f864474eb834ef04617e', '127.0.0.1', 1556983995, 0x5f5f63695f6c6173745f726567656e65726174657c693a313535363938333939353b, '2019-05-04 10:51:00', NULL, NULL, NULL),
+('719274b68340e2cea4f0feace8451540', '127.0.0.1', 1556983321, 0x5f5f63695f6c6173745f726567656e65726174657c693a313535363938333332313b61646d696e5f6c6f67676564696e7c613a383a7b733a373a2269645f75736572223b733a313a2231223b733a353a22656d61696c223b733a31393a2272616661656c4065737469632e636f6d2e626f223b733a383a2270617373776f7264223b733a3132383a223335626236623232393263353433613362656134373936303665363735356139303334616361336664306133626530323138303839306164356561363733613333346465633832666563333836383830623730313061636537346534393537643962626636653763306539313832363438383936613566643939346631306134223b733a373a2269645f726f6c65223b733a313a2231223b733a343a226e616d65223b733a363a2252616661656c223b733a383a226c6173746e616d65223b733a393a2247757469657272657a223b733a393a226964735f726f6c6573223b613a313a7b693a303b643a313b7d733a383a226c6f67676564696e223b623a313b7d69645f757365727c643a313b, '2019-05-04 11:14:04', 1, NULL, NULL),
+('7e15eeb379d37f2bc92227b156896cb3', '127.0.0.1', 1556983806, 0x5f5f63695f6c6173745f726567656e65726174657c693a313535363938333830363b61646d696e5f6c6f67676564696e7c613a383a7b733a373a2269645f75736572223b733a313a2231223b733a353a22656d61696c223b733a31393a2272616661656c4065737469632e636f6d2e626f223b733a383a2270617373776f7264223b733a3132383a223335626236623232393263353433613362656134373936303665363735356139303334616361336664306133626530323138303839306164356561363733613333346465633832666563333836383830623730313061636537346534393537643962626636653763306539313832363438383936613566643939346631306134223b733a373a2269645f726f6c65223b733a313a2231223b733a343a226e616d65223b733a363a2252616661656c223b733a383a226c6173746e616d65223b733a393a2247757469657272657a223b733a393a226964735f726f6c6573223b613a313a7b693a303b643a313b7d733a383a226c6f67676564696e223b623a313b7d69645f757365727c643a313b, '2019-05-04 11:24:22', 1, NULL, NULL),
+('816b99a9fe57fd399cd38d44a99b13a3', '127.0.0.1', 1556982844, 0x5f5f63695f6c6173745f726567656e65726174657c693a313535363938323834343b, '2019-05-04 10:56:35', NULL, NULL, NULL),
+('ac51c4b894a826d90d7ba14f370b24e9', '127.0.0.1', 1556983963, 0x5f5f63695f6c6173745f726567656e65726174657c693a313535363938333830363b61646d696e5f6c6f67676564696e7c613a383a7b733a373a2269645f75736572223b733a313a2231223b733a353a22656d61696c223b733a31393a2272616661656c4065737469632e636f6d2e626f223b733a383a2270617373776f7264223b733a3132383a223335626236623232393263353433613362656134373936303665363735356139303334616361336664306133626530323138303839306164356561363733613333346465633832666563333836383830623730313061636537346534393537643962626636653763306539313832363438383936613566643939346631306134223b733a373a2269645f726f6c65223b733a313a2231223b733a343a226e616d65223b733a363a2252616661656c223b733a383a226c6173746e616d65223b733a393a2247757469657272657a223b733a393a226964735f726f6c6573223b613a313a7b693a303b643a313b7d733a383a226c6f67676564696e223b623a313b7d69645f757365727c643a313b, '2019-05-04 11:32:35', 1, NULL, NULL),
+('be7ea711fbf9c4170cd3b45b350b168a', '127.0.0.1', 1556984599, 0x5f5f63695f6c6173745f726567656e65726174657c693a313535363938343539393b61646d696e5f6c6f67676564696e7c613a383a7b733a373a2269645f75736572223b733a313a2231223b733a353a22656d61696c223b733a31393a2272616661656c4065737469632e636f6d2e626f223b733a383a2270617373776f7264223b733a3132383a223335626236623232393263353433613362656134373936303665363735356139303334616361336664306133626530323138303839306164356561363733613333346465633832666563333836383830623730313061636537346534393537643962626636653763306539313832363438383936613566643939346631306134223b733a373a2269645f726f6c65223b733a313a2231223b733a343a226e616d65223b733a363a2252616661656c223b733a383a226c6173746e616d65223b733a393a2247757469657272657a223b733a393a226964735f726f6c6573223b613a313a7b693a303b643a313b7d733a383a226c6f67676564696e223b623a313b7d69645f757365727c643a313b, '2019-05-04 11:33:15', 1, NULL, NULL),
+('f15496f6ff36efb68aff94ad985a7912', '127.0.0.1', 1556946631, 0x5f5f63695f6c6173745f726567656e65726174657c693a313535363934363633313b, '2019-05-04 00:45:34', NULL, NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -291,18 +315,18 @@ CREATE TABLE `es_tables` (
 --
 
 INSERT INTO `es_tables` (`id_table`, `id_module`, `id_role`, `title`, `table_name`, `listed`, `description`, `icon`, `url`, `url_edit`, `url_index`, `status`, `change_count`, `id_user_modified`, `id_user_created`, `date_modified`, `date_created`) VALUES
-(110, 1, 1, 'Cities', 'es_cities', 'enabled', '', '', 'estic/cities', 'estic/cities/edit', 'estic/cities/index', 'enabled', 117, 1, 1, '2019-02-19 14:42:46', '2018-09-27 18:31:57'),
-(111, 1, 1, 'Domains', 'es_domains', 'enabled', '', '', 'estic/domains', 'estic/domains/edit', 'estic/domains/index', 'enabled', 99, 1, 1, '2019-02-19 13:00:40', '2018-11-21 16:44:40'),
-(112, 1, 1, 'Logs', 'es_logs', 'enabled', '', '', 'estic/logs', 'estic/logs/edit', 'estic/logs/index', 'enabled', 100, 1, 1, '2019-02-19 13:00:41', '2018-11-21 16:44:40'),
-(120, 1, 1, 'Provincias', 'es_provincias', 'enabled', '', '', 'estic/provincias', 'estic/provincias/edit', 'estic/provincias/index', 'enabled', 98, 1, 1, '2019-02-19 13:00:41', '2018-09-27 18:31:59'),
-(130, 1, 1, 'Roles', 'es_roles', 'enabled', '', '', 'estic/roles', 'estic/roles/edit', 'estic/roles/index', 'enabled', 99, 1, 1, '2019-02-19 13:00:41', '2018-11-16 18:50:58'),
-(131, 1, 1, 'Users Roles', 'es_users_roles', 'enabled', '', '', 'estic/users_roles', 'estic/users_roles/edit', 'estic/users_roles/index', 'enabled', 98, 1, 1, '2019-02-19 13:00:41', '2018-11-16 18:50:58'),
-(140, 1, 1, 'Tables', 'es_tables', 'enabled', '', '', 'estic/tables', 'estic/tables/edit', 'estic/tables/index', 'enabled', 98, 1, 1, '2019-02-19 13:00:41', '2018-09-27 18:32:02'),
-(141, 1, 1, 'Tables Roles', 'es_tables_roles', 'enabled', '', '', 'estic/tables_roles', 'estic/tables_roles/edit', 'estic/tables_roles/index', 'enabled', 97, 1, 1, '2019-02-19 13:00:42', '2018-09-27 18:32:02'),
-(150, 1, 1, 'Sesiones del Sistema', 'es_sessions', 'enabled', '', '', 'estic/sessions', 'estic/sessions/edit', 'estic/sessions/index', 'enabled', 97, 1, 1, '2019-02-19 13:00:42', '2018-09-27 18:32:04'),
-(160, 1, 1, 'Files', 'es_files', 'enabled', '', '', 'estic/files', 'estic/files/edit', 'estic/files/index', 'enabled', 100, 1, 1, '2019-02-19 13:00:42', '2018-09-27 18:32:05'),
-(170, 1, 1, 'Users', 'es_users', 'enabled', '', '', 'estic/users', 'estic/users/edit', 'estic/users/index', 'enabled', 114, 1, 1, '2019-02-19 13:00:43', '2018-09-27 18:32:06'),
-(180, 1, 1, 'Modules', 'es_modules', 'enabled', '', '', 'estic/modules', 'estic/modules/edit', 'estic/modules/index', 'enabled', 94, 1, 1, '2019-02-19 13:00:43', '2018-09-27 18:32:08');
+(101, 1, 1, 'Cities', 'es_cities', 'enabled', '', '', 'estic/cities', 'estic/cities/edit', 'estic/cities/index', 'enabled', 1, 1, 1, '2019-05-02 02:12:20', '2019-05-02 00:33:57'),
+(102, 1, 1, 'Logs', 'es_logs', 'enabled', '', '', 'estic/logs', 'estic/logs/edit', 'estic/logs/index', 'enabled', 1, 1, 1, '2019-05-02 02:12:21', '2019-05-02 00:33:57'),
+(103, 1, 1, 'Domains', 'es_domains', 'enabled', '', '', 'estic/domains', 'estic/domains/edit', 'estic/domains/index', 'enabled', 1, 1, 1, '2019-05-02 02:12:21', '2019-05-02 00:33:57'),
+(104, 1, 1, 'Users Roles', 'es_users_roles', 'enabled', '', '', 'estic/users_roles', 'estic/users_roles/edit', 'estic/users_roles/index', 'enabled', 1, 1, 1, '2019-05-02 02:12:21', '2019-05-02 00:33:57'),
+(105, 1, 1, 'Users', 'es_users', 'enabled', '', '', 'estic/users', 'estic/users/edit', 'estic/users/index', 'enabled', 1, 1, 1, '2019-05-02 02:12:22', '2019-05-02 00:33:57'),
+(106, 1, 1, 'Tables Roles', 'es_tables_roles', 'enabled', '', '', 'estic/tables_roles', 'estic/tables_roles/edit', 'estic/tables_roles/index', 'enabled', 1, 1, 1, '2019-05-02 02:12:22', '2019-05-02 00:33:57'),
+(107, 1, 1, 'Tables', 'es_tables', 'enabled', '', '', 'estic/tables', 'estic/tables/edit', 'estic/tables/index', 'enabled', 1, 1, 1, '2019-05-02 02:12:23', '2019-05-02 00:33:57'),
+(108, 1, 1, 'Sesiones del Sistema', 'es_sessions', 'enabled', '', '', 'estic/sessions', 'estic/sessions/edit', 'estic/sessions/index', 'enabled', 2, 1, 1, '2019-05-02 02:12:23', '2019-05-02 00:33:57'),
+(109, 1, 1, 'Roles', 'es_roles', 'enabled', '', '', 'estic/roles', 'estic/roles/edit', 'estic/roles/index', 'enabled', 2, 1, 1, '2019-05-02 02:12:23', '2019-05-02 00:33:57'),
+(110, 1, 1, 'Provincias', 'es_provincias', 'enabled', '', '', 'estic/provincias', 'estic/provincias/edit', 'estic/provincias/index', 'enabled', 2, 1, 1, '2019-05-02 02:12:24', '2019-05-02 00:33:57'),
+(111, 1, 1, 'Modules', 'es_modules', 'enabled', '', '', 'estic/modules', 'estic/modules/edit', 'estic/modules/index', 'enabled', 2, 1, 1, '2019-05-02 02:12:24', '2019-05-02 00:33:57'),
+(112, 1, 1, 'Files', 'es_files', 'enabled', '', '', 'estic/files', 'estic/files/edit', 'estic/files/index', 'enabled', 2, 1, 1, '2019-05-02 02:12:24', '2019-05-02 00:33:57');
 
 -- --------------------------------------------------------
 
@@ -327,30 +351,18 @@ CREATE TABLE `es_tables_roles` (
 --
 
 INSERT INTO `es_tables_roles` (`id_table_role`, `id_table`, `id_role`, `estado`, `change_count`, `id_user_modified`, `id_user_created`, `date_modified`, `date_created`) VALUES
-(110, 110, 1, 'ENABLED', 118, 1, 1, '2019-02-19 14:42:46', '2018-11-25 15:35:22'),
-(111, 111, 1, 'ENABLED', 100, 1, 1, '2019-02-19 13:00:40', '2018-11-25 15:35:47'),
-(112, 112, 1, 'ENABLED', 101, 1, 1, '2019-02-19 13:00:41', '2018-11-27 12:00:04'),
-(113, NULL, 1, 'ENABLED', 0, 1, 1, '2018-12-03 16:36:19', '2018-12-03 16:36:19'),
-(120, 120, 1, 'ENABLED', 99, 1, 1, '2019-02-19 13:00:41', '2018-11-25 15:38:08'),
-(130, 130, 1, 'ENABLED', 100, 1, 1, '2019-02-19 13:00:41', '2018-11-28 18:14:05'),
-(131, 131, 1, 'ENABLED', 99, 1, 1, '2019-02-19 13:00:41', '2018-11-25 15:38:21'),
-(140, 140, 1, 'ENABLED', 99, 1, 1, '2019-02-19 13:00:41', '2018-11-25 15:38:27'),
-(141, 141, 1, 'ENABLED', 98, 1, 1, '2019-02-19 13:00:42', '2018-11-25 15:38:34'),
-(150, 150, 1, 'ENABLED', 98, 1, 1, '2019-02-19 13:00:42', '2018-11-25 15:38:40'),
-(160, 160, 1, 'ENABLED', 101, 1, 1, '2019-02-19 13:00:42', '2018-11-25 15:38:43'),
-(161, NULL, 1, 'ENABLED', 0, 1, 1, '2018-12-24 14:05:25', '2018-12-24 14:05:25'),
-(170, 170, 1, 'ENABLED', 115, 1, 1, '2019-02-19 13:00:43', '2018-11-25 15:38:49'),
-(180, 180, 1, 'ENABLED', 95, 1, 1, '2019-02-19 13:00:43', '2018-11-25 15:38:55'),
-(1000, 110, 2, 'ENABLED', 0, 1, 1, '2018-11-25 15:37:55', '2018-11-25 15:35:22'),
-(1001, 111, 2, 'ENABLED', 0, 1, 1, '2018-11-25 15:37:55', '2018-11-25 15:35:22'),
-(1002, 120, 2, 'ENABLED', 0, 1, 1, '2018-11-25 15:37:55', '2018-11-25 15:35:22'),
-(1004, 131, 2, 'ENABLED', 0, 1, 1, '2018-11-25 15:37:55', '2018-11-25 15:35:22'),
-(1006, 140, 2, 'ENABLED', 0, 1, 1, '2018-11-25 15:37:55', '2018-11-25 15:35:22'),
-(1007, 141, 2, 'ENABLED', 0, 1, 1, '2018-11-25 15:37:55', '2018-11-25 15:35:22'),
-(1008, 150, 2, 'ENABLED', 0, 1, 1, '2018-11-25 15:37:55', '2018-11-25 15:35:22'),
-(1009, 160, 2, 'ENABLED', 0, 1, 1, '2018-11-25 15:37:55', '2018-11-25 15:35:22'),
-(1010, 170, 2, 'ENABLED', 0, 1, 1, '2018-11-25 15:37:55', '2018-11-25 15:35:22'),
-(1011, 180, 2, 'ENABLED', 0, 1, 1, '2018-11-25 15:37:55', '2018-11-25 15:35:22');
+(101, 101, 1, 'ENABLED', 0, 1, 1, '2019-05-02 02:12:20', '2019-05-02 02:12:20'),
+(102, 102, 1, 'ENABLED', 0, 1, 1, '2019-05-02 02:12:21', '2019-05-02 02:12:21'),
+(103, 103, 1, 'ENABLED', 0, 1, 1, '2019-05-02 02:12:21', '2019-05-02 02:12:21'),
+(104, 104, 1, 'ENABLED', 0, 1, 1, '2019-05-02 02:12:21', '2019-05-02 02:12:21'),
+(105, 105, 1, 'ENABLED', 0, 1, 1, '2019-05-02 02:12:22', '2019-05-02 02:12:22'),
+(106, 106, 1, 'ENABLED', 0, 1, 1, '2019-05-02 02:12:22', '2019-05-02 02:12:22'),
+(107, 107, 1, 'ENABLED', 0, 1, 1, '2019-05-02 02:12:23', '2019-05-02 02:12:23'),
+(108, 108, 1, 'ENABLED', 3, 1, 1, '2019-05-02 02:12:23', '2019-05-02 01:44:29'),
+(109, 109, 1, 'ENABLED', 3, 1, 1, '2019-05-02 02:12:23', '2019-05-02 01:44:30'),
+(110, 110, 1, 'ENABLED', 3, 1, 1, '2019-05-02 02:12:24', '2019-05-02 01:44:30'),
+(111, 111, 1, 'ENABLED', 3, 1, 1, '2019-05-02 02:12:24', '2019-05-02 01:44:30'),
+(112, 112, 1, 'ENABLED', 3, 1, 1, '2019-05-02 02:12:24', '2019-05-02 01:44:31');
 
 -- --------------------------------------------------------
 
@@ -385,14 +397,14 @@ CREATE TABLE `es_users` (
   `status` varchar(15) NOT NULL DEFAULT 'ENABLED',
   `date_modified` datetime NOT NULL,
   `date_created` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='{"indexFields":["name","lastname","sexo","cellphone_number_1"],"numListed":5}';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='{"indexFields":["name","lastname","sexo","cellphone_1"],"numListed":5}';
 
 --
 -- Volcado de datos para la tabla `es_users`
 --
 
 INSERT INTO `es_users` (`id_user`, `name`, `lastname`, `username`, `email`, `address`, `password`, `birthdate`, `age`, `carnet`, `sexo`, `phone_1`, `phone_2`, `cellphone_1`, `cellphone_2`, `ids_files`, `id_cover_picture`, `id_city`, `id_provincia`, `id_role`, `signin_method`, `uid`, `change_count`, `status`, `date_modified`, `date_created`) VALUES
-(1, 'Rafael', 'Gutierrez', '', 'rafael@estic.com', '', '35bb6b2292c543a3bea479606e6755a9034aca3fd0a3be02180890ad5ea673a334dec82fec386880b7010ace74e4957d9bbf6e7c0e9182648896a5fd994f10a4', '0000-00-00', 0, '', 'masculino', '', '', '', '', '', NULL, NULL, NULL, 1, '', NULL, 1, 'ENABLED', '2018-11-28 21:46:42', '2018-08-29 09:45:30');
+(1, 'Rafael', 'Gutierrez', '', 'rafael@estic.com.bo', '', '35bb6b2292c543a3bea479606e6755a9034aca3fd0a3be02180890ad5ea673a334dec82fec386880b7010ace74e4957d9bbf6e7c0e9182648896a5fd994f10a4', '0000-00-00', 0, '', 'masculino', '', '', '', '', '', NULL, NULL, NULL, 1, '', NULL, 1, 'ENABLED', '2018-11-28 21:46:42', '2018-08-29 09:45:30');
 
 -- --------------------------------------------------------
 
@@ -434,7 +446,7 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`version`) VALUES
-(109);
+(112);
 
 --
 -- Índices para tablas volcadas
@@ -584,7 +596,7 @@ ALTER TABLE `es_files`
 -- AUTO_INCREMENT de la tabla `es_logs`
 --
 ALTER TABLE `es_logs`
-  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1119;
 
 --
 -- AUTO_INCREMENT de la tabla `es_modules`

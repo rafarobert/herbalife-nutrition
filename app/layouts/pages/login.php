@@ -21,7 +21,7 @@
                 <!--Continually expanded and constantly improved Inspinia Admin Them (IN+)-->
             </p>
             <p>Login in. To see it in action.</p>
-            <?= form_open(WEBSERVER.'base/sessions/login',['class' => 'm-t']) ?>
+            <?= form_open(WEBSERVER.'estic/sessions/login',['class' => 'm-t']) ?>
             <div class="form-group">
                 <?= form_email('email','','id="login-email" class="form-control" placeholder="username or email address" required=""')?>
             </div>

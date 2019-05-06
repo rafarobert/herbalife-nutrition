@@ -223,8 +223,8 @@ $route["inicio"] = 'frontend/dinamic/dashboard';
 $route['admin'] = 'backend/admin/dashboard';
 $route['admin/dashboard'] = 'backend/admin/dashboard';
 
-$route['base'] = 'backend/base/dashboard';
-$route['base/dashboard'] = 'backend/base/dashboard';
+$route['estic'] = 'backend/estic/dashboard';
+$route['estic/dashboard'] = 'backend/estic/dashboard';
 
 /*
 |

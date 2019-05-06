@@ -39,7 +39,7 @@
             <?= form_submit('register','Register','id="btnRegister" class="btn btn-primary block full-width m-b"')?>
 
             <p class="text-muted text-center"><small>¿Ya tienes una cuenta?</small></p>
-            <?=anchor('base/sessions/login','login','class="btn btn-sm btn-white btn-block"')?>
+            <?=anchor('estic/sessions/login','login','class="btn btn-sm btn-white btn-block"')?>
             <?= form_hidden('uri_string',$uri_string)?>
             <?= form_hidden('signin_method',SERVERNAME)?>
 

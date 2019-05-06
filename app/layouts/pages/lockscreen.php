@@ -17,7 +17,7 @@
         </div>
         <h3>Acceso Denegado</h3>
         <p>Estás en pantalla de bloqueo. La aplicación principal se cerró y debe ingresar su correo y contraseña para volver a la aplicación.</p>
-        <?= form_open(WEBSERVER.'base/sessions/login',['class' => 'm-t']) ?>
+        <?= form_open(WEBSERVER.'estic/sessions/login',['class' => 'm-t']) ?>
 
             <div class="form-group">
                 <input type="text" name="email" class="form-control" placeholder="Correo" required="">

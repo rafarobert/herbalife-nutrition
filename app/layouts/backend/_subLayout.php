@@ -31,7 +31,7 @@
                             <li><a href="contacts.html">Contacts</a></li>
                             <li><a href="mailbox.html">Mailbox</a></li>
                             <li class="divider"></li>
-                            <li><a href="base/sessions/logout">Logout</a></li>
+                            <li><a href="estic/sessions/logout">Logout</a></li>
                         </ul>
                     </div>
                     <div class="logo-element no-margins no-padding">
@@ -169,7 +169,7 @@
 
 
                     <li>
-                        <?= anchor(WEBSERVER.'base/sessions/logout','<i class="fa fa-sign-out" aria-hidden="true"></i> Log out')?>
+                        <?= anchor(WEBSERVER.'estic/sessions/logout','<i class="fa fa-sign-out" aria-hidden="true"></i> Log out')?>
                     </li>
                     <li>
                         <a class="right-sidebar-toggle">
