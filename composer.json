@@ -90,7 +90,7 @@
         ],
 
         "files": [
-            "app/config/config.php"
+            "orm/config/config.php"
         ]
 
     },

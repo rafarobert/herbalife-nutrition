@@ -517,38 +517,6 @@ $config['rewrite_short_tags'] = FALSE;
 */
  $config['proxy_ips'] = '';
 
- $config['mig_table'] = 'es_tables';
- $config['mig_path'] = 'orm/migrations/tables/';
-
- $config['english_words'] = ['files','sessions','roles','settings','cities','modules','tables','domains'];
- $config['controlFields'] = ['status','estado','change_count','id_user_modified','id_user_created','date_modified','date_created'];
-
-
- // -------------------------- Configuraciones para la subida de archivos ------------------------
- $config['file_max_size'] = 100000000;
- $config['file_types'] = 'gif|jpg|png|jpeg|pdf|docx|xlsx|zip|mp4|mp3';
- $config['file_types_js'] = '.gif,.jpg,.png,.jpeg,.pdf,.docx,.xlsx,.zip,.mp4,.mp3,image/*,application/pdf,video/*,audio/*';
- $config['file_without_tumbs'] = '.xlsx|.docx|.zip|.pdf|.mp4|.mp3';
- $config['img_max_width'] = 10000;
- $config['img_max_height'] = 10000;
- // --------------------------- Fin configuraciones para la subida de archivos -------------------------
-
- // -------------------------- Configuraciones del proyecto -------------------------------
-
- $config['soft_name'] = 'herbalife';
- $config['soft_user_id'] = '1';
- $config['soft_user'] = 'rafaelgutierrez';
- $config['soft_user_name'] = 'Rafael Gutierrez Gaspar';
- $config['soft_user_email'] = 'rafarobertgu@gmail.com';
- $config['soft_user_role'] = '1';
-
- $config['appDirs'] = array(
-     'modules' => [
-         'admin' => 'HMVC',
-         'front' => 'HMVC'
-     ],
- );
-
  $config['sys'] = array(
    'core' => 'estic',
    'es' => 'estic',

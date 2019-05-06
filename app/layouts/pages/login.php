@@ -32,9 +32,9 @@
 
             <?= form_submit('login','Ingresar','id="btn-login" class="btn btn-primary block full-width m-b"')?>
 
-            <?=anchor('base/sessions/forgot_password','<small>Forgot password?</small>')?>
+            <?=anchor('estic/sessions/forgot_password','<small>Forgot password?</small>')?>
             <p class="text-muted text-center"><small>Do not have an account?</small></p>
-            <?=anchor('base/sessions/signup','Create an account','class="btn btn-sm btn-white btn-block"')?>
+            <?=anchor('estic/sessions/signup','Create an account','class="btn btn-sm btn-white btn-block"')?>
 
             <?= form_close() ?>
 

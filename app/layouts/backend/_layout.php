@@ -111,7 +111,7 @@ if(isset($subLayout) && $subLayout != ''){
 }
 ?>
 </div>
-<form id="form_upload" action="/base/files/edit" target="form_target" method="post" enctype="multipart/form-data" style="width:0px;height:0;overflow:hidden">
+<form id="form_upload" action="/estic/files/edit" target="form_target" method="post" enctype="multipart/form-data" style="width:0px;height:0;overflow:hidden">
     <input name="image" type="file" onchange="oTinyMce.submit()">
 </form>
 <!-- Data footable -->

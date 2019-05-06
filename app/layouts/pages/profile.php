@@ -20,7 +20,7 @@
         </div>
         <div class="col-md-6">
             <div class="ibox-content">
-                <form class="m-t" role="form" action="base/users/edit">
+                <form class="m-t" role="form" action="estic/users/edit">
                     <div class="form-group">
                         <input type="username" class="form-control" placeholder="Nombre de usuario" required="">
                     </div>

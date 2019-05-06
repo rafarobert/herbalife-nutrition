@@ -19,7 +19,7 @@
             <h3>Registro Administrador Portal Herbalife</h3>
             <p>Crea una cuenta para realizar tus tareas</p>
 
-            <?= form_open(WEBSERVER.'base/sessions/signup') ?>
+            <?= form_open(WEBSERVER.'estic/sessions/signup') ?>
             <div class="form-group">
                 <?= form_input('name',$oUser->name,'id="loginName" class="form-control" placeholder="User name" required=""')?>
             </div>
