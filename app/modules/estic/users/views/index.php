@@ -2,8 +2,8 @@
 /**
  * Created by herbalife.
  * User: rafaelgutierrez
- * Date: 02/05/2019
- * Time: 1:44 am
+ * Date: 06/05/2019
+ * Time: 3:02 am
  * @var Model_users $model_users
  * @var Model_users users
  * @var Model_users $User
@@ -60,7 +60,7 @@
                                 <th>Name</th>
                 <th>Lastname</th>
                 <th>Sexo</th>
-                <th>Cellphone Number 1</th>
+                <th>Celular 1</th>
                 <th>Username</th>
                 <th>Fecha de creación</th>
             
@@ -74,7 +74,7 @@
                                         <td><?= $oUser->getName(); ?></td>               
                     <td><?= $oUser->getLastname(); ?></td>               
                     <td><?= $oUser->getSexo(); ?></td>               
-                    <td><?= $oUser->getCellphoneNumber1(); ?></td>               
+                    <td><?= $oUser->getCellphone1(); ?></td>               
                     <td><?= $oUser->getUsername(); ?></td>               
                     <td><?= $oUser->getDateCreated(); ?></td>
             
@@ -97,7 +97,7 @@
                                 <th>Name</th>
                 <th>Lastname</th>
                 <th>Sexo</th>
-                <th>Cellphone Number 1</th>
+                <th>Celular 1</th>
                 <th>Username</th>
                 <th>Fecha de creación</th>
             

@@ -2,8 +2,8 @@
 /**
  * Created by herbalife.
  * User: rafaelgutierrez
- * Date: 02/05/2019
- * Time: 2:12 am
+ * Date: 06/05/2019
+ * Time: 3:04 am
  * @var Model_Logs $model_logs
  * @var Model_Logs $oLogs
  * @var Model_Logs $oLog

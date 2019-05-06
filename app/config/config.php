@@ -549,6 +549,7 @@ $config['rewrite_short_tags'] = FALSE;
  $config["herbalife-nutrition"] = [
    [
      "host" => "local.herbalife-nutrition.com",
+      "hostname-core" => "local.estic.com.bo",
       "hostname" => "local.herbalife-nutrition.com",
       "protocol"=> "http:",
       "port"=> "80",

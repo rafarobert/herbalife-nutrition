@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: rafaelgutierrez
- * Date: 02/05/2019
- * Time: 12:40 am
+ * Date: 06/05/2019
+ * Time: 3:01 am
  */
 
 defined('BASEPATH') OR exit('No direct script access allowed');
@@ -431,7 +431,7 @@ class Migration_Create_es_users extends CI_Migration
     0 => 'name',
     1 => 'lastname',
     2 => 'sexo',
-    3 => 'cellphone_number_1',
+    3 => 'cellphone_1',
   ),
   'numListed' => 5,
   'ctrl' => true,

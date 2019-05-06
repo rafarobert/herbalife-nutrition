@@ -81,8 +81,13 @@ if(isset($_SERVER['ESTIC_ORIGIN'])){
 }
 
 // Path to the system folder
-define('PWD', str_replace('\\', '/', isset($_SERVER['PWD']) ? $_SERVER['PWD'].'/' : ''));
-define('BASEPATH', str_replace('\\', '/', isset($_SERVER['PWD']) ? $_SERVER['PWD']."/$system_path/" : $system_path.'/' ));
+if(!defined('PWD')){
+  define('PWD', str_replace('\\', '/', isset($_SERVER['PWD']) ? $_SERVER['PWD'].'/' : ''));
+}
+
+if(!defined('BASEPATH')){
+  define('BASEPATH', str_replace('\\', '/', isset($_SERVER['PWD']) ? $_SERVER['PWD']."/$system_path/" : $system_path.'/' ));
+}
 
 require_once BASEPATH . 'core/CodeIgniter.php';
 
