@@ -37,7 +37,7 @@ module.exports = function(grunt) {
             },
             target: {
                 files: {
-                    'assets/css/estic-front.css': [
+                    'assets/css/estic-front.min.css': [
                     'assets/css/bootstrap-3.0.3/bootstrap.css',
                     'assets/canvas/style.css',
                     'assets/canvas/css/animate.css',

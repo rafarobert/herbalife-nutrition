@@ -3,7 +3,10 @@
  */
 
 var estic = {
-
+    minimizeSidebar: function () {
+        $("body").toggleClass("mini-navbar");
+        SmoothlyMenu();
+    },
     errors:{
         auth:{
             'auth/wrong-password':'La contraseña introducida es incorrecta o el usuario no tiene contraseña.',
