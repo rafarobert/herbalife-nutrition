@@ -2,8 +2,8 @@
 /**
  * Created by Estic.
  * User: rafaelgutierrez
- * Date: 07/05/2019
- * Time: 1:10 am
+ * Date: 13/05/2019
+ * Time: 1:39 am
  * @property Model_Users $oUser
  */
 use \Propel\Runtime\ActiveQuery\Criteria as Criteria;
@@ -105,24 +105,6 @@ class Ctrl_Users extends ES_Ctrl_Users
                         $oUserRole->saveOrUpdate($data);
                     } else {
                         $this->model_users_roles->save($data);
-                    }
-                    
-                    
-                    $oPersona = $this->model_personas->findOneByIdUser($oUser->getIdUser());
-                    if(isObject($oPersona)){
-                        $oPersona->saveOrUpdate($data);
-                    } else {
-                        $this->model_personas->save($data);
-                    }
-                    
-                    
-                    if($this->input->post('idCurso') || $this->input->post('id_curso')){
-                        $oEstudiante = $this->model_estudiantes->findOneByIdUser($oUser->getIdUser());
-                        if(isObject($oUser)){
-                            $oUser->saveOrUpdate($data);
-                        } else {
-                            $this->model_estudiantes->save($data);
-                        }
                     }
                     
                     //validateFieldImgUpload2

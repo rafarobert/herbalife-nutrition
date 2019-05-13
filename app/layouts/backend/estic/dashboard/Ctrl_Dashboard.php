@@ -20,7 +20,7 @@ class Ctrl_Dashboard extends ES_Estic_Controller {
                 $this->data['subLayout'] = 'backend/_subLayout';
                 $this->data['oUser'] = $oUser;
                 if($oUser->getIdRole() == 1){
-                    $this->data['subview'] = 'base/dashboard/index';
+                    $this->data['subview'] = 'estic/dashboard/index';
                 } else {
                     $this->data['subview'] = 'admin/dashboard/index';
                 }

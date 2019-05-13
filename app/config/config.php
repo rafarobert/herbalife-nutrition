@@ -560,6 +560,7 @@ $config['rewrite_short_tags'] = FALSE;
       "type-env"=> "dev"
    ]
  ];
+$config['base_url'] = 'http://local.herbalife-nutrition.com/';
 
 
 $config['site_name'] = 'Herbalife - Nutrition';

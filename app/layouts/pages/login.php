@@ -16,7 +16,7 @@
                 <h1 class="logo-name"><img style="height: 50%; width: 50%;" src="/assets/herbalife/logos/logo1.png" alt=""></h1>
 
             </div>
-            <h3>Bienvenidos a Defensor Admin</h3>
+          <h3><?=$siteTitle?></h3>
             <p>Perfectly designed and precisely prepared admin theme with over 50 pages with extra new web app views.
                 <!--Continually expanded and constantly improved Inspinia Admin Them (IN+)-->
             </p>
