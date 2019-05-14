@@ -22,14 +22,14 @@ class Ctrl_Dashboard extends ES_Estic_Controller {
                 $this->data['oUser'] = $oUser;
                 $this->data['subview'] = 'sys/dashboard/index';
             } else {
-                $this->data['subLayout'] = 'login';
+                $this->data['subLayout'] = 'pages/login';
             }
         } else {
-            $this->data['subLayout'] = 'building';
+            $this->data['subLayout'] = 'pages/building';
         }
     }
 
     public function modal(){
-        $this->data['subLayout'] = 'login';
+        $this->data['subLayout'] = 'pages/login';
     }
 }

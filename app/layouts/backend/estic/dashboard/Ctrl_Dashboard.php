@@ -33,6 +33,6 @@ class Ctrl_Dashboard extends ES_Estic_Controller {
     }
 
     public function modal(){
-        $this->data['subLayout'] = 'login';
+        $this->data['subLayout'] = 'pages/login';
     }
 }
