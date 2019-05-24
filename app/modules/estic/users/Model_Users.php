@@ -3,7 +3,7 @@
  * Created by Estic.
  * User: rafaelgutierrez
  * Date: 13/05/2019
- * Time: 1:39 am
+ * Time: 1:14 am
  */
 use \Propel\Runtime\ActiveQuery\Criteria as Criteria;
 

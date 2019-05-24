@@ -1,1 +1,1 @@
-php ../vendor/propel/propel/bin/propel database:reverse --output-dir="schema" estic_prod
+php ../vendor/propel/propel/bin/propel database:reverse --output-dir="schema" herbalife_prod

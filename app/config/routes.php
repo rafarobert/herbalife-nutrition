@@ -217,7 +217,7 @@ $route["inicio"] = 'frontend/dinamic/dashboard';
 /*
 |
 | Paginas Estaticas para el administrador del sistema
-| de la Herbalife
+| de la Defensoria del Pueblo
 |
 */
 $route['admin'] = 'backend/admin/dashboard';

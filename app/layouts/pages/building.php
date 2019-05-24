@@ -49,10 +49,8 @@
                 <!-- Logo
                 ============================================= -->
                 <div id="logo" class="divcenter">
-                    <a href="index.html" class="standard-logo" data-dark-logo="../../assets/herbalife/logos/logoHerbalifeSinFondo.png">
-                      <img src="../../assets/Herbalife/logos/logoHerbalifeSinFondo.png" alt="Canvas Logo" class="divcenter"></a>
-                    <a href="index.html" class="retina-logo" data-dark-logo="../../assets/herbalife/logos/logoHerbalifeSinFondo.png">
-                      <img src="../../assets/herbalife/logos/logoHerbalifeSinFondo.png" alt="Canvas Logo"></a>
+                    <a href="index.html" class="standard-logo" data-dark-logo="../../assets/defensoria/logos/logoDefensoriaSinFondo.png"><img src="../../assets/defensoria/logos/logoDefensoriaSinFondo.png" alt="Canvas Logo" class="divcenter"></a>
+                    <a href="index.html" class="retina-logo" data-dark-logo="../../assets/defensoria/logos/logoDefensoriaSinFondo.png"><img src="../../assets/defensoria/logos/logoDefensoriaSinFondo.png" alt="Canvas Logo"></a>
                 </div><!-- #logo end -->
 
             </div>

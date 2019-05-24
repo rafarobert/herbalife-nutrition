@@ -2,8 +2,8 @@
 /**
  * Created by Estic.
  * User: rafaelgutierrez
- * Date: 07/05/2019
- * Time: 1:07 am
+ * Date: 22/05/2019
+ * Time: 3:18 pm
  */
 
 use \Propel\Runtime\ActiveQuery\Criteria as Criteria;
@@ -65,6 +65,9 @@ use \Propel\Runtime\ActiveQuery\Criteria as Criteria;
  * @property Model_Logs $model_logs
  * @property Ctrl_Logs $ctrl_logs
  * 
+ * @property Model_Messages $model_messages
+ * @property Ctrl_Messages $ctrl_messages
+ * 
  * @property Model_Modules $model_modules
  * @property Ctrl_Modules $ctrl_modules
  * 
@@ -94,6 +97,7 @@ use \Propel\Runtime\ActiveQuery\Criteria as Criteria;
 class ES_Model_Vars extends CI_Model
 {
     use ES_Table_Trait;
+    use ES_Config_Trait;
     // **************** tables Charged ****************
     
     public $table_es_cities;
@@ -103,6 +107,8 @@ class ES_Model_Vars extends CI_Model
     public $table_es_files;
     
     public $table_es_logs;
+    
+    public $table_es_messages;
     
     public $table_es_modules;
     

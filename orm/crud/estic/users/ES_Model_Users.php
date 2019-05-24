@@ -2,8 +2,8 @@
 /**
  * Created by Estic.
  * User: rafaelgutierrez
- * Date: 13/05/2019
- * Time: 1:39 am
+ * Date: 22/05/2019
+ * Time: 12:02 pm
  */
 use \Propel\Runtime\ActiveQuery\Criteria as Criteria;
 
@@ -188,9 +188,30 @@ class ES_Model_Users extends ES_Estic_Model
     public static $fieldUid = 'uid';
     
     /**
-     * Value for change_count static option.
+     * Value for country_code static option.
      *
      * @var        string
+     */
+    public static $fieldCountryCode = 'country_code';
+    
+    /**
+     * Value for authy_id static option.
+     *
+     * @var        string
+     */
+    public static $fieldAuthyId = 'authy_id';
+    
+    /**
+     * Value for verified static option.
+     *
+     * @var        string
+     */
+    public static $fieldVerified = 'verified';
+    
+    /**
+     * Value for change_count static option.
+     *
+     * @var        int
      */
     public static $fieldChangeCount = 'change_count';
     
@@ -371,6 +392,27 @@ class ES_Model_Users extends ES_Estic_Model
     public $uid = '';
     
     /**
+     * Value for country_code field.
+     *
+     * @var        string
+     */
+    public $country_code = '';
+    
+    /**
+     * Value for authy_id field.
+     *
+     * @var        string
+     */
+    public $authy_id = '';
+    
+    /**
+     * Value for verified field.
+     *
+     * @var        int
+     */
+    public $verified = 0;
+    
+    /**
      * Value for change_count field.
      *
      * @var        int
@@ -544,6 +586,24 @@ class ES_Model_Users extends ES_Estic_Model
     'label' => 'Uid',
     'rules' => 'trim|max_length[499]',
   ),
+  'country_code' => 
+  array (
+    'field' => 'countryCode',
+    'label' => 'Country Code',
+    'rules' => 'trim|max_length[50]|required',
+  ),
+  'authy_id' => 
+  array (
+    'field' => 'authyId',
+    'label' => 'Authy Id',
+    'rules' => 'trim|max_length[50]|required',
+  ),
+  'verified' => 
+  array (
+    'field' => 'verified',
+    'label' => 'Verified',
+    'rules' => 'trim|max_length[1]|required',
+  ),
 );
     public $rules_edit = array (
   'name' => 
@@ -665,6 +725,24 @@ class ES_Model_Users extends ES_Estic_Model
     'field' => 'uid',
     'label' => 'Uid',
     'rules' => 'trim|max_length[499]',
+  ),
+  'country_code' => 
+  array (
+    'field' => 'countryCode',
+    'label' => 'Country Code',
+    'rules' => 'trim|max_length[50]|required',
+  ),
+  'authy_id' => 
+  array (
+    'field' => 'authyId',
+    'label' => 'Authy Id',
+    'rules' => 'trim|max_length[50]|required',
+  ),
+  'verified' => 
+  array (
+    'field' => 'verified',
+    'label' => 'Verified',
+    'rules' => 'trim|max_length[1]|required',
   ),
 );
     
@@ -797,6 +875,21 @@ class ES_Model_Users extends ES_Estic_Model
     public function getUid()
     {
         return $this->uid;
+    }
+    
+    public function getCountryCode()
+    {
+        return $this->country_code;
+    }
+    
+    public function getAuthyId()
+    {
+        return $this->authy_id;
+    }
+    
+    public function getVerified()
+    {
+        return $this->verified;
     }
     
     public function getChangeCount()
@@ -952,6 +1045,24 @@ class ES_Model_Users extends ES_Estic_Model
     public function setUid($uid = ''){
         if(objectHas($this,'uid', false)){
             return $this->uid = $uid;
+        }
+    }
+    
+    public function setCountryCode($countryCode = ''){
+        if(objectHas($this,'country_code', false)){
+            return $this->country_code = $countryCode;
+        }
+    }
+    
+    public function setAuthyId($authyId = ''){
+        if(objectHas($this,'authy_id', false)){
+            return $this->authy_id = $authyId;
+        }
+    }
+    
+    public function setVerified($verified = ''){
+        if(objectHas($this,'verified', false)){
+            return $this->verified = $verified;
         }
     }
     
@@ -1235,6 +1346,42 @@ class ES_Model_Users extends ES_Estic_Model
     
     public function findOneByUid($uid,$orderBy = '', $direction = 'ASC'){
         $aData = $this->get_by(['uid' => $uid],false,true,$orderBy,$direction);
+        $aData = $this->setForeigns($aData,$orderBy,$direction);
+        if(isArray($aData)){
+            return $this->setFromData($aData[0]);
+        } else if(isObject($aData)){
+            return $this->setFromData($aData);
+        } else {
+            return null;
+        }
+    }
+    
+    public function findOneByCountryCode($countryCode,$orderBy = '', $direction = 'ASC'){
+        $aData = $this->get_by(['country_code' => $countryCode],false,true,$orderBy,$direction);
+        $aData = $this->setForeigns($aData,$orderBy,$direction);
+        if(isArray($aData)){
+            return $this->setFromData($aData[0]);
+        } else if(isObject($aData)){
+            return $this->setFromData($aData);
+        } else {
+            return null;
+        }
+    }
+    
+    public function findOneByAuthyId($authyId,$orderBy = '', $direction = 'ASC'){
+        $aData = $this->get_by(['authy_id' => $authyId],false,true,$orderBy,$direction);
+        $aData = $this->setForeigns($aData,$orderBy,$direction);
+        if(isArray($aData)){
+            return $this->setFromData($aData[0]);
+        } else if(isObject($aData)){
+            return $this->setFromData($aData);
+        } else {
+            return null;
+        }
+    }
+    
+    public function findOneByVerified($verified,$orderBy = '', $direction = 'ASC'){
+        $aData = $this->get_by(['verified' => $verified],false,true,$orderBy,$direction);
         $aData = $this->setForeigns($aData,$orderBy,$direction);
         if(isArray($aData)){
             return $this->setFromData($aData[0]);
@@ -1933,6 +2080,93 @@ class ES_Model_Users extends ES_Estic_Model
         return $aData;
     }
     
+    public function filterByCountryCode($countryCode, $selecting = null, $orderByOrAsModel = true, $direction = 'ASC'){
+        $bSelecting = true;
+        $aSetttings = array();
+        $bAsModel = true;
+        if(isArray($selecting)){
+            $aSetttings = $selecting;
+        } else if(isString($selecting)){
+            $aSetttings[] = $selecting;
+        } else if(isBoolean($selecting) || $selecting == null){
+            $bSelecting = false;
+        }
+        $aSetttings['country_code'] = $countryCode;
+
+        if(isString($orderByOrAsModel)){
+            $orderBy = $orderByOrAsModel;
+        } else if(is_bool($orderByOrAsModel)){
+            $bAsModel = $orderByOrAsModel;
+        }
+        $aData = $this->get_by($aSetttings, $bSelecting, null, $orderByOrAsModel, $direction);
+        if($bAsModel){
+            $oDatas = array();
+            foreach ($aData as $data){
+                $oDatas[] = $this->setForeigns($data,$orderByOrAsModel,$direction);
+            }
+            return $oDatas;
+        }
+        return $aData;
+    }
+    
+    public function filterByAuthyId($authyId, $selecting = null, $orderByOrAsModel = true, $direction = 'ASC'){
+        $bSelecting = true;
+        $aSetttings = array();
+        $bAsModel = true;
+        if(isArray($selecting)){
+            $aSetttings = $selecting;
+        } else if(isString($selecting)){
+            $aSetttings[] = $selecting;
+        } else if(isBoolean($selecting) || $selecting == null){
+            $bSelecting = false;
+        }
+        $aSetttings['authy_id'] = $authyId;
+
+        if(isString($orderByOrAsModel)){
+            $orderBy = $orderByOrAsModel;
+        } else if(is_bool($orderByOrAsModel)){
+            $bAsModel = $orderByOrAsModel;
+        }
+        $aData = $this->get_by($aSetttings, $bSelecting, null, $orderByOrAsModel, $direction);
+        if($bAsModel){
+            $oDatas = array();
+            foreach ($aData as $data){
+                $oDatas[] = $this->setForeigns($data,$orderByOrAsModel,$direction);
+            }
+            return $oDatas;
+        }
+        return $aData;
+    }
+    
+    public function filterByVerified($verified, $selecting = null, $orderByOrAsModel = true, $direction = 'ASC'){
+        $bSelecting = true;
+        $aSetttings = array();
+        $bAsModel = true;
+        if(isArray($selecting)){
+            $aSetttings = $selecting;
+        } else if(isString($selecting)){
+            $aSetttings[] = $selecting;
+        } else if(isBoolean($selecting) || $selecting == null){
+            $bSelecting = false;
+        }
+        $aSetttings['verified'] = $verified;
+
+        if(isString($orderByOrAsModel)){
+            $orderBy = $orderByOrAsModel;
+        } else if(is_bool($orderByOrAsModel)){
+            $bAsModel = $orderByOrAsModel;
+        }
+        $aData = $this->get_by($aSetttings, $bSelecting, null, $orderByOrAsModel, $direction);
+        if($bAsModel){
+            $oDatas = array();
+            foreach ($aData as $data){
+                $oDatas[] = $this->setForeigns($data,$orderByOrAsModel,$direction);
+            }
+            return $oDatas;
+        }
+        return $aData;
+    }
+    
     public function filterByChangeCount($changeCount, $selecting = null, $orderByOrAsModel = true, $direction = 'ASC'){
         $bSelecting = true;
         $aSetttings = array();
@@ -2186,6 +2420,12 @@ class ES_Model_Users extends ES_Estic_Model
             
             'uid' => $this->uid,
             
+            'country_code' => $this->country_code,
+            
+            'authy_id' => $this->authy_id,
+            
+            'verified' => $this->verified,
+            
             'change_count' => $this->change_count,
             
             'status' => $this->status,
@@ -2259,6 +2499,12 @@ class ES_Model_Users extends ES_Estic_Model
             'SigninMethod' => $this->signin_method,
             
             'Uid' => $this->uid,
+            
+            'CountryCode' => $this->country_code,
+            
+            'AuthyId' => $this->authy_id,
+            
+            'Verified' => $this->verified,
             
             'ChangeCount' => $this->change_count,
             

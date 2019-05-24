@@ -13,13 +13,13 @@
         <div>
             <div>
 
-                <h1 class="logo-name"><img style="height: 50%; width: 50%;" src="/assets/herbalife/logos/logo1.png" alt=""></h1>
+                <h1 class="logo-name"><img style="height: 50%; width: 50%;" src="/assets/defensoria/logos/logo1.png" alt=""></h1>
 
             </div>
-            <h3>Registro Administrador Portal Herbalife</h3>
+            <h3>Registro Administrador Portal Defensoria del Pueblo</h3>
             <p>Crea una cuenta para realizar tus tareas</p>
 
-            <?= form_open(WEBSERVER.'estic/sessions/signup') ?>
+            <?= form_open(WEBSERVER.'base/sessions/signup') ?>
             <div class="form-group">
                 <?= form_input('name',$oUser->name,'id="loginName" class="form-control" placeholder="User name" required=""')?>
             </div>

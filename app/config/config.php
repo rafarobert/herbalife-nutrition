@@ -10,6 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 //    }
 //}
 
+
 /*
 |--------------------------------------------------------------------------
 | Proyect Name
@@ -21,7 +22,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 
-$config['proy_name'] = 'herbalife-nutrition';
+$config['proy_name'] = 'herbalife';
 
 /*
 |--------------------------------------------------------------------------
@@ -497,6 +498,7 @@ $config['time_reference'] = 'local';
 |
 */
 $config['rewrite_short_tags'] = FALSE;
+$config['database'] = [];
 
 
 /*
@@ -517,55 +519,54 @@ $config['rewrite_short_tags'] = FALSE;
 */
  $config['proxy_ips'] = '';
 
- $config['sys'] = array(
-   'core' => 'estic',
-   'es' => 'estic',
-   'estic' => array(
-         'sign' => 'es',
-         'dir' => 'estic/',
-         'name' => 'estic',
-         'id' => 1
-     ),
 
-   'backend' => 'admin',
-   'hbf' => 'admin',
-   'admin' => array(
-         'sign' => 'hbf',
-         'dir' => 'admin/',
-         'name' => 'admin',
-         'id' => 2
-     ),
+$config['base_url'] = 'http://local.herbalife.com.bo/';
 
-   'frontend' => 'front',
-   'frt' => 'front',
-   'front' => array(
-         'sign' => 'frt',
-         'dir' => 'front/',
-         'name' => 'front',
-         'id' => 3
-     )
- );
-
- $config["herbalife-nutrition"] = [
-   [
-     "host" => "local.herbalife-nutrition.com",
-      "hostname-core" => "local.estic.com.bo",
-      "hostname" => "local.herbalife-nutrition.com",
-      "protocol"=> "http:",
-      "port"=> "80",
-      "origin"=> "http://local.herbalife-nutrition.com/",
-      "dest"=> "http://local.herbalife-nutrition.com/",
-      "root-path"=> "",
-      "type-url"=> "dns",
-      "type-env"=> "dev"
-   ]
- ];
-$config['base_url'] = 'http://local.herbalife-nutrition.com/';
+$config["herbalife"] = [
+  [
+    "host" => "local.herbalife.com.bo",
+    "hostname-core" => "local.estic.com.bo",
+    "hostname" => "local.herbalife.com.bo",
+    "protocol"=> "http:",
+    "port"=> "80",
+    "origin"=> "http://local.herbalife.com.bo/",
+    "dest"=> "http://local.herbalife.com.bo/",
+    "root-path"=> "",
+    "type-url"=> "dns",
+    "type-env"=> "dev"
+  ]
+];
 
 
-$config['site_name'] = 'Herbalife - Nutrition';
-$config['site_title'] = 'Herbalife - Admin';
-$config['site_domain'] = 'herbalife-nutrition.com.bo';
+$config['sys'] = array(
+  'core' => 'estic',
+  'es' => 'estic',
+  'estic' => array(
+    'sign' => 'es',
+    'dir' => 'estic/',
+    'name' => 'estic',
+    'id' => 1
+  ),
+
+  'backend' => 'admin',
+  'ibo' => 'admin',
+  'admin' => array(
+    'sign' => 'ibo',
+    'dir' => 'admin/',
+    'name' => 'admin',
+    'id' => 2
+  ),
+
+  'frontend' => 'front',
+  'frt' => 'front',
+  'front' => array(
+    'sign' => 'frt',
+    'dir' => 'front/',
+    'name' => 'front',
+    'id' => 3
+  )
+);
+
 
 
 // --------------------------------- fin de las configuraciones --------------------------------

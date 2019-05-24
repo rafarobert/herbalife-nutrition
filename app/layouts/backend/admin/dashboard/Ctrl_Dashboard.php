@@ -27,6 +27,6 @@ class Ctrl_Dashboard extends ES_Admin_Controller{
     }
 
     public function modal(){
-        $this->data['subLayout'] = 'lpages/ogin';
+        $this->data['subLayout'] = 'pages/login';
     }
 }

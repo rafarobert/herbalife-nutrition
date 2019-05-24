@@ -1,5 +1,9 @@
-/*! herbalife-nutrition - v0.0.0 - 2019-05-04 */var estic = {
+/*! herbalife - v0.0.0 - 2019-05-22 */var estic = {
 
+    minimizeSidebar: function () {
+        $("body").toggleClass("mini-navbar");
+        SmoothlyMenu();
+    },
     errors:{
         auth:{
             'auth/wrong-password':'La contraseña introducida es incorrecta o el usuario no tiene contraseña.',
@@ -24,7 +28,8 @@
     info: function (message) {
         toastr.info(message);
     }
-};
+}
+;
 var WEB_HOST = window.location.hostname;
 var PATH = window.location.pathname;
 
@@ -147,7 +152,7 @@ var oCrud = {
     getFieldsFromTable: function(obj){
         // ********* Responde con un input con clase 'table-fields'
         var table = $(obj).find("option:selected").html();
-        var url = '/sys/ajax/exportFields/'+table+'/';
+        var url = '/sys/ajax/base/ajax/exportFields/'+table+'/';
         $.post(url, function(response){
             if(response.error == 'ok'){
                 var fields = response.fields;
@@ -739,7 +744,7 @@ var oTinyMce = {
             image_caption: false,
             image_advtab: true,
             image_dimensions: false,
-            images_upload_url: '/estic/files/edit',
+            images_upload_url: '/base/files/edit',
             menubar: "file | insert",
             toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media audio",
             media_live_embeds: true,
@@ -810,7 +815,7 @@ var oTinyMce = {
 
                 xhr = new XMLHttpRequest();
                 xhr.withCredentials = false;
-                xhr.open('POST','estic/files/edit');
+                xhr.open('POST','base/files/edit');
 
                 xhr.onload = function(){
                     var json;
@@ -836,14 +841,14 @@ var oTinyMce = {
 
 ;
 var oUser = {
-    login: function(obj){
-        var form = $("#userModal").find("form");
-        console.log(form.html());
-    },
+  login: function(obj){
+    var form = $("#userModal").find("form");
+    console.log(form.html());
+  },
 
-    register: function(){
+  register: function(){
 
-    }
+  }
 }
 ;
 
@@ -878,7 +883,7 @@ var oDropZone ={
             parallelUploads: 10,
             maxFilesize: 1000, // MB
             type: 'POST',
-            url: '/sys/ajax/estic/files/edit',
+            url: '/sys/ajax/base/files/edit',
             acceptedFiles: oDropZone.validTypesJs,
             capture: 'camera',
             init:function(){
@@ -909,7 +914,7 @@ var oDropZone ={
                     oDropZone.uploads[response.pk] = response;
                     oDropZone.uploads[response.pk].lastModified = file.lastModified;
                     oDropZone.uploads[response.pk].fromAjax = true;
-                    oDropZone.uploads[response.pk].dir = '/sys/ajax/estic/files/delete/'+response.pk;
+                    oDropZone.uploads[response.pk].dir = '/sys/ajax/base/files/delete/'+response.pk;
                     oDropZone.uploads[response.pk].tableRef = response.tableRef;
                     oDropZone.uploads[response.pk].pkTableRef = response.pkTableRef;
                     oDropZone.uploads[response.pk].idTableRef = response.idTableRef;
@@ -984,7 +989,7 @@ var oDropZone ={
                 oDropZone.idUpload = upload.pk;
             }
         });
-        $.post('/sys/ajax/remove/estic/files/delete/'+oDropZone.upload.pk, oDropZone.upload, function(response){
+        $.post('/sys/ajax/remove/base/files/delete/'+oDropZone.upload.pk, oDropZone.upload, function(response){
             oDropZone.response= response;
             delete oDropZone.uploads[oDropZone.idUpload];
             //estic.success('Tu archivo fue eliminado exitosamente');
@@ -1211,4 +1216,18 @@ var oDateTime = {
             todayBtn: true
         });
     },
+};
+var oTwilio = {
+  send: function(obj) {
+    var cellphone = $(obj).closest('div').find('input').val();
+    $.post('/twilio/send',{number:cellphone},function(response){
+      if (response.error != undefined){
+        if (response.error == 'ok'){
+          console.log(response.data)
+        }
+      } else{
+        location.reload();
+      }
+    });
+  }
 }

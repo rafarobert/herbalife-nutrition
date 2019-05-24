@@ -13,10 +13,10 @@
         <div>
             <div>
 
-                <h1 class="logo-name"><img style="height: 50%; width: 50%;" src="/assets/herbalife/logos/logo1.png" alt=""></h1>
+                <h1 class="logo-name"><img style="height: 50%; width: 50%;" src="/assets/defensoria/logos/logo1.png" alt=""></h1>
 
             </div>
-          <h3><?=$siteTitle?></h3>
+            <h3><?=$siteTitle?></h3>
             <p>Perfectly designed and precisely prepared admin theme with over 50 pages with extra new web app views.
                 <!--Continually expanded and constantly improved Inspinia Admin Them (IN+)-->
             </p>
@@ -32,9 +32,9 @@
 
             <?= form_submit('login','Ingresar','id="btn-login" class="btn btn-primary block full-width m-b"')?>
 
-            <?=anchor('estic/sessions/forgot_password','<small>Forgot password?</small>')?>
+            <?=anchor('base/sessions/forgot_password','<small>Forgot password?</small>')?>
             <p class="text-muted text-center"><small>Do not have an account?</small></p>
-            <?=anchor('estic/sessions/signup','Create an account','class="btn btn-sm btn-white btn-block"')?>
+            <?=anchor('base/sessions/signup','Create an account','class="btn btn-sm btn-white btn-block"')?>
 
             <?= form_close() ?>
 

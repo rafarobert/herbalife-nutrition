@@ -2,8 +2,8 @@
 /**
  * Created by Estic.
  * User: rafaelgutierrez
- * Date: 07/05/2019
- * Time: 1:07 am
+ * Date: 22/05/2019
+ * Time: 3:18 pm
  */
 
 use \Propel\Runtime\ActiveQuery\Criteria as Criteria;
@@ -70,6 +70,23 @@ trait ES_Table_Trait
                 $this->ctrl_logs = Ctrl_Logs::create($bWithInit);
             }
             $this->model_logs = Model_Logs::create($bWithInit);
+
+            return true;
+
+        } else {
+
+            return false;
+        }
+    }
+    
+    public function initMessages($both = false, $bWithInit = false)
+    {
+        if(validate_modulo('estic','messages')){
+
+            if ($both) {
+                $this->ctrl_messages = Ctrl_Messages::create($bWithInit);
+            }
+            $this->model_messages = Model_Messages::create($bWithInit);
 
             return true;
 

@@ -12,10 +12,10 @@
     <nav class="navbar-default navbar-static-side" role="navigation">
         <div class="sidebar-collapse">
             <ul class="nav metismenu" id="side-menu">
-                <li class="nav-header no-margins no-padding">
-                    <img style="width: 100%; height: 100%" src="/assets/estic/logos/Estic-Logo.png" alt="">
-                </li>
-                <li class="nav-header">
+<!--                <li class="nav-header no-margins no-padding">-->
+<!--                    <img style="width: 100%; height: 100%" src="/assets/estic/logos/Estic-Logo.png" alt="">-->
+<!--                </li>-->
+                <li class="nav-header blue-skin">
                     <div class="dropdown profile-element">
                         <span>
                             <img alt="image" class="img-circle" src="/assets/inspinia/img/user/user_default_48x48.png" />
@@ -60,7 +60,7 @@
 
             <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
                 <div class="navbar-header">
-                    <a class="minimalize-styl-2 btn btn-primary" onclick="estic.minimizeSidebar()" href="#"><i class="fa fa-bars"></i> </a>
+                    <a class="minimalize-styl-2 btn btn-primary " href="#" onclick="estic.minimizeSidebar()"><i class="fa fa-bars"></i> </a>
                     <form role="search" class="navbar-form-custom" action="search_results.html">
                         <div class="form-group">
                             <input type="text" placeholder="Introduce tu busqueda..." class="form-control" name="top-search" id="top-search">

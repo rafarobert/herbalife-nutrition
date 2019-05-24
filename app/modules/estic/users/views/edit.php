@@ -2,8 +2,8 @@
 /**
  * Created by herbalife.
  * User: rafaelgutierrez
- * Date: 13/05/2019
- * Time: 1:39 am
+ * Date: 22/05/2019
+ * Time: 12:02 pm
  * @var Model_Users $model_users
  * @var Model_Users $oUsers
  * @var Model_Users $oUser
@@ -469,7 +469,52 @@
         ?>
     </div>
 </div>
-<?php echo form_error("uid"); ?>
+<?php echo form_error("uid"); ?><div class="hr-line-dashed"></div>
+<div class="form-group">
+    <label for="inputCountryCode" class="col-sm-2 control-label">CountryCode</label>
+    <div class="col-sm-10">
+        <?php
+        $data = array (
+  'name' => 'countryCode',
+  'id' => 'inputCountryCode',
+  'class' => 'form-control ',
+  'placeholder' => '',
+);
+        echo form_default($data, set_value("countryCode", $oUser->getCountryCode()), "")
+        ?>
+    </div>
+</div>
+<?php echo form_error("countryCode"); ?><div class="hr-line-dashed"></div>
+<div class="form-group">
+    <label for="inputAuthyId" class="col-sm-2 control-label">AuthyId</label>
+    <div class="col-sm-10">
+        <?php
+        $data = array (
+  'name' => 'authyId',
+  'id' => 'inputAuthyId',
+  'class' => 'form-control ',
+  'placeholder' => '',
+);
+        echo form_default($data, set_value("authyId", $oUser->getAuthyId()), "")
+        ?>
+    </div>
+</div>
+<?php echo form_error("authyId"); ?><div class="hr-line-dashed"></div>
+<div class="form-group">
+    <label for="inputVerified" class="col-sm-2 control-label">Verified</label>
+    <div class="col-sm-10">
+        <?php
+        $data = array (
+  'name' => 'verified',
+  'id' => 'inputVerified',
+  'class' => 'form-control ',
+  'placeholder' => '',
+);
+        echo form_number($data, set_value("verified", $oUser->getVerified()), "")
+        ?>
+    </div>
+</div>
+<?php echo form_error("verified"); ?>
 
                         <div class="hr-line-dashed"></div>
 

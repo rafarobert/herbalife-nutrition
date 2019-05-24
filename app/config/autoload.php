@@ -104,7 +104,9 @@ $autoload['helper'] = array('url', 'auth', 'file', 'html', 'cms');
 |
 */
 
-$autoload['config'] = array('config_cms','config_frt');
+$autoload['config'] = array(
+  'config_app',
+);
 
 
 

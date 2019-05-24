@@ -69,25 +69,33 @@ $system_path = 'isys';
 
 if(isset($_SERVER['ESTIC_ORIGIN'])){
 
-  if(strstr($_SERVER['PWD'],$_SERVER['ESTIC_ORIGIN'])) {
+    if (isset($_SERVER['PWD'])){
 
-    $array = explode($_SERVER['ESTIC_ORIGIN'],$_SERVER['PWD']);
+        if(strstr($_SERVER['PWD'],$_SERVER['ESTIC_ORIGIN'])) {
 
-    if(is_array($array)){
+            $array = explode($_SERVER['ESTIC_ORIGIN'],$_SERVER['PWD']);
 
-      $_SERVER['PWD'] = '/'.trim(implode('/',$array),'/');
+            if(is_array($array)){
+
+                $_SERVER['PWD'] = '/'.trim(implode('/',$array),'/');
+            }
+        }
+    } else {
+        $_SERVER['PWD'] = $_SERVER['ESTIC_ORIGIN'];
     }
-  }
 }
 
 // Path to the system folder
-if(!defined('PWD')){
-  define('PWD', str_replace('\\', '/', isset($_SERVER['PWD']) ? $_SERVER['PWD'].'/' : ''));
-}
 
-if(!defined('BASEPATH')){
-  define('BASEPATH', str_replace('\\', '/', isset($_SERVER['PWD']) ? $_SERVER['PWD']."/$system_path/" : $system_path.'/' ));
-}
+    if(isset($_SERVER['PWD'])){
+      define('PWD', str_replace('\\', '/', $_SERVER['PWD']). '/');
+    } else if(isset($_SERVER['DOCUMENT_ROOT'])){
+      define('PWD', str_replace('\\', '/', $_SERVER['DOCUMENT_ROOT']) . '/');
+    } else if(isset($_SERVER['CONTEXT_DOCUMENT_ROOT'])){
+      define('PWD', str_replace('\\', '/', $_SERVER['CONTEXT_DOCUMENT_ROOT']) . '/');
+    }
+
+    define('BASEPATH', str_replace('\\', '/', PWD != '' ? PWD . "/$system_path/" : "$system_path/" ));
 
 require_once BASEPATH . 'core/CodeIgniter.php';
 

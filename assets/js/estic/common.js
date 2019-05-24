@@ -3,6 +3,7 @@
  */
 
 var estic = {
+
     minimizeSidebar: function () {
         $("body").toggleClass("mini-navbar");
         SmoothlyMenu();

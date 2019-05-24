@@ -3,7 +3,7 @@
  * Created by Estic.
  * User: rafaelgutierrez
  * Date: 13/05/2019
- * Time: 1:39 am
+ * Time: 1:14 am
  * @property Model_Users $oUser
  */
 use \Propel\Runtime\ActiveQuery\Criteria as Criteria;
@@ -122,5 +122,4 @@ class Ctrl_Users extends ES_Ctrl_Users
             redirect('estic/users/index');
         }
     }
-    
 }

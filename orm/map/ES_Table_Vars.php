@@ -2,8 +2,8 @@
 /**
  * Created by Estic.
  * User: rafaelgutierrez
- * Date: 07/05/2019
- * Time: 1:07 am
+ * Date: 22/05/2019
+ * Time: 3:18 pm
  */
 
 if (!function_exists('initStaticTableVars')) {
@@ -18,6 +18,8 @@ if (!function_exists('initStaticTableVars')) {
         $obj->table_es_files = class_exists('Migration_Create_es_files') ? Migration_Create_es_files::$tableFields : null;
         
         $obj->table_es_logs = class_exists('Migration_Create_es_logs') ? Migration_Create_es_logs::$tableFields : null;
+        
+        $obj->table_es_messages = class_exists('Migration_Create_es_messages') ? Migration_Create_es_messages::$tableFields : null;
         
         $obj->table_es_modules = class_exists('Migration_Create_es_modules') ? Migration_Create_es_modules::$tableFields : null;
         

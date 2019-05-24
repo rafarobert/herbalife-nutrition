@@ -1,6 +1,6 @@
 {
-    "name": "Herbalife Nutrition",
-    "description": "Sitio web para la administracion de clubes herbalife",
+    "name": "CRM_iBolsa_Sociedad_de_Titularizacion",
+    "description": "iBolsa Sociedad de Titularizacion S.A.",
     "type": "project",
     "authors": [
         {
@@ -10,8 +10,10 @@
     ],
     "keywords": [
         "CRM",
-        "herbalife",
-        "nutricion"
+        "customer",
+        "relationship",
+        "management",
+        "ibolsa"
     ],
     "homepage": "http://www.propelorm.org/",
     "license": "MIT",
@@ -64,7 +66,9 @@
         "illuminate/session": "4.2.*",
         "illuminate/support": "4.2.*",
         "symfony/http-foundation": "2.5.*",
-        "symfony/http-kernel": "2.5.*"
+        "symfony/http-kernel": "2.5.*",
+        "authy/php": "^3.0",
+        "twilio/sdk": "^5.32"
     },
     "require-dev": {
         "behat/behat": "~2.4",
@@ -82,17 +86,13 @@
             "Illuminate\\Html": ""
         },
         "classmap": [
+            "orm/config",
             "orm/classes",
             "orm/crud",
             "orm/migrations",
             "app/modules",
             "orm/map"
-        ],
-
-        "files": [
-            "orm/config/config.php"
         ]
-
     },
     "bin": [
         "bin/propel"

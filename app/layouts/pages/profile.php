@@ -11,7 +11,7 @@
     <div class="row">
 
         <div class="col-md-6">
-            <h2 class="font-bold">Bienvenido<br><img src="/assets/herbalife/logos/logo.jpg" alt=""></h2>
+            <h2 class="font-bold">Bienvenido<br><img src="/assets/defensoria/logos/logo.jpg" alt=""></h2>
 
             <p>
                 Aqui podras cambiar los datos de tu perfil.
@@ -20,7 +20,7 @@
         </div>
         <div class="col-md-6">
             <div class="ibox-content">
-                <form class="m-t" role="form" action="estic/users/edit">
+                <form class="m-t" role="form" action="base/users/edit">
                     <div class="form-group">
                         <input type="username" class="form-control" placeholder="Nombre de usuario" required="">
                     </div>

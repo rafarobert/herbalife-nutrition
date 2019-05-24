@@ -7,4 +7,4 @@
  */
 ?>
 
-<h3>Administrador para Estudiantes de Estic</h3>
+<h3>Administrador Ibolsa Sociedad de Titularizacion</h3>

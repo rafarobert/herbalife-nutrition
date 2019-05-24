@@ -14,6 +14,7 @@ class Ctrl_Dashboard extends ES_Estic_Controller {
 
     public function index()
     {
+
         if(validate_modulo('estic','users')){
             $oUser = $this->session->getDataUserLoggued();
             if (is_object($oUser)){

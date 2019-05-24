@@ -2,8 +2,8 @@
 /**
  * Created by Estic.
  * User: rafaelgutierrez
- * Date: 13/05/2019
- * Time: 1:39 am
+ * Date: 22/05/2019
+ * Time: 12:02 pm
  */
 
 defined("BASEPATH") OR exit("No direct script access allowed");
@@ -145,6 +145,4 @@ class ES_Ctrl_Users extends ES_Estic_Controller
             return $oModelUsers;
         }
     }
-
-    
 }

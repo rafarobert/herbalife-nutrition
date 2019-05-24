@@ -76,7 +76,7 @@
 
     <link href="/assets/inspinia/css/plugins/footable/footable.core.css" rel="stylesheet">
     <!--  Main Fonts  -->
-    <link href="/assets/inspinia/css/style.css" rel="stylesheet">
+    <link href="/assets/css/estic-back.min.css" rel="stylesheet">
 
 
     <!-- Mainly scripts -->
@@ -102,16 +102,16 @@
 <div class="inspinia">
 
 <?php
-if(isset($subLayout) && $subLayout != ''){
+if(validateVar($subLayout)){
     $this->load->view($subLayout);
 } else {
-    if(isset($subview) && $subview != '') {
+    if(validateVar($subview)) {
         $this->load->view($subview);
     }
 }
 ?>
 </div>
-<form id="form_upload" action="/estic/files/edit" target="form_target" method="post" enctype="multipart/form-data" style="width:0px;height:0;overflow:hidden">
+<form id="form_upload" action="/base/files/edit" target="form_target" method="post" enctype="multipart/form-data" style="width:0px;height:0;overflow:hidden">
     <input name="image" type="file" onchange="oTinyMce.submit()">
 </form>
 <!-- Data footable -->

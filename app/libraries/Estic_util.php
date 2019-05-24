@@ -11,9 +11,8 @@ class Estic_Util extends CI {
     public function validate_modulo($mod,$subMod){
 
         $dir = MODULEPATH.$mod.'/'.$subMod.'/';
-        $sys = config_item('sys');
 
-        if(is_dir($dir) && $this->table_exists($sys[$mod]['sign'].'_'.$subMod)){
+        if(is_dir($dir) && $this->table_exists(config_item('sys')[$mod].'_'.$subMod)){
 
             if(file_exists($dir.'Ctrl_'.ucfirst($subMod).'.php') && file_exists($dir.'Model_'.ucfirst($subMod).'.php') && is_dir($dir.'/views/')){
 

@@ -2,8 +2,8 @@
 /**
  * Created by Estic.
  * User: rafaelgutierrez
- * Date: 07/05/2019
- * Time: 1:11 am
+ * Date: 10/05/2019
+ * Time: 12:56 am
  */
 use \Propel\Runtime\ActiveQuery\Criteria as Criteria;
 
