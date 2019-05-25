@@ -95,7 +95,7 @@ if(isset($_SERVER['ESTIC_ORIGIN'])){
       define('PWD', str_replace('\\', '/', $_SERVER['CONTEXT_DOCUMENT_ROOT']) . '/');
     }
 
-    define('BASEPATH', str_replace('\\', '/', PWD != '' ? PWD . "/$system_path/" : "$system_path/" ));
+    define('BASEPATH', str_replace('\\', '/', PWD != '' ? PWD . "$system_path/" : "$system_path/" ));
 
 require_once BASEPATH . 'core/CodeIgniter.php';
 
