@@ -47,13 +47,18 @@ Thumbs.db
 node_modules/
 .idea/
 vendor/
-propel_log.txt
-orm/classes/
-orm/schema/
-
 composer.lock
 package-lock.json
 Gruntfile.js
 ngdefensor/src/
 
 dist-server
+
+orm/classes/
+orm/crud/
+orm/config/
+orm/crud/
+orm/map/
+orm/migrations/
+orm/schema/
+orm/sql/

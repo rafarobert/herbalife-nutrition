@@ -63,40 +63,8 @@
  * as this file.
  */
 
+$system = 'isys';
 
-
-$system_path = 'isys';
-
-if(isset($_SERVER['ESTIC_ORIGIN'])){
-
-    if (isset($_SERVER['PWD'])){
-
-        if(strstr($_SERVER['PWD'],$_SERVER['ESTIC_ORIGIN'])) {
-
-            $array = explode($_SERVER['ESTIC_ORIGIN'],$_SERVER['PWD']);
-
-            if(is_array($array)){
-
-                $_SERVER['PWD'] = '/'.trim(implode('/',$array),'/');
-            }
-        }
-    } else {
-        $_SERVER['PWD'] = $_SERVER['ESTIC_ORIGIN'];
-    }
-}
-
-// Path to the system folder
-
-    if(isset($_SERVER['PWD'])){
-      define('PWD', str_replace('\\', '/', $_SERVER['PWD']). '/');
-    } else if(isset($_SERVER['DOCUMENT_ROOT'])){
-      define('PWD', str_replace('\\', '/', $_SERVER['DOCUMENT_ROOT']) . '/');
-    } else if(isset($_SERVER['CONTEXT_DOCUMENT_ROOT'])){
-      define('PWD', str_replace('\\', '/', $_SERVER['CONTEXT_DOCUMENT_ROOT']) . '/');
-    }
-
-    define('BASEPATH', str_replace('\\', '/', PWD != '' ? PWD . "$system_path/" : "$system_path/" ));
-
-require_once BASEPATH . 'core/CodeIgniter.php';
+require_once "$system/core/CodeIgniter.php";
 
 //TODO: Arreglar la creacion de modelos con nombres plurales, ejemplo: hbf_detalles_vasos con id id_detalle_vaso crea codigo con id: id_detall_vaso

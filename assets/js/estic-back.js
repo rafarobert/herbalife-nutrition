@@ -1,4 +1,4 @@
-/*! herbalife - v0.0.0 - 2019-05-22 */var estic = {
+/*! herbalife - v0.0.0 - 2019-05-25 */var estic = {
 
     minimizeSidebar: function () {
         $("body").toggleClass("mini-navbar");

@@ -1,33 +1,42 @@
 propel:
   database:
-      connections:
-          herbalife_prod:
-              adapter: mysql
-              classname: Propel\Runtime\Connection\ConnectionWrapper
-              dsn: mysql:host=127.0.0.1;dbname=herbalife_prod
-              user: root
-              password: 095065
-              attributes:
-          herbalife_dev:
-              adapter: mysql
-              classname: Propel\Runtime\Connection\DebugPDO
-              dsn: mysql:host=127.0.0.1;dbname=herbalife_dev
-              user: root
-              password:
-              attributes:
-                
+    connections:
+      prod:
+        adapter: mysql
+        classname: Propel\Runtime\Connection\ConnectionWrapper
+        dsn: mysql:host=127.0.0.1;dbname=herbalife_prod
+        user: root
+        password: 095065
+        attributes:
+      dev:
+        adapter: mysql
+        classname: Propel\Runtime\Connection\DebugPDO
+        dsn: mysql:host=127.0.0.1;dbname=herbalife_dev
+        user: root
+        password:
+        attributes:
+      test:
+        adapter: mysql
+        classname: Propel\Runtime\Connection\DebugPDO
+        dsn: mysql:host=127.0.0.1;dbname=herbalife_test
+        user: estic
+        password: estic123
+        attributes:
+
   runtime:
-      log:
-          defaultLogger:
-              type: stream
-              path: ./propel_log.txt
-              level: 100
-      defaultConnection: herbalife_prod
-      connections:
-          - herbalife_prod
-          - herbalife_dev
+    log:
+      defaultLogger:
+        type: stream
+        path: ./propel_log.txt
+        level: 100
+    defaultConnection: prod
+    connections:
+      - prod
+      - dev
+      - test
   generator:
-      defaultConnection: herbalife_prod
-      connections:
-          - herbalife_prod
-          - herbalife_dev
+    defaultConnection: prod
+    connections:
+      - prod
+      - dev
+      - test
