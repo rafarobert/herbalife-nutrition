@@ -51,14 +51,6 @@ composer.lock
 package-lock.json
 Gruntfile.js
 ngdefensor/src/
+propel_log.txt
 
 dist-server
-
-orm/classes/
-orm/crud/
-orm/config/
-orm/crud/
-orm/map/
-orm/migrations/
-orm/schema/
-orm/sql/
