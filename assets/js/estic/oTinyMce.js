@@ -80,7 +80,7 @@ var oTinyMce = {
             image_caption: false,
             image_advtab: true,
             image_dimensions: false,
-            images_upload_url: '/base/files/edit',
+            images_upload_url: '/estic/files/edit',
             menubar: "file | insert",
             toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media audio",
             media_live_embeds: true,
@@ -151,7 +151,7 @@ var oTinyMce = {
 
                 xhr = new XMLHttpRequest();
                 xhr.withCredentials = false;
-                xhr.open('POST','base/files/edit');
+                xhr.open('POST','estic/files/edit');
 
                 xhr.onload = function(){
                     var json;

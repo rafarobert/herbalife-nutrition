@@ -1,4 +1,4 @@
-/*! herbalife - v0.0.0 - 2019-05-25 */var estic = {
+/*! herbalife - v0.0.0 - 2019-05-30 */var estic = {
 
     minimizeSidebar: function () {
         $("body").toggleClass("mini-navbar");
@@ -93,21 +93,70 @@ var oPageBack = {
         });
     },
 
-    onSubmit: function (){
-        $('input[type="submit"]').closest('form').submit(function () {
-            if($(this).find('input[name="idFrontPicture"]').html() != undefined){
-                // Condicion 1 : aplica al momento de guardar imagenes con fotos principales
+    onSubmit: function (obj){
 
+      var form = $(obj).closest('form');
+      var data = form.serialize()+'&fromAjax=true';
+      var url = $(form).attr('action');
+      $.post(url,data, function(response){
+        console.log(response);
+        if(response.error == 'ok'){
+          estic.success(response.message);
+          $("#ContentView").html(response.view);
+          setTimeout(function(){
+            window.location.replace('/'+response.redirect)
+          },3000);
 
+        } else if($(this).find('input[name="idFrontPicture"]').html() != undefined){
+          // Condicion 1 : aplica al momento de guardar imagenes con fotos principales
+          if($(this).find('input[name="idFrontPicture"]:checked').size() > 0){
+            return true;
+          } else {
+            estic.warning(response.message);
+            return false
+          }
+        } else {
+          estic.warning(response.message);
+        }
+      },'json');
 
-                if($(this).find('input[name="idFrontPicture"]:checked').size() > 0){
-                    return true;
-                } else {
-                    estic.warning('Debe seleccionar una foto principal, de las que subiste')
-                    return false;
-                }
+       /* var newElement = '<input type="text" value="true" name="fromAjax"/>';
+      $('input[type="submit"]').closest('form').append(newElement)
+        $('input[type="submit"]').closest('form').submit(function (response) {
+          console.log(response);
+          if(response.error == 'ok'){
+            estic.success(response.message);
+            $("#ContentView").html(response.view);
+            window.location.replace('/'+response.redirect);
+          } else if($(this).find('input[name="idFrontPicture"]').html() != undefined){
+            // Condicion 1 : aplica al momento de guardar imagenes con fotos principales
+            if($(this).find('input[name="idFrontPicture"]:checked').size() > 0){
+              return true;
+            } else {
+              estic.warning('Debe seleccionar una foto principal, de las que subiste')
+              return false;
             }
-        })
+          } else {
+            estic.warning(response.message);
+          }
+        })*/
+    },
+    submit: function(){
+      var form = $(this).closest('form');
+      form.add('fromAjax',true)
+      var data = form.serialize();
+      var url = form.attr('action');
+      $.post(url,data, function(response){
+        console.log(response);
+        if(response.error == 'ok'){
+          estic.success(response.message);
+          $("#ContentView").html(response.view);
+          window.location.replace('/'+response.redirect);
+        } else {
+          estic.warning(response.message);
+        }
+      },'json').done(function(){
+      });
     }
 }
 
@@ -152,7 +201,7 @@ var oCrud = {
     getFieldsFromTable: function(obj){
         // ********* Responde con un input con clase 'table-fields'
         var table = $(obj).find("option:selected").html();
-        var url = '/sys/ajax/base/ajax/exportFields/'+table+'/';
+        var url = '/sys/ajax/estic/ajax/exportFields/'+table+'/';
         $.post(url, function(response){
             if(response.error == 'ok'){
                 var fields = response.fields;
@@ -205,7 +254,8 @@ var oCrud = {
             window.location.reload();
         });
     }
-};
+}
+;
 var oGeoLocation = {
     getLocation: function () {
         if (navigator.geolocation) {
@@ -744,7 +794,7 @@ var oTinyMce = {
             image_caption: false,
             image_advtab: true,
             image_dimensions: false,
-            images_upload_url: '/base/files/edit',
+            images_upload_url: '/estic/files/edit',
             menubar: "file | insert",
             toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media audio",
             media_live_embeds: true,
@@ -815,7 +865,7 @@ var oTinyMce = {
 
                 xhr = new XMLHttpRequest();
                 xhr.withCredentials = false;
-                xhr.open('POST','base/files/edit');
+                xhr.open('POST','estic/files/edit');
 
                 xhr.onload = function(){
                     var json;
@@ -883,7 +933,7 @@ var oDropZone ={
             parallelUploads: 10,
             maxFilesize: 1000, // MB
             type: 'POST',
-            url: '/sys/ajax/base/files/edit',
+            url: '/sys/ajax/estic/files/edit',
             acceptedFiles: oDropZone.validTypesJs,
             capture: 'camera',
             init:function(){
@@ -898,7 +948,7 @@ var oDropZone ={
                         mockFile.previewElement.classList.add("dz-success");
                         // And to show the thumbnail of the file:
                         if(upload.data.thumbs != undefined){
-                            oDropZone.myDropZone.options.thumbnail.call(oDropZone.myDropZone, mockFile, upload.data.thumbs[1].Url);
+                            oDropZone.myDropZone.options.thumbnail.call(oDropZone.myDropZone, mockFile, upload.data.thumbs[1].url);
                         }
                         $('.dz-progress').hide();
                         oDropZone.addRdsFotoPrincipal(index,upload);
@@ -914,7 +964,7 @@ var oDropZone ={
                     oDropZone.uploads[response.pk] = response;
                     oDropZone.uploads[response.pk].lastModified = file.lastModified;
                     oDropZone.uploads[response.pk].fromAjax = true;
-                    oDropZone.uploads[response.pk].dir = '/sys/ajax/base/files/delete/'+response.pk;
+                    oDropZone.uploads[response.pk].dir = '/sys/ajax/estic/files/delete/'+response.pk;
                     oDropZone.uploads[response.pk].tableRef = response.tableRef;
                     oDropZone.uploads[response.pk].pkTableRef = response.pkTableRef;
                     oDropZone.uploads[response.pk].idTableRef = response.idTableRef;
@@ -989,7 +1039,7 @@ var oDropZone ={
                 oDropZone.idUpload = upload.pk;
             }
         });
-        $.post('/sys/ajax/remove/base/files/delete/'+oDropZone.upload.pk, oDropZone.upload, function(response){
+        $.post('/sys/ajax/remove/estic/files/delete/'+oDropZone.upload.pk, oDropZone.upload, function(response){
             oDropZone.response= response;
             delete oDropZone.uploads[oDropZone.idUpload];
             //estic.success('Tu archivo fue eliminado exitosamente');
@@ -1029,7 +1079,8 @@ var oDropZone ={
         }
         $input.val(ids);
     }
-};
+}
+;
 var oFileBox = {
     init: function(){
             $('.file-box').each(function() {
@@ -1219,7 +1270,7 @@ var oDateTime = {
 };
 var oTwilio = {
   send: function(obj) {
-    var cellphone = $(obj).closest('div').find('input').val();
+    var cellphone = $(obj).closest('div').find('input[tnumber="true"]').val();
     $.post('/twilio/send',{number:cellphone},function(response){
       if (response.error != undefined){
         if (response.error == 'ok'){

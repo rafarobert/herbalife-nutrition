@@ -1,6 +1,6 @@
 var oTwilio = {
   send: function(obj) {
-    var cellphone = $(obj).closest('div').find('input').val();
+    var cellphone = $(obj).closest('div').find('input[tnumber="true"]').val();
     $.post('/twilio/send',{number:cellphone},function(response){
       if (response.error != undefined){
         if (response.error == 'ok'){

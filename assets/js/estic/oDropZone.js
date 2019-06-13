@@ -30,7 +30,7 @@ var oDropZone ={
             parallelUploads: 10,
             maxFilesize: 1000, // MB
             type: 'POST',
-            url: '/sys/ajax/base/files/edit',
+            url: '/sys/ajax/estic/files/edit',
             acceptedFiles: oDropZone.validTypesJs,
             capture: 'camera',
             init:function(){
@@ -45,7 +45,7 @@ var oDropZone ={
                         mockFile.previewElement.classList.add("dz-success");
                         // And to show the thumbnail of the file:
                         if(upload.data.thumbs != undefined){
-                            oDropZone.myDropZone.options.thumbnail.call(oDropZone.myDropZone, mockFile, upload.data.thumbs[1].Url);
+                            oDropZone.myDropZone.options.thumbnail.call(oDropZone.myDropZone, mockFile, upload.data.thumbs[1].url);
                         }
                         $('.dz-progress').hide();
                         oDropZone.addRdsFotoPrincipal(index,upload);
@@ -61,7 +61,7 @@ var oDropZone ={
                     oDropZone.uploads[response.pk] = response;
                     oDropZone.uploads[response.pk].lastModified = file.lastModified;
                     oDropZone.uploads[response.pk].fromAjax = true;
-                    oDropZone.uploads[response.pk].dir = '/sys/ajax/base/files/delete/'+response.pk;
+                    oDropZone.uploads[response.pk].dir = '/sys/ajax/estic/files/delete/'+response.pk;
                     oDropZone.uploads[response.pk].tableRef = response.tableRef;
                     oDropZone.uploads[response.pk].pkTableRef = response.pkTableRef;
                     oDropZone.uploads[response.pk].idTableRef = response.idTableRef;
@@ -136,7 +136,7 @@ var oDropZone ={
                 oDropZone.idUpload = upload.pk;
             }
         });
-        $.post('/sys/ajax/remove/base/files/delete/'+oDropZone.upload.pk, oDropZone.upload, function(response){
+        $.post('/sys/ajax/remove/estic/files/delete/'+oDropZone.upload.pk, oDropZone.upload, function(response){
             oDropZone.response= response;
             delete oDropZone.uploads[oDropZone.idUpload];
             //estic.success('Tu archivo fue eliminado exitosamente');

@@ -27,7 +27,7 @@ var oCrud = {
     getFieldsFromTable: function(obj){
         // ********* Responde con un input con clase 'table-fields'
         var table = $(obj).find("option:selected").html();
-        var url = '/sys/ajax/base/ajax/exportFields/'+table+'/';
+        var url = '/sys/ajax/estic/ajax/exportFields/'+table+'/';
         $.post(url, function(response){
             if(response.error == 'ok'){
                 var fields = response.fields;

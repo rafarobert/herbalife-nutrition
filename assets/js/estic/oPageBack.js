@@ -65,21 +65,70 @@ var oPageBack = {
         });
     },
 
-    onSubmit: function (){
-        $('input[type="submit"]').closest('form').submit(function () {
-            if($(this).find('input[name="idFrontPicture"]').html() != undefined){
-                // Condicion 1 : aplica al momento de guardar imagenes con fotos principales
+    onSubmit: function (obj){
 
+      var form = $(obj).closest('form');
+      var data = form.serialize()+'&fromAjax=true';
+      var url = $(form).attr('action');
+      $.post(url,data, function(response){
+        console.log(response);
+        if(response.error == 'ok'){
+          estic.success(response.message);
+          $("#ContentView").html(response.view);
+          setTimeout(function(){
+            window.location.replace('/'+response.redirect)
+          },3000);
 
+        } else if($(this).find('input[name="idFrontPicture"]').html() != undefined){
+          // Condicion 1 : aplica al momento de guardar imagenes con fotos principales
+          if($(this).find('input[name="idFrontPicture"]:checked').size() > 0){
+            return true;
+          } else {
+            estic.warning(response.message);
+            return false
+          }
+        } else {
+          estic.warning(response.message);
+        }
+      },'json');
 
-                if($(this).find('input[name="idFrontPicture"]:checked').size() > 0){
-                    return true;
-                } else {
-                    estic.warning('Debe seleccionar una foto principal, de las que subiste')
-                    return false;
-                }
+       /* var newElement = '<input type="text" value="true" name="fromAjax"/>';
+      $('input[type="submit"]').closest('form').append(newElement)
+        $('input[type="submit"]').closest('form').submit(function (response) {
+          console.log(response);
+          if(response.error == 'ok'){
+            estic.success(response.message);
+            $("#ContentView").html(response.view);
+            window.location.replace('/'+response.redirect);
+          } else if($(this).find('input[name="idFrontPicture"]').html() != undefined){
+            // Condicion 1 : aplica al momento de guardar imagenes con fotos principales
+            if($(this).find('input[name="idFrontPicture"]:checked').size() > 0){
+              return true;
+            } else {
+              estic.warning('Debe seleccionar una foto principal, de las que subiste')
+              return false;
             }
-        })
+          } else {
+            estic.warning(response.message);
+          }
+        })*/
+    },
+    submit: function(){
+      var form = $(this).closest('form');
+      form.add('fromAjax',true)
+      var data = form.serialize();
+      var url = form.attr('action');
+      $.post(url,data, function(response){
+        console.log(response);
+        if(response.error == 'ok'){
+          estic.success(response.message);
+          $("#ContentView").html(response.view);
+          window.location.replace('/'+response.redirect);
+        } else {
+          estic.warning(response.message);
+        }
+      },'json').done(function(){
+      });
     }
 }
 

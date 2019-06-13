@@ -522,18 +522,20 @@ $config['database'] = [];
 
 $config['base_url'] = 'http://local.herbalife.com.bo/';
 
-$config["herbalife"] = [
+$config["hosts"] = [
   [
-    "host" => "local.herbalife.com.bo",
-    "hostname-core" => "local.estic.com.bo",
-    "hostname" => "local.herbalife.com.bo",
-    "protocol"=> "http:",
-    "port"=> "80",
-    "origin"=> "http://local.herbalife.com.bo/",
-    "dest"=> "http://local.herbalife.com.bo/",
-    "root-path"=> "",
-    "type-url"=> "dns",
-    "type-env"=> "dev"
+    "herbalife" => [
+      "host" => "local.herbalife.com.bo",
+      "hostname-core" => "local.estic.com.bo",
+      "hostname" => "local.herbalife.com.bo",
+      "protocol"=> "http:",
+      "port"=> "80",
+      "origin"=> "http://local.herbalife.com.bo/",
+      "dest"=> "http://local.herbalife.com.bo/",
+      "root-path"=> "",
+      "type-url"=> "dns",
+      "type-env"=> "dev"
+    ]
   ]
 ];
 
